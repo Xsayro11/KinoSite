@@ -8,24 +8,40 @@
     background-color: #0E0E0E !important;
 }
 
-#wrapper {
-    width: 1090px;
+.head_content {
+    width: 980px;
     margin: auto;
 }
 
-.head_content {
-    margin: auto;
+.site_logo {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    background-color: gray;
+}
+
+.head_search {
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    background-color: gray;
+    margin-left: 46px;
+    margin-right: 46px;
+}
+
+.head_profile {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    background-color: gray;
 }
 
 .head_menu {
-    position: fixed;
-    top: -3px;
-    z-index: 100;
 }
 
     .head_menu ul {
         background: url(../Images/menu-fon.png) 0 0 no-repeat;
-        background-size: 1090px 36px;
+        background-size: 980px 36px;
         height: 36px;
         list-style: none;
         text-align: center;
@@ -34,7 +50,7 @@
 
         .head_menu ul li {
             float: left;
-            width: 156px;
+            width: 140px;
             cursor: pointer;
         }
 
@@ -134,43 +150,71 @@
 
 #middle {
     margin-top: 50px;
+}
+
+.middle_content {
+    width: 980px;
+    min-height: 870px;
+    margin: auto;
     background-color: #171717;
 }
 
-.content {
-    min-height: 500px;
-    padding: 20px;
+.left_content {
+    float: left;
+    width: 250px;
+    height: 500px;
+    padding-top: 10px;
+    padding-left: 20px
 }
 
-.name {
-    display: inline;
+.middle_menu {
+    height: 400px;
     background-color: #121212;
-    padding: 10px;
 }
 
-    .name span {
-        font: bolder 15px Arial;
-        color: #fff !important;
+    .middle_menu h1 {
+        font-size: 20px;
+        color: #fff;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
     }
 
-.post {
-    height: 350px;
-    background-color: #121212;
+
+
+.right_content {
+    float: right;
+    width: 700px;
+    min-height: 500px;
+    margin: 10px;
     padding: 20px;
+}
+
+.post {
+    height: 400px;
+    background-color: #121212;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
-    .post img {
-        float: left;
-        width: 172px;
-        height: 264px;
-        margin-left: 10px;
-        margin-right: 20px;
-    }
+.name_rating{
+        margin-bottom: 10px;
+}
 
-    .post span {
-        color: #a8a8a8;
-    }
+.name_rating span {
+    font: bolder 15px Arial;
+    color: #fff !important;
+}
+
+.post img {
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.post span{
+    color: #a8a8a8;
+}
 
 .unshown {
     display: none;
