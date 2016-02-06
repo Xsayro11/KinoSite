@@ -23,7 +23,7 @@
     z-index: 100;
 }
 
-    .head_menu ul {
+    .head_menu > ul {
         background: url(../Images/menu-fon.png) 0 0 no-repeat;
         background-size: 1090px 36px;
         height: 36px;
@@ -32,26 +32,26 @@
         padding: 0;
     }
 
-        .head_menu ul li {
+        .head_menu > ul > li {
             float: left;
             width: 156px;
             cursor: pointer;
         }
 
-            .head_menu ul li:first-child a {
+            .head_menu > ul > li:first-child a {
                 background: none;
                 border-radius: 3px 0 0 3px;
                 -mos-border-radius: 3px 0 0 3px;
                 -webkit-border-radius: 3px 0 0 3px;
             }
 
-            .head_menu ul li:last-child a {
+            .head_menu > ul > li:last-child > a {
                 border-radius: 0 3px 3px 0;
                 -mos-border-radius: 0 3px 3px 0;
                 -webkit-border-radius: 0 3px 3px 0;
             }
 
-            .head_menu ul li a {
+            .head_menu > ul > li > a {
                 display: block;
                 background: url(../Images/line_menu.png) left 1px no-repeat;
                 background-size: 3px 35px;
@@ -60,7 +60,7 @@
                 line-height: 36px;
             }
 
-                .head_menu ul li a:hover {
+                .head_menu > ul > li > a:hover {
                     background-image: url(../Images/line_menu.png), url(../Images/menu-activ.png) !important;
                     background-size: 3px 35px, 6px;
                     background-position: left 1px, left 1px;
@@ -69,13 +69,50 @@
                     text-decoration: none;
                 }
 
-            .head_menu ul li:first-child a:hover {
+            .head_menu > ul > li:first-child > a:hover {
                 background: url(../Images/menu-activ.png) left 1px repeat-x !important;
                 color: #fff;
             }
 
 .menu_hover {
     background: url(../Images/line_menu_inverted.png) right center no-repeat !important;
+}
+
+.dropdown_menu {
+    width: 394px;
+    position: absolute;
+    z-index: 1001;
+    background-color: #fff;
+    top: 46px;
+    font-size: 14px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    display: none;
+}
+
+    .dropdown_menu ul {
+        list-style: none;
+        padding: 0;
+        padding-top: 10px;
+        text-align: left;
+    }
+
+        .dropdown_menu ul li {
+            position: relative;
+            padding: 0 24px;
+            margin: 0 0 10px;
+            word-break: break-all;
+        }
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    margin-top: 5px;
+    top: -15px;
+    left: 70px;
 }
 
 .head_slaider {
