@@ -20,7 +20,7 @@
 .head_menu {
     position: fixed;
     top: -3px;
-    z-index: 100;
+    z-index: 101;
 }
 
     .head_menu > ul {
@@ -125,6 +125,10 @@
     background-image: url(../Images/slidebg.png);
 }
 
+    .head_slaider .carousel-control {
+        z-index: 100;
+    }
+
     .head_slaider img.left_row {
         width: 36px;
         position: absolute;
@@ -135,6 +139,7 @@
     .head_slaider img.slider-image {
         width: 1000px;
         margin-top: 40px;
+        margin-left: 65px;
     }
 
     .head_slaider img.right_row {
@@ -173,6 +178,10 @@
     position: relative;
 }
 
+    .post a {
+        cursor: pointer;
+    }
+
     .post .left-side-arrow {
         position: absolute;
         left: 0;
@@ -189,6 +198,22 @@
         height: 35px;
     }
 
+    .post .carousel-control {
+        width: 40px;
+        z-index: 100;
+    }
+
+        .post .carousel-control.left {
+            background-image: none;
+            background-repeat: no-repeat;
+            filter: unset;
+        }
+
+        .post .carousel-control.right {
+            background-image: none;
+            background-repeat: no-repeat;
+            filter: unset;
+        }
 
 .post_images {
     height: 312px;
