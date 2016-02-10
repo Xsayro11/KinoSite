@@ -109,7 +109,7 @@
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #272727;
+    border-bottom: 10px solid #fff;
     position: absolute;
     margin-top: 5px;
     top: -15px;
@@ -223,13 +223,12 @@
 
 .post_image {
     width: 192px;
-    max-height: 312px;
+    height: 312px;
     float: left;
     padding: 10px;
     margin-right: 10px;
     font-size: 13px;
     text-align: center;
-    cursor: pointer;
 }
 
     .post_image:hover {

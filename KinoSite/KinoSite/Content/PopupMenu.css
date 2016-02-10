@@ -20,19 +20,12 @@
     }
 
         .popup-wrapper .link-wrapper a:not(.button) {
-            display: inline-block;
+            /*display: inline-block;*/
             position: relative;
             vertical-align: top;
             font: 16px Roboto,iviextras,'Trebuchet MS',Arial,Helvetica,FreeSans,'Liberation Sans','Nimbus Sans L',sans-serif;
             line-height: 20px;
             color: #ec174f;
-        }
-
-        .popup-wrapper .link-wrapper .action-link-wrapper {
-            position: absolute;
-            overflow: hidden;
-            padding: 5px 25px 0 0;
-            top: 10px;
         }
 
         .popup-wrapper .link-wrapper > * + * {
@@ -54,16 +47,7 @@
     margin-left: 15px;
 }
 
-.popup-wrapper .link-wrapper > * + * {
-    margin-left: 20px;
-}
 
-.popup-wrapper .link-wrapper .action-link-wrapper {
-    position: absolute;
-    overflow: hidden;
-    padding: 5px 25px 0 0;
-    top: 10px;
-}
 
 .popup-wrapper .properties {
     color: #888686;
