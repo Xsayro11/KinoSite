@@ -5,13 +5,13 @@
 
 <div id="wrapper">
     <div id="header">
-        <div class="head_menu">
+<div class="head_menu">
             <ul>
                 <li>
-                    <a class="main_page">Главная</a>
+                    @Html.ActionLink("Главная","Index","Home", null, new {@class="main_page"})
                 </li>
                 <li>
-                    <a class="films">Фильмы</a>
+                    @Html.ActionLink("Фильмы","Index","Genre", null,new {@class = "films"})
                     <div class="dropdown_menu">
                         @*<i class="triangle"></i>*@
                         <ul class="sub-nav-col">
