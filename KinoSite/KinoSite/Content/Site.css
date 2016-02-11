@@ -7,10 +7,14 @@
     background-repeat: repeat-x;
     background-color: #0E0E0E !important;
 }
-
 #wrapper {
     width: 1130px;
     margin: auto;
+}
+
+ul
+{
+    list-style: none;
 }
 
 #change
@@ -156,6 +160,7 @@
 
 #middle {
     background-color: #171717;
+    overflow: hidden;
 }
 
 .content {
@@ -169,7 +174,7 @@
     padding: 10px;
 }
 
-    .name span {
+    .name a {
         font: bolder 15px Arial;
         color: #fff !important;
     }
@@ -273,6 +278,24 @@
     .sub_div_menu ul
     {
         padding-left: 1px;
-        list-style:none;
         padding-top: 10px;
     }
+
+#element_list
+{
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+#element_list img
+{
+    width: 172px;
+    height: 264px;
+}
+
+#element_list li
+{
+    float:left;
+    padding-right: 43px;
+}
+
