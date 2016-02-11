@@ -13,10 +13,6 @@
     margin: auto;
 }
 
-ul {
-    list-style: none;
-}
-
 #change {
     height: 33px;
 }
@@ -274,6 +270,7 @@ ul {
 
     .sub_div_menu ul {
         padding-left: 1px;
+        list-style: none;
         padding-top: 10px;
     }
 
