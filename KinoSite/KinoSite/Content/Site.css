@@ -163,6 +163,11 @@
     padding: 20px;
 }
 
+    .content h1
+    {
+        margin-top: 0;
+    }
+
 .name {
     display: inline;
     background-color: #121212;
@@ -277,14 +282,229 @@
 #element_list {
     overflow: hidden;
     margin-left: 10px;
+    list-style: none;
 }
 
+    #element_list span
+    {
+         font-size: 13px;
+         color: #a8a8a8;
+    }
+
     #element_list img {
-        width: 172px;
+        width: 173px;
         height: 264px;
+        margin-bottom:10px;
     }
 
     #element_list li {
         float: left;
-        padding-right: 43px;
+        padding: 10px;
+        margin-right: 14px;
     }
+
+        #element_list li:hover
+        {
+            background-color: white;
+        }
+
+.aside_img img
+{
+    width: 281px;
+    height: 421px;
+}
+
+#details_article ul
+{
+    list-style: none;
+}
+
+#details_article ul li
+{
+    float:left;
+    color: white;
+    margin-right: 20px;
+}
+
+#details_article span {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 4px;
+    color: white;
+    font-weight: normal;
+    font-size: 13px;
+    height: 20px;
+    line-height: 18px;
+    padding: 1px 3px 0px 3px;
+    margin-left: 0;
+}
+
+.details_title {
+    overflow: hidden;
+    color: white;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.raitings img
+{
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+}
+
+.raitings dt
+{
+    float:left;
+    margin-top: -4px;
+    margin-left: 20px;
+}
+
+.raitings dd {
+    padding: 0 2px 0 2px;
+    border-radius: 6px;
+    border: 1px solid white;
+    float: left;
+    margin-top: -4px;
+    color: white;
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+#watch_but
+{
+    width: 370px;
+    height: 50px;
+    text-align:center;
+}
+
+#watch_but ul
+{
+    list-style: none;
+    padding-left:0;
+}
+
+    #watch_but ul li
+    {
+        float:left;
+        margin-top: -9px;
+    }
+
+#watch_but a
+{
+    text-decoration: none;
+    display: inline;
+}
+
+.directors
+{
+    color: white;
+    font-size: 15px;
+}
+
+.directors dt
+{
+    float: left;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+.directors dd
+{
+    margin-left: 10px;
+
+}
+
+.description
+{
+    margin-left: 20px;
+    color: white;
+    font-size: 14px;
+    padding: 20px;
+}
+
+.recommendations
+{
+    margin-top: 40px;
+}
+
+.track
+{
+    overflow: hidden;
+    margin-top: 30px;
+    color: white;
+}
+
+.track ul
+{
+    list-style: none;
+}
+
+.track ul li
+{
+    float: left;
+    margin-left: 1px;
+}
+
+    .track a
+    {
+        color: white;
+        text-decoration: none;
+    }
+
+        .track a:hover
+        {
+            color: white;
+        }
+
+.users_comment
+{
+    width: 40%;
+    height: 35px;
+    background-color: white;
+}
+
+.comments ul li {
+    border: 1px solid white;
+    border-radius: 6px;
+}
+
+
+.comments ul li {
+    width: 329px;
+    height: 53px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 8px;
+    margin-top: 7px;
+}
+
+.nick {
+    float: left;
+    margin-top: -10px;
+    margin-left: 113px;
+    color: white;
+    background-color: #171717;
+    padding: 0 5px 0 5px;
+}
+
+.time_commented {
+    float: left;
+    color: white;
+    background-color: #171717;
+    margin-top: 3px;
+    margin-left: 110px;
+    padding: 0 5px 0 5px;
+}
+
+.more_comments {
+    color: white;
+    border: 1px solid white;
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
