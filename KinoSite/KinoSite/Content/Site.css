@@ -64,12 +64,12 @@
                 line-height: 36px;
             }
 
-                .head_menu > ul > li > a:hover {
+                .head_menu > ul > li > a:hover, .hover {
                     background-image: url(../Images/line_menu.png), url(../Images/menu-activ.png) !important;
-                    background-size: 3px 35px, 6px;
-                    background-position: left 1px, left 1px;
-                    background-repeat: no-repeat, repeat-x;
-                    color: #fff;
+                    background-size: 3px 35px, 6px !important;
+                    background-position: left 1px, left 1px !important;
+                    background-repeat: no-repeat, repeat-x !important;
+                    color: #fff !important;
                     text-decoration: none;
                 }
 
@@ -154,8 +154,9 @@
 
 
 #middle {
+    position: relative;
     background-color: #171717;
-    overflow: hidden;
+    z-index: 2;
 }
 
 .content {
@@ -163,8 +164,7 @@
     padding: 20px;
 }
 
-    .content h1
-    {
+    .content h1 {
         margin-top: 0;
     }
 
@@ -285,16 +285,15 @@
     list-style: none;
 }
 
-    #element_list span
-    {
-         font-size: 13px;
-         color: #a8a8a8;
+    #element_list span {
+        font-size: 13px;
+        color: #a8a8a8;
     }
 
     #element_list img {
         width: 173px;
         height: 264px;
-        margin-bottom:10px;
+        margin-bottom: 10px;
     }
 
     #element_list li {
@@ -303,28 +302,24 @@
         margin-right: 14px;
     }
 
-        #element_list li:hover
-        {
+        #element_list li:hover {
             background-color: white;
         }
 
-.aside_img img
-{
+.aside_img img {
     width: 281px;
     height: 421px;
 }
 
-#details_article ul
-{
+#details_article ul {
     list-style: none;
 }
 
-#details_article ul li
-{
-    float:left;
-    color: white;
-    margin-right: 20px;
-}
+    #details_article ul li {
+        float: left;
+        color: white;
+        margin-right: 20px;
+    }
 
 #details_article span {
     display: inline-block;
@@ -348,119 +343,103 @@
     margin-left: 50px;
 }
 
-.raitings img
-{
-    width: 25px;
-    height: 25px;
-    border-radius: 6px;
-}
-
-.raitings dt
-{
-    float:left;
+.ratings .icon {
+    float: left;
     margin-top: -4px;
     margin-left: 20px;
 }
 
-.raitings dd {
-    padding: 0 2px 0 2px;
+    .ratings .icon img {
+        width: 27px;
+        height: 27px;
+        border-radius: 4px;
+    }
+
+.ratings span {
+    width: 31px;
+    padding: 1px 1px 1px 1px;
     border-radius: 6px;
     border: 1px solid white;
     float: left;
-    margin-top: -4px;
+    margin-top: -3px;
     color: white;
     font-size: 17px;
-    margin-left: 3px;
+    margin-left: 4px;
+    text-align: center;
 }
 
-#watch_but
-{
+#watch_but {
     width: 370px;
     height: 50px;
-    text-align:center;
+    text-align: center;
 }
 
-#watch_but ul
-{
-    list-style: none;
-    padding-left:0;
-}
-
-    #watch_but ul li
-    {
-        float:left;
-        margin-top: -9px;
+    #watch_but ul {
+        list-style: none;
+        padding-left: 0;
     }
 
-#watch_but a
-{
-    text-decoration: none;
-    display: inline;
-}
+        #watch_but ul li {
+            float: left;
+            margin-top: -9px;
+        }
 
-.directors
-{
+    #watch_but a {
+        text-decoration: none;
+        display: inline;
+    }
+
+.directors {
     color: white;
     font-size: 15px;
 }
 
-.directors dt
-{
-    float: left;
-    margin-left: 40px;
-    margin-right: 10px;
-}
+    .directors .category {
+        float: left;
+        margin-left: 40px;
+        margin-right: 10px;
+    }
 
-.directors dd
-{
-    margin-left: 10px;
+    .directors span {
+        margin-left: 10px;
+    }
 
-}
-
-.description
-{
+.description {
     margin-left: 20px;
     color: white;
     font-size: 14px;
     padding: 20px;
 }
 
-.recommendations
-{
+.recommendations {
     margin-top: 40px;
 }
 
-.track
-{
+.track {
     overflow: hidden;
     margin-top: 30px;
     color: white;
 }
 
-.track ul
-{
-    list-style: none;
-}
+    .track ul {
+        list-style: none;
+    }
 
-.track ul li
-{
-    float: left;
-    margin-left: 1px;
-}
+        .track ul li {
+            float: left;
+            margin-left: 1px;
+        }
 
-    .track a
-    {
+    .track a {
         color: white;
         text-decoration: none;
     }
 
-        .track a:hover
-        {
+        .track a:hover {
             color: white;
         }
 
-.users_comment
-{
+.users_comment {
     width: 40%;
     height: 35px;
     background-color: white;
@@ -507,4 +486,3 @@
     margin-top: 25px;
     cursor: pointer;
 }
-

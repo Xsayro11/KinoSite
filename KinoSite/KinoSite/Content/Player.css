@@ -1,0 +1,214 @@
+﻿#Player {
+    height: 580px;
+    margin-top: 33px;
+    background-image: url(../Images/slidebg.png);
+}
+
+.controls {
+    width: 100%;
+    display: inline-block;
+    background-color: black;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 35px;
+    z-index: 1;
+}
+
+.fullscreen_controls {
+    position: absolute;
+    bottom: 0px;
+    width: 1130px;
+    z-index: 2147483647;
+}
+
+.controls div {
+    float: left;
+}
+
+.play {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 0;
+    left: 33px;
+    background-image: url(../Images/play.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.pause {
+    background-image: url(../Images/pause.png) !important;
+}
+
+.time_line {
+    position: relative;
+    top: 9px;
+    left: 60px;
+    width: 800px;
+    height: 12px;
+    cursor: pointer;
+    background: #565860;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+    .time_line span {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        display: block;
+        height: 12px;
+        cursor: pointer;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+.loaded {
+    width: 0;
+    background: #7b7d82;
+}
+
+.current {
+    width: 0;
+    background: #90d26a;
+    background: -webkit-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: -moz-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: -o-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: -ms-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: linear-gradient(top, #90d26a 0%, #228B22 100%);
+}
+
+.time_hover {
+    display: none;
+    width: 49px;
+    height: 19px;
+    border: 1px solid transparent;
+    background-color: #1DB200;
+    position: absolute;
+    bottom: 21px;
+    left: 0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+}
+
+    .time_hover span {
+        position: initial;
+        display: initial;
+    }
+
+    .time_hover .triangle {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #1DB200;
+        position: relative;
+        top: 0;
+        left: 17px;
+    }
+
+.time {
+    font-size: 24px;
+    position: relative;
+    left: 78px;
+    top: -2px;
+    color: #228B22;
+}
+
+.current_time {
+    font-size: 12px;
+    position: relative;
+    bottom: 4px;
+    color: #fff;
+}
+
+.duration {
+    font-size: 12px;
+    position: relative;
+    bottom: 4px;
+    right: 4px;
+    color: #fff;
+}
+
+.volume {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 2px;
+    left: 95px;
+    background-image: url(../Images/volume_100.png);
+    cursor: pointer;
+    background-size: 25px;
+}
+
+#volume_100 {
+    background-image: url(../Images/volume_100.png) !important;
+}
+
+#volume_66 {
+    background-image: url(../Images/volume_66.png) !important;
+}
+
+#volume_33 {
+    background-image: url(../Images/volume_33.png) !important;
+}
+
+#muted {
+    background-image: url(../Images/volume_muted.png) !important;
+}
+
+.volume_outer {
+    display: none;
+    width: 10px;
+    height: 100px;
+    border: 1px solid transparent;
+    background-color: #565860;
+    position: absolute;
+    bottom: 32px;
+    right: 90px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ui-slider-range {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    border-top-width: 0;
+    background: #90d26a;
+    background: -webkit-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: -moz-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: -o-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: -ms-linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background: linear-gradient(top, #90d26a 0%, #228B22 100%);
+    bottom: 0;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.fullscreen_btn {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    top: 1px;
+    left: 120px;
+    background-image: url(../Images/fullscreen.png);
+    cursor: pointer;
+    background-size: cover;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+.hide_cursor {
+    cursor: none;
+}
