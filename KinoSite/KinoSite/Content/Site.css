@@ -395,14 +395,12 @@
 }
 
     .directors .category {
-        float: left;
-        margin-left: 40px;
         margin-right: 10px;
     }
 
-    .directors span {
-        margin-left: 10px;
-    }
+.staff {
+        margin-left: 40px;
+}
 
 .description {
     margin-left: 20px;
