@@ -1,0 +1,52 @@
+﻿<div class="comment_section">
+    <div class="comment_form">
+        <textarea placeholder="Оставить отзыв"></textarea>
+        <div class="comment_button">
+            <div class="total_simbols">
+                Осталось символов: <span>490</span>
+            </div>
+            <button type="submit" class="button">Отправить</button>
+        </div>
+    </div>
+    <div class="comments_container">
+        <ul>
+            <li>
+                <div class="nick">JoraCardanovsky</div>
+                <br />
+                <div class="comment_body">Фильмец ном , на разок сойдет</div>
+                <br />
+                <div class="time_commented">3 ФЕВРАЛЯ 2016</div>
+            </li>
+            <li>
+                <div class="nick">VaneaCaban</div>
+                <br />
+                <div class="comment_body">Отстой, даже не смотрел, фильм для педиков</div>
+                <br />
+                <div class="time_commented">3 ФЕВРАЛЯ 2016</div>
+            </li>
+            <li>
+                <div class="nick">LiuseaSniper</div>
+                <br />
+                <div class="comment_body">Фильмец ном , на разок сойдет</div>
+                <br />
+                <div class="time_commented">3 ФЕВРАЛЯ 2016</div>
+            </li>
+        </ul>
+    </div>
+    <div class="more_comments">
+        <h5 style="text-align: center;">Показать еще</h5>
+    </div>
+</div>
+<script>
+    $('.comment_form textarea').focus(function () {
+        $(this).css('height', '120px');
+        $('.comment_button').show();
+    });
+
+    $('.comment_form textarea').focusout(function () {
+        if ($(this).val() == "") {
+            $(this).css('height', '40px');
+            $('.comment_button').hide();
+        }
+    });
+</script>

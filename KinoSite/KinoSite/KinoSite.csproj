@@ -91,9 +91,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Details.css" />
     <Content Include="Content\Player.css" />
     <Content Include="Content\PopupMenu.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Slaider.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\about-us-icon.png" />
@@ -149,6 +151,9 @@
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\Category.cshtml" />
     <Content Include="Views\Genre\Details.cshtml" />
+    <Content Include="Views\Genre\Comments.cshtml" />
+    <Content Include="Views\Genre\Description.cshtml" />
+    <Content Include="Views\Genre\Player.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

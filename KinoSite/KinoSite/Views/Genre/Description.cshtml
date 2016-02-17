@@ -1,0 +1,122 @@
+﻿<div class="movie">
+    <div class="title">
+        <h1>Акулосьминог против Китоволка</h1>
+    </div>
+    <div class="poster">
+        <img src="~/Images/akulosminog-protiv-kitovolka.jpg" />
+    </div>
+    <div class="ratings">
+        <span class="icon">
+            <a href="#"><img src="~/Images/imdb-icon.png" /></a>
+        </span>
+        <span>
+            6.7
+        </span>
+        <span class="icon">
+            <a href="#"><img src="~/Images/kinopoisk-icon.png" /></a>
+        </span>
+        <span>
+            7.4
+        </span>
+    </div>
+
+    <div class="details">
+        <div class="quality">
+            <span class="detail_name">Качество:</span>
+            <span>HD 720</span>
+        </div>
+        <div class="translation">
+            <span class="detail_name">Перевод:</span>
+            <span>Любительский (одноголосный)</span>
+        </div>
+        <div class="year">
+            <span class="detail_name">Год:</span>
+            <span>2015</span>
+        </div>
+        <div class="time">
+            <span class="detail_name">Время:</span>
+            <span>85 мин.</span>
+        </div>
+        <div class="country">
+            <span class="detail_name">Страна:</span>
+            <span>США</span>
+        </div>
+        <div class="genre">
+            <span class="detail_name">Жанры:</span>
+            <span>Боевики, Приключения, Триллеры, Фантастика</span>
+        </div>
+        <div class="director">
+            <span class="detail_name">Режиссер:</span>
+            <span>Кевин О'Нилл</span>
+        </div>
+        <div class="starring">
+            <span class="detail_name">Актеры:</span>
+            <span>Каспер Ван Дин, Кэтрин Оксенберг, Дженнифер Герт, Игги Поп, Sarodj Bertin, Бруна Рубио, Аманда Филипсон, Акари Эндо, Бен Фэрроу, Mario Ceara</span>
+        </div>
+        <div class="description">
+            <span class="detail_name">Описание:</span>
+            <span>
+                Невероятное испытание ждет одного не всегда трезвого капитана шхуны в фантастическом фильме онлайн 2015 года «Акулосьминог против Китоволка». Он бы и сам не поверил в подобные байки, если бы не столкнулся с двумя самыми опасными и кровожадными монстрами планеты, которые устроили разборки между собой, разрушая все на пути.
+                <br>
+                <br>
+                Акулосьминог по-прежнему бороздит бескрайние воды мирового океана в поисках новой добычи. Ему удалось выжить после схватки с еще одной жертвой экспериментов людей, что еще больше озлобило зубастую тварь. Она напала на несчастную пассажирку пришвартованного судна, чем и обратила на себя внимание в момент протрезвевшего Рэя. Его как раз и обвинили в смерти женщины, не поверив ни единому слову про акулью голову, передвигающуюся по поверхности на щупальцах.
+                <br>
+                <br>
+                В это же время один не вполне адекватный профессор собирается совершить невозможное. На подопытном заключенном она проводит эксперимент по скрещиванию ДНК кита-убийцы и волка. Ко всеобщему удивлению ей удалось, вот только результат превзошел все ожидания. Такого чудища люди еще не видывали. Оно вырывается на свободу, чтобы утолить голод как раз подвернувшейся человечиной. Город захвачен прожорливой акулой и озверевшим китоволком.
+            </span>
+        </div>
+    </div>
+</div>
+<div class="comment_section">
+        <h2>Отзывы к фильму Акулосьминог против Китоволка</h2>
+    <div class="comment_form">
+        <textarea placeholder="Оставить отзыв"></textarea>
+    </div>
+    <div class="comment_button">
+        <div class="total_simbols">
+            Осталось символов: <span>490</span>
+        </div>
+        <button type="submit" class="button">Отправить</button>
+    </div>
+    <div class="comments_container">
+        <ul>
+            <li>
+                <div class="nick">JoraCardanovsky</div>
+                <br />
+                <div class="comment_body">Фильмец ном , на разок сойдет</div>
+                <br />
+                <div class="time_commented">3 ФЕВРАЛЯ 2016</div>
+            </li>
+            <li>
+                <div class="nick">VaneaCaban</div>
+                <br />
+                <div class="comment_body">Отстой, даже не смотрел, фильм для педиков</div>
+                <br />
+                <div class="time_commented">3 ФЕВРАЛЯ 2016</div>
+            </li>
+            <li>
+                <div class="nick">LiuseaSniper</div>
+                <br />
+                <div class="comment_body">Фильмец ном , на разок сойдет</div>
+                <br />
+                <div class="time_commented">3 ФЕВРАЛЯ 2016</div>
+            </li>
+        </ul>
+    </div>
+    <div class="more_comments">
+        <h5 style="text-align: center;">Показать еще</h5>
+    </div>
+</div>
+<script>
+    $('.comment_form textarea').focus(function () {
+        $(this).css('height', '120px');
+        $('.comment_button').show();
+    });
+
+    $('.comment_form textarea').focusout(function () {
+        if ($(this).val() == "") {
+            $(this).css('height', '40px');
+            $('.comment_button').hide();
+        }
+    });
+</script>

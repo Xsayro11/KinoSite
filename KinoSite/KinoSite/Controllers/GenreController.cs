@@ -22,5 +22,15 @@ namespace KinoSite.Controllers
         {
             return View();
         }
+
+        public ActionResult Description()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Comments()
+        {
+            return PartialView();
+        }
     }
 }
