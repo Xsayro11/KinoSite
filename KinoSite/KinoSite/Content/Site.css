@@ -120,6 +120,7 @@
 
     .content h1 {
         margin-top: 0;
+        color: white;
     }
 
 .name {
@@ -232,3 +233,15 @@
         list-style: none;
         padding-top: 10px;
     }
+
+#element_list li 
+{
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 20px;
+}
+
+#element_list span{
+    margin-left: 30px;
+    color: #a8a8a8;
+}
