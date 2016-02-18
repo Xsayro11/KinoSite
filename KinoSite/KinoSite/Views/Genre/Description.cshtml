@@ -18,6 +18,21 @@
         <span>
             7.4
         </span>
+        <div class="user_rating">
+            <h1>Ваша оценка:</h1>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 
     <div class="details">
@@ -108,6 +123,24 @@
     </div>
 </div>
 <script>
+    $('.user_rating ul li').hover(function () {
+        var stars = $('.user_rating ul').children();
+
+        for (var i = 0; i < stars.length; i++) {
+            $(stars[i]).css('opacity', '1');
+
+            if (stars[i] == this) {
+                break;
+            }
+        }
+    }, function () {
+        var stars = $('.user_rating ul').children();
+
+        for (var i = 0; i < stars.length; i++) {
+            $(stars[i]).css('opacity', '0');
+        }
+    });
+
     $('.comment_form textarea').focus(function () {
         $(this).css('height', '120px');
         $('.comment_button').show();

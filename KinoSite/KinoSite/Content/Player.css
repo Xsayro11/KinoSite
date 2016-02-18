@@ -18,7 +18,7 @@
 .fullscreen_controls {
     position: absolute;
     bottom: 0px;
-    width: 1130px;
+    left: 0px;
     z-index: 2147483647;
 }
 
@@ -45,7 +45,7 @@
     position: relative;
     top: 9px;
     left: 60px;
-    width: 800px;
+    width: 71%;
     height: 12px;
     cursor: pointer;
     background: #565860;
@@ -171,7 +171,7 @@
     background-color: #565860;
     position: absolute;
     bottom: 32px;
-    right: 90px;
+    right: 86px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;

@@ -49,6 +49,45 @@
             border-radius: 4px;
         }
 
+.user_rating {
+    float: left;
+    margin-top: 5px;
+}
+
+    .user_rating h1 {
+        font-size: 14px;
+        color: #fff;
+        float: left;
+    }
+
+    .user_rating ul {
+        list-style: none;
+        width: 150px;
+        height: 15px;
+        margin-left: 10px;
+        padding: 0;
+        float: right;
+        background-image: url(../Images/star.png);
+        background-repeat: repeat-x;
+        background-size: 15px 30px;
+        background-position: 0px 0px;
+    }
+
+        .user_rating ul li {
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-image: url(../Images/star.png);
+            background-repeat: no-repeat;
+            background-size: 15px 30px;
+            background-position: 0px -15px;
+            cursor: pointer;
+            -webkit-transition: opacity .2s ease-out;
+            -o-transition: opacity .2s ease-out;
+            transition: opacity .2s ease-out;
+            opacity: 0;
+        }
+
 .details .detail_name {
     color: #fff;
     font-size: 15px;

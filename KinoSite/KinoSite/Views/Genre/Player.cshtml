@@ -346,10 +346,12 @@
         function fullscreenHandler() {
             if ($('.controls').hasClass('fullscreen_controls')) {
                 $('.controls').attr('style', 'bottom: 35px;');
+                $('.time_line').css('width', '71%');
                 $('.controls').removeClass('fullscreen_controls');
             }
             else {
                 $('.controls').attr('style', 'bottom: 0px;');
+                $('.time_line').css('width', '83%');
                 $('.controls').addClass('fullscreen_controls');
             }
 
