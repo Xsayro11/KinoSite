@@ -154,6 +154,7 @@
     <Content Include="Views\Genre\Comments.cshtml" />
     <Content Include="Views\Genre\Description.cshtml" />
     <Content Include="Views\Genre\Player.cshtml" />
+    <Content Include="Views\Genre\Reviews.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

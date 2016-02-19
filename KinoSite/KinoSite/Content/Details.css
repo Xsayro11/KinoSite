@@ -1,4 +1,6 @@
-﻿.movie {
+﻿/*Section movie*/
+
+.movie {
     font-family: verdana,sans-serif;
     padding: 0 20px;
 }
@@ -159,6 +161,10 @@
             text-decoration: none;
         }
 
+/*End section*/
+
+/*Section comments*/
+
 .comment_section h2 {
     font-size: 24px;
     color: white;
@@ -244,3 +250,12 @@
     margin-top: 25px;
     cursor: pointer;
 }
+
+/*End section*/
+
+/*Section reviews*/
+
+.reviews_section {
+}
+
+/*End section*/
