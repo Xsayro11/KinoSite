@@ -8,6 +8,11 @@
     background-color: #0E0E0E !important;
 }
 
+body a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 #wrapper {
     width: 1130px;
     margin: auto;

@@ -127,7 +127,7 @@
         var stars = $('.user_rating ul').children();
 
         for (var i = 0; i < stars.length; i++) {
-            $(stars[i]).css('opacity', '1');
+            $(stars[i]).css('background-position', '0px -15px');
 
             if (stars[i] == this) {
                 break;
@@ -137,7 +137,7 @@
         var stars = $('.user_rating ul').children();
 
         for (var i = 0; i < stars.length; i++) {
-            $(stars[i]).css('opacity', '0');
+            $(stars[i]).css('background-position', '0px 0px');
         }
     });
 

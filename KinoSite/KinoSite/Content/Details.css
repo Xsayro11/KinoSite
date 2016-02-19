@@ -69,10 +69,6 @@
         margin-left: 10px;
         padding: 0;
         float: right;
-        background-image: url(../Images/star.png);
-        background-repeat: repeat-x;
-        background-size: 15px 30px;
-        background-position: 0px 0px;
     }
 
         .user_rating ul li {
@@ -82,12 +78,8 @@
             background-image: url(../Images/star.png);
             background-repeat: no-repeat;
             background-size: 15px 30px;
-            background-position: 0px -15px;
+            background-position: 0px 0px;
             cursor: pointer;
-            -webkit-transition: opacity .2s ease-out;
-            -o-transition: opacity .2s ease-out;
-            transition: opacity .2s ease-out;
-            opacity: 0;
         }
 
 .details .detail_name {
@@ -148,7 +140,6 @@
     }
 
         .movie_menu li:hover {
-            text-decoration: underline;
             color: #fff;
         }
 
@@ -258,4 +249,52 @@
 .reviews_section {
 }
 
+.review {
+    border-bottom: 1px solid #474747;
+    margin-bottom: 20px;
+}
+
+.review_user {
+    margin-top: 20px;
+}
+
+    .review_user img {
+        width: 46px;
+        height: 73px;
+        border: 3px solid #333333;
+    }
+
+    .review_user a {
+        position: relative;
+        bottom: 20px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+.review_rating {
+    position: relative;
+    bottom: 40px;
+    left: 55px;
+    color: #fff;
+}
+
+.review_container {
+    max-height: 1000px;
+    color: #A1ACB4;
+    overflow: hidden;
+    margin-bottom: 20px;
+    -webkit-transition: max-height .3s ease-out;
+    -o-transition: max-height .3s ease-out;
+    transition: max-height .3s ease-out;
+}
+
+.show_hide {
+    position: relative;
+    bottom: 13px;
+}
+
+    .show_hide:hover {
+        color: #fff;
+        text-decoration: none;
+    }
 /*End section*/
