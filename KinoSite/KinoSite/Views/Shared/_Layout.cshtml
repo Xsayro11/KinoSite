@@ -82,7 +82,6 @@
                     <li>
                         <a class="serials">Сериалы</a>
                         <div class="dropdown_menu">
-                            @*<i class="triangle"></i>*@
                             <ul class="sub-nav-col">
                                 <li><a href="#">Боевики</a></li>
                                 <li><a href="#">Военные</a></li>
@@ -149,56 +148,31 @@
         });
 
         $('.post_image').hover(function () {
-            var description = '<div class="link-wrapper">' +
-            '@Html.ActionLink("Описание","Details","Genre", null, new { @class="action_link"})' +
-            '<span class="action-link-wrapper">' +
-            '<a class="action-link">Смотреть позже</a>' +
-            '</span>' +
-            '</div>' +
-            '<div class="properties">' +
-            '<span class="feature" title="Видео доступно в HD-качестве">HD</span>' +
-            '<span class="feature" itemprop="datePublished" content="2015">2015</span>' +
-            '<span class="feature" itemprop="productionCountry" content="4">США</span>' +
-            '<span class="feature">Для детей</span>' +
-            '<time class="feature" itemprop="duration">8 мин.</time>' +
-            '</div>' +
-            '<ul class="main_ul">' +
-            '<li>' +
-            '<strong>Рейтинги</strong>' +
-            '<ul>' +
-            '<li>6,7 КиноПоиск</li>,' +
-            '<li>7,4 IMDb</li>' +
-            '</ul>' +
-            '</li>' +
-            '<li>' +
-            '<strong>Режиссеры</strong>' +
-            '<ul>' +
-            '<li>Жора Петровский</li>,' +
-            '<li>Люся Бтр</li>' +
-            '</ul>' +
-            '</li>' +
-            '<li>' +
-            '<strong>В ролях</strong>' +
-            '<ul>' +
-            '<li>Жора Кардан</li>,' +
-            '<li>Майкл Джексон</li>' +
-            '</ul>' +
-            '</li>' +
-            '</ul>' +
-            '<div class="story-text">' +
-            '<p>Короткометражный мультик Disney, созданный по мотивам суперхита «Холодное сердце». В день рождения Анны Эльза решает сделать сестре сюрприз. Но устроить праздник оказывается не так-то просто.</p>' +
-            '</div>';
-
-            if ($(this).hasClass('4') || $(this).hasClass('5')) {
-                $(this).children('.popup-wrapper').css('left', '-381px');
+            if ($(this).hasClass('1')) {
+                $(this).parents('.post').children('.popup-wrapper').css('left', '240px');
+            }
+            else if ($(this).hasClass('2')) {
+                $(this).parents('.post').children('.popup-wrapper').css('left', '440px');
+            }
+            else if ($(this).hasClass('3')) {
+                $(this).parents('.post').children('.popup-wrapper').css('left', '640px');
+            }
+            else if ($(this).hasClass('4')) {
+                $(this).parents('.post').children('.popup-wrapper').css('left', '280px');
             }
             else {
-                $(this).children('.popup-wrapper').css('left', '183px');
+                $(this).parents('.post').children('.popup-wrapper').css('left', '480px');
             }
 
-            $(this).children('.popup-wrapper').append(description);
+            $(this).parents('.post').children('.popup-wrapper').show();
         }, function () {
-            $(this).children('.popup-wrapper').html('');
+            $(this).parents('.post').children('.popup-wrapper').hide();
+        });
+
+        $('.popup-wrapper').hover(function () {
+            $(this).show();
+        }, function () {
+            $(this).hide();
         });
     </script>
 </body>

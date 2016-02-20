@@ -1,13 +1,12 @@
 ﻿.popup-wrapper {
-    position: relative;
+    display: none;
+    position: absolute;
     width: 370px;
     z-index: 100;
     background: #fff;
     padding: 0 15px;
     box-shadow: 0 0 7px rgba(0,0,0,0.3);
-    bottom: 266px;
-    left: 195px;
-    overflow: auto;
+    bottom: -50px;
     cursor: auto;
 }
 
@@ -25,7 +24,6 @@
     }
 
         .popup-wrapper .link-wrapper a:not(.button) {
-            /*display: inline-block;*/
             position: relative;
             vertical-align: top;
             font: 16px Roboto,iviextras,'Trebuchet MS',Arial,Helvetica,FreeSans,'Liberation Sans','Nimbus Sans L',sans-serif;
