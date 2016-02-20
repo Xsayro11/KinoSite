@@ -31,10 +31,10 @@
 
 <ul class="movie_menu">
     <li class="description active">Описание</li>
-    <li class="reviews">Рецензии</li>
     <li class="comments">Отзывы</li>
+    <li class="reviews">Рецензии</li>
     <li>Трейлеры</li>
-    <li>Создатели</li>
+    <li class="creators">Создатели</li>
     <li>Актеры</li>
     <li>Награды</li>
     <li>Кадры</li>
@@ -66,6 +66,15 @@
                 case 'reviews': {
                     $.ajax({
                         url: '/Genre/Reviews/',
+                        success: function (data) {
+                            $('.post').html(data);
+                        }
+                    });
+                    break;
+                }
+                case 'creators': {
+                    $.ajax({
+                        url: '/Genre/Creators/',
                         success: function (data) {
                             $('.post').html(data);
                         }

@@ -33,218 +33,77 @@
     </div>
 }
 
-<div class="name">
-    @Html.ActionLink("Фильмы", "Index", "Genre")
-</div>
-<div id="PostSlaider_1" class="post carousel slide" data-interval="0">
-
-    <a class="left carousel-control" href="#PostSlaider_1" data-slide="prev">
-        <img class="left-side-arrow" src="~/Images/left_row_slider.png" />
-    </a>
-
-    <div class="carousel-inner">
-        <div class="post_images item active">
-            <div class="post_image 1">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 2">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 3">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 4">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 5">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-        </div>
-
-        <div class="post_images item">
-            <div class="post_image 1">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 2">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 3">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 4">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 5">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-        </div>
+@for (int i = 0; i < 3; i++)
+{
+    <div class="name">
+        @Html.ActionLink("Фильмы", "Index", "Genre")
     </div>
+    <div id="@("PostSlaider_" + i)" class="post carousel slide" data-interval="0">
 
-    <a class="right carousel-control" href="#PostSlaider_1" data-slide="next">
-        <img class="right-side-arrow" src="~/Images/right_row_slider.png" />
-    </a>
-</div>
+        <a class="left carousel-control" href="@("#PostSlaider_" + i)" data-slide="prev">
+            <img class="left-side-arrow" src="~/Images/left_row_slider.png" />
+        </a>
 
-<div class="name">
-    <span>Мультфильмы</span>
-</div>
-<div id="PostSlaider_2" class="post carousel slide" data-interval="0">
+        <div class="carousel-inner">
+            <div class="post_images item active">
+                <div class="post_image 1">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 2">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 3">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 4">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 5">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+            </div>
 
-    <a class="left carousel-control" href="#PostSlaider_2" data-slide="prev">
-        <img class="left-side-arrow" src="~/Images/left_row_slider.png" />
-    </a>
-
-    <div class="carousel-inner">
-        <div class="post_images item active">
-            <div class="post_image 1">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 2">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 3">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 4">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 5">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
+            <div class="post_images item">
+                <div class="post_image 1">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 2">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 3">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 4">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
+                <div class="post_image 5">
+                    <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                    <span>Дневник девочки-подростка</span>
+                    <div class="popup-wrapper top right"></div>
+                </div>
             </div>
         </div>
 
-        <div class="post_images item">
-            <div class="post_image 1">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 2">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 3">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 4">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 5">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-        </div>
+        <a class="right carousel-control" href="@("#PostSlaider_" + i)" data-slide="next">
+            <img class="right-side-arrow" src="~/Images/right_row_slider.png" />
+        </a>
     </div>
-
-    <a class="right carousel-control" href="#PostSlaider_2" data-slide="next">
-        <img class="right-side-arrow" src="~/Images/right_row_slider.png" />
-    </a>
-</div>
-
-<div class="name">
-    <span>Сериалы</span>
-</div>
-<div id="PostSlaider_3" class="post carousel slide" data-interval="0">
-
-    <a class="left carousel-control" href="#PostSlaider_3" data-slide="prev">
-        <img class="left-side-arrow" src="~/Images/left_row_slider.png" />
-    </a>
-
-    <div class="carousel-inner">
-        <div class="post_images item active">
-            <div class="post_image 1">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 2">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 3">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 4">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 5">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-        </div>
-
-        <div class="post_images item">
-            <div class="post_image 1">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 2">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 3">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 4">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-            <div class="post_image 5">
-                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                <span>Дневник девочки-подростка</span>
-                <div class="popup-wrapper top right"></div>
-            </div>
-        </div>
-    </div>
-
-    <a class="right carousel-control" href="#PostSlaider_3" data-slide="next">
-        <img class="right-side-arrow" src="~/Images/right_row_slider.png" />
-    </a>
-</div>
+}
