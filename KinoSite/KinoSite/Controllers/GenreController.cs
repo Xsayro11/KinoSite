@@ -37,5 +37,10 @@ namespace KinoSite.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult Review()
+        {
+            return PartialView();
+        }
     }
 }

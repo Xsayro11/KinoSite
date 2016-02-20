@@ -76,5 +76,16 @@
 
             $(this).parent().children('.active').removeClass('active');
             $(this).addClass('active');
+
+            if ($(this).hasClass('on_review')) {
+                $.ajax({
+                    url: '/Genre/Reviews/',
+                    success: function (data) {
+                        $('.post').html(data);
+                    }
+                });
+
+                $(this).removeClass('on_review');
+            }
         });
 </script>
