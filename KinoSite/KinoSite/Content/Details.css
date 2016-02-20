@@ -96,30 +96,6 @@
     margin-top: 40px;
 }
 
-.track {
-    margin-bottom: 40px;
-    color: white;
-    font-size: 12px;
-    margin-left: -2px;
-}
-
-    .track ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-        .track ul li {
-            float: left;
-            margin-left: 1px;
-        }
-
-    .track a {
-        color: white;
-        text-decoration: none;
-        margin-right: 2px;
-        margin-left: 2px;
-    }
 
         .track a:hover {
             color: white;

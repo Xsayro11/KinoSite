@@ -112,6 +112,32 @@ body a:hover {
         word-break: break-all;
     }
 
+.track {
+    margin-bottom: 40px;
+    color: white;
+    font-size: 12px;
+    margin-left: -2px;
+}
+
+    .track ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .track ul li {
+            float: left;
+            margin-left: 1px;
+        }
+
+    .track a {
+        color: white;
+        text-decoration: none;
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+
+
 #middle {
     position: relative;
     background-color: #171717;
@@ -239,6 +265,7 @@ body a:hover {
         padding-top: 10px;
     }
 
+
 #element_list li 
 {
     float: left;
@@ -249,4 +276,40 @@ body a:hover {
 #element_list span{
     margin-left: 30px;
     color: #a8a8a8;
+}
+
+.social img {
+    width: 27px;
+    height: 27px;
+}
+
+.social li{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+.foot_menu {
+    list-style: none;
+    margin-left: 100px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #b8b8b8;
+}
+
+.foot_menu li{
+    float: left;
+margin-right: 60px;
+cursor: pointer;
+}
+
+.foot_menu li:hover {
+    border-bottom: 1px solid gray;
+    line-height: normal;
+}
+
+#search {
+    background: url(../Images/line_menu.png) left 1px no-repeat;
+    line-height: 36px;
 }

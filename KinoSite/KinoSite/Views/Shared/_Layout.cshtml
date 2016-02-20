@@ -8,6 +8,14 @@
     @RenderSection("Scripts", required: false)
 </head>
 <body>
+    <div>
+        <ul class="social" style="list-style: none; position: fixed; left: -40px;">
+            <li><img src="~/Images/vk.png" /></li>
+            <li><img src="~/Images/yt.png" /></li>
+            <li><img src="~/Images/twitter.png" /></li>
+            <li><img src="~/Images/facebook.png" /></li>
+        </ul>
+    </div>
     <div id="wrapper">
         <div id="header">
             <div class="head_menu">
@@ -106,17 +114,19 @@
                         </div>
                         <div class="dropdown_menu"></div>
                     </li>
-                    <li>
-                        <a class="news">Новости</a>
-                        <div class="dropdown_menu"></div>
+                    <li style="width: 320px;">
+                        <div id="search" style="height: 32px; width:3px; float:left;">
+                        </div>
+                          <div style="height: 25px; width: 280px; background-color: #282828; margin-left: 20px; margin-top: 7px; text-align:left;padding-top: 2px;">
+                                <span style="margin-left:10px; color: white;">Поиск</span>
+                              <img src="~/Images/loop.png" style="width: 20px;height:20px; float: right; margin-right: 5px"/>
+                          </div>
                     </li>
                     <li>
-                        <a class="desk">Стол заказов</a>
-                    </li>
-                    <li>
-                        <a class="contacts">Контакты</a>
+                        <a class="enter">Войти</a>
                     </li>
                 </ul>
+                
             </div>
             @RenderSection("Slaider", required: false)
             @RenderSection("Player", required: false)
@@ -128,12 +138,24 @@
             </div>
         </div>
 
-        <div id="footer">
+        <div id="footer" style="overflow: hidden;">
+            <div style="height:1px; background-color: gray;"></div>
             <div class="footer_content">
-
+                <ul class="foot_menu">
+                    <li>ГЛАВНАЯ</li>
+                    <li>НОВИНКИ</li>
+                    <li>ФИЛЬМЫ</li>
+                    <li>МУЛЬТФИЛЬМЫ</li>
+                    <li>СЕРИАЛЫ</li>
+                    <li>ТОП</li>
+                    <li>КОНТАКТЫ</li>
+                </ul>
             </div>
+            <div style="text-align: center;"><p>Copyright 2016 Владыка Сергей Corp</p></div>
         </div>
+        
     </div>
+    
     <script>
         $('.head_menu ul li').hover(function () {
             $(this).children('.dropdown_menu').show();
@@ -174,6 +196,8 @@
         }, function () {
             $(this).hide();
         });
+
+
     </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.category_content {
+    overflow: hidden;
+}
+
+.post_category{
+   width: 270px;
+   float: left;
+   text-align: center;
+   padding: 10px;
+}
+
+
+.category_content img{
+    width: 250px;
+    height: 361px;
+    float:left;
+}
