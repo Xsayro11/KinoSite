@@ -5,7 +5,7 @@
 @section Styles{
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Player.css" rel="stylesheet" type="text/css" />
-<link href="~/Content/Details.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Details.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/PopupMenu.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 }
@@ -18,7 +18,7 @@
 }
 
 @section Player {
-@Html.Partial("~/Views/Genre/Player.cshtml")
+    @Html.Partial("~/Views/Genre/Player.cshtml")
 }
 
 <div class="track">
@@ -43,58 +43,58 @@
     @Html.Partial("~/Views/Genre/Description.cshtml")
 </div>
 <script>
-        $('.movie_menu li').click(function () {
-            switch ($(this).attr('class')) {
-                case 'description': {
-                    $.ajax({
-                        url: '/Genre/Description/',
-                        success: function (data) {
-                            $('.post').html(data);
-                        }
-                    });
-                    break;
-                }
-                case 'comments': {
-                    $.ajax({
-                        url: '/Genre/Comments/',
-                        success: function (data) {
-                            $('.post').html(data);
-                        }
-                    });
-                    break;
-                }
-                case 'reviews': {
-                    $.ajax({
-                        url: '/Genre/Reviews/',
-                        success: function (data) {
-                            $('.post').html(data);
-                        }
-                    });
-                    break;
-                }
-                case 'creators': {
-                    $.ajax({
-                        url: '/Genre/Creators/',
-                        success: function (data) {
-                            $('.post').html(data);
-                        }
-                    });
-                    break;
-                }
+    $('.movie_menu li').click(function () {
+        switch ($(this).attr('class')) {
+            case 'description': {
+                $.ajax({
+                    url: '/Genre/Description/',
+                    success: function (data) {
+                        $('.post').html(data);
+                    }
+                });
+                break;
             }
-
-            $(this).parent().children('.active').removeClass('active');
-            $(this).addClass('active');
-
-            if ($(this).hasClass('on_review')) {
+            case 'comments': {
+                $.ajax({
+                    url: '/Genre/Comments/',
+                    success: function (data) {
+                        $('.post').html(data);
+                    }
+                });
+                break;
+            }
+            case 'reviews': {
                 $.ajax({
                     url: '/Genre/Reviews/',
                     success: function (data) {
                         $('.post').html(data);
                     }
                 });
-
-                $(this).removeClass('on_review');
+                break;
             }
-        });
+            case 'creators': {
+                $.ajax({
+                    url: '/Genre/Creators/',
+                    success: function (data) {
+                        $('.post').html(data);
+                    }
+                });
+                break;
+            }
+        }
+
+        $(this).parent().children('.active').removeClass('active');
+        $(this).addClass('active');
+
+        if ($(this).hasClass('on_review')) {
+            $.ajax({
+                url: '/Genre/Reviews/',
+                success: function (data) {
+                    $('.post').html(data);
+                }
+            });
+
+            $(this).removeClass('on_review');
+        }
+    });
 </script>
