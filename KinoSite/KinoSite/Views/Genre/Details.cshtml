@@ -15,6 +15,7 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-ui.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/Player.js"></script>
 }
 
 @section Player {
@@ -33,9 +34,9 @@
     <li class="description active">Описание</li>
     <li class="comments">Отзывы</li>
     <li class="reviews">Рецензии</li>
-    <li>Трейлеры</li>
+    <li class="trailers">Трейлеры</li>
     <li class="creators">Создатели</li>
-    <li>Актеры</li>
+    <li>Обои</li>
     <li>Награды</li>
     <li>Кадры</li>
 </ul>
@@ -75,6 +76,15 @@
             case 'creators': {
                 $.ajax({
                     url: '/Genre/Creators/',
+                    success: function (data) {
+                        $('.post').html(data);
+                    }
+                });
+                break;
+            }
+            case 'trailers': {
+                $.ajax({
+                    url: '/Genre/Trailers/',
                     success: function (data) {
                         $('.post').html(data);
                     }

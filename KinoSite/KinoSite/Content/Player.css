@@ -1,5 +1,5 @@
 ﻿#Player {
-    height: 580px;
+    max-height: 580px;
     margin-top: 33px;
     background-image: url(../Images/slidebg.png);
 }

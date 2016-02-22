@@ -246,11 +246,13 @@
 
 .review {
     border-bottom: 1px solid #474747;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .review_user {
-    margin-top: 20px;
+    background-color: #171717;
+    height: 73px;
+    margin-bottom: 10px;
 }
 
     .review_user img {
@@ -338,4 +340,33 @@
                     color: #51ac00;
                     border-bottom: 1px solid #51ac00;
                 }
+/*End section*/
+
+/*Section trailers*/
+
+.trailers_section {
+}
+
+    .trailers_section video {
+        width: 702px;
+        height: 394px;
+    }
+
+.trailer_video {
+    width: 702px;
+    height: 394px;
+}
+
+    .trailer_video #Player {
+        margin-top: 0;
+        background-image: none;
+    }
+
+    .trailer_video .time_line {
+        width: 53%;
+    }
+
+.trailer_details {
+    background-color: #171717;
+}
 /*End section*/

@@ -40,6 +40,11 @@
     height: 33px;
 }
 
+#header video{
+    width: 1130px;
+    height: 580px;
+}
+
 .head_content {
     margin: auto;
 }

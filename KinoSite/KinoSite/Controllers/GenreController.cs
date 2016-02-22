@@ -47,5 +47,10 @@ namespace KinoSite.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult Trailers()
+        {
+            return PartialView();
+        }
     }
 }
