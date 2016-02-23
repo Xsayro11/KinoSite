@@ -369,4 +369,13 @@
 .trailer_details {
     background-color: #171717;
 }
+
+.hide_player_controls {
+    position: relative;
+    width: 702px;
+    height: 30px;
+    background-color: #121212;
+    z-index: 2;
+}
+
 /*End section*/

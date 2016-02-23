@@ -1,22 +1,21 @@
-﻿<div id="Player">
-    <video id="video" src="https://cs508502.vk.me/8/u280485812/videos/75b3000bc9.360.mp4?extra=uNdr-6Uhn6V9kpcyH25UFnuy9WNWd1PvmoAvqOiSS6Zy1PqXAZwbleOxKegERhRuKdRoFfgRku_LjCa6ecVCZrcp9NU2-1uVayyLBumvknkwhx0n2oU&/%D0%9B%D0%BE%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%B8%D1%81%D0%BA%D1%83%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20(2006)%20%5B360p%5D.mp4" preload="none" width="1130" height="580"></video>
-    <div class="controls">
-        <div class="play">
+﻿@model string
 
+<div id="Player" ondblclick="PlayerDoubleClick(this)" onmousemove="PlayerMouseMove(this)">
+    <video id="video" src="@Model" preload="none"
+           onloadeddata="OnLoadedMetaData(this)" onplay="OnPlay(this)"
+           onpause="OnPause(this)" ontimeupdate="OnTimeUpdate(this)"
+           onprogress="OnProgress(this)" onended="OnEnded(this)"></video>
+    <div class="controls" trigger="0" timer="" timeout="3">
+        <div class="play" onclick="OnPlayClick(this)">
         </div>
-        <div class="time_line">
-            <span class="loaded">
-
-            </span>
-            <span class="current">
-
-            </span>
-            <div class="time_hover">
+        <div class="time_line" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)">
+            <span class="loaded"></span>
+            <span class="current"></span>
+            <div class="time_hover" metadata="0">
                 <span>
                     <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
                 </span>
                 <div class="triangle">
-
                 </div>
             </div>
         </div>
@@ -29,14 +28,43 @@
                 <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
             </span>
         </div>
-        <div class="volume">
+        <div class="volume" volume="100" timeout="" onclick="VolumeClick(this)" onmouseover="VolumeHover(this)" onmouseout="VolumeUnHover(this)">
         </div>
-        <div class="volume_outer">
+        <div class="volume_outer" onmouseover="VolumeOuterHover(this)" onmouseout="VolumeOuterUnHover(this)">
             <div class="volume_inner">
             </div>
         </div>
-        <div class="fullscreen_btn enterFullscreen">
-
+        <div class="fullscreen_btn enterFullscreen" onclick="FullscreenButtonClick(this)">
         </div>
     </div>
 </div>
+<script>
+    $(".volume_outer").slider({
+        orientation: "vertical",
+        min: 0,
+        max: 100,
+        value: 100,
+        range: "min",
+        animate: true,
+        slide: function (event, ui) {
+            var video = $(this).parents('#Player').children('video').get(0);
+            video.muted = false;
+            video.volume = (ui.value / 100);
+
+            if (ui.value > 66) {
+                $(this).parents('#Player').find('.volume').attr('id', 'volume_100');
+            }
+            else if (ui.value > 33) {
+                $(this).parents('#Player').find('.volume').attr('id', 'volume_66');
+            }
+            else if (ui.value > 0) {
+                $(this).parents('#Player').find('.volume').attr('id', 'volume_33');
+            }
+            else {
+                $(this).parents('#Player').find('.volume').attr('id', 'muted');
+            }
+
+            $(this).parents('#Player').find('.volume').attr('volume', ui.value);
+        }
+    });
+</script>

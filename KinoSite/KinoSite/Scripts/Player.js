@@ -1,396 +1,394 @@
-﻿var video;
-var timeout;
-var controlsTimer;
-var animTrigger = false;
-var volumeTimeout;
-var volumeValue = 100;
+﻿function OnPlayClick(element) {
+    var video = $(element).parents('#Player').children('video').get(0);
 
-function Player() {
-    var test = $(this).children('video');
+    if (video.paused) {
+        video.play();
+    }
+    else {
+        video.pause();
+    }
 }
 
-$(document).ready(function () {
-    video = document.getElementById("video");
+function MouseOnTimeLine(element) {
+    var video = $(element).parents('#Player').children('video').get(0);
 
-    $('.play').click(function () {
-        if (video.paused) {
-            video.play();
-        }
-        else {
-            video.pause();
-        }
-    });
-
-    $('.time_line').mousemove(function (e) {
-        var maxLoad = parseInt($(this).css('width'));
-        var offset = $(this).offset();
-        var pos = (100 / (maxLoad / (e.pageX - offset.left)));
-        var time = (pos * 100);
+    if (video.readyState > 0) {
+        var maxLoad = parseInt($(element).css('width'));
+        var offset = parseInt($(element).offset().left);
+        var percentage = (100 / (maxLoad / (event.pageX - offset)));
+        var time = ((video.duration / 100) * percentage);
         var hours = parseInt(time / 3600);
         var minutes = parseInt(((time / 60) - (hours * 60)));
         var seconds = parseInt(time - (parseInt((time / 60)) * 60));
 
-        if (seconds < 0) {
-            seconds = 0;
-        }
-
-        $('.time_hover span').children('.hours').html(hours);
+        $(element).parents('#Player').find('.time_hover span').children('.hours').html(hours);
 
         if ((minutes / 10) < 1) {
-            $('.time_hover span').children('.minutes').html("0" + minutes);
+            $(element).parents('#Player').find('.time_hover span').children('.minutes').html("0" + minutes);
         }
         else {
-            $('.time_hover span').children('.minutes').html(minutes);
+            $(element).parents('#Player').find('.time_hover span').children('.minutes').html(minutes);
         }
 
         if ((seconds / 10) < 1) {
-            $('.time_hover span').children('.seconds').html("0" + seconds);
+            $(element).parents('#Player').find('.time_hover span').children('.seconds').html("0" + seconds);
         }
         else {
-            $('.time_hover span').children('.seconds').html(seconds);
+            $(element).parents('#Player').find('.time_hover span').children('.seconds').html(seconds);
         }
 
-        $('.time_hover').css('left', ((e.pageX - offset.left) - 23));
-        $('.time_hover').show(0);
-    });
+        $(element).parents('#Player').find('.time_hover').css('left', ((event.pageX - offset) - 22));
+        $(element).parents('#Player').find('.time_hover').show(0);
+    }
+}
 
-    $('.time_line').mouseleave(function () {
-        $('.time_hover').hide(0);
-    });
+function MouseLeaveTimeLine(element) {
+    $(element).parents('#Player').find('.time_hover').hide(0);
+}
 
-    $('.volume').click(function (e) {
-        if (e.target !== this)
-            return;
+function VolumeClick(element) {
+    var video = $(element).parents('#Player').children('video').get(0);
+    var volumeValue = parseInt($(element).parents('#Player').find('.volume').attr('volume'));
 
-        if (this.id === "muted") {
-            $(this).attr('id', '');
+    if (element.id === "muted") {
+        $(element).attr('id', '');
 
-            if (volumeValue == 0) {
-                volumeValue = 50;
-            }
+        if (volumeValue == 0) {
+            volumeValue = 50;
+        }
 
-            $('.volume_outer').slider("option", "value", volumeValue);
-            video.volume = (volumeValue / 100);
-            video.muted = false;
+        $(element).parents('#Player').find('.volume_outer').slider("option", "value", volumeValue);
+        video.volume = (volumeValue / 100);
+        video.muted = false;
 
-            if (volumeValue > 66) {
-                $(this).attr('id', 'volume_100');
-            }
-            else if (volumeValue > 33) {
-                $(this).attr('id', 'volume_66');
-            }
-            else if (volumeValue > 0) {
-                $(this).attr('id', 'volume_33');
+        if (volumeValue > 66) {
+            $(element).attr('id', 'volume_100');
+        }
+        else if (volumeValue > 33) {
+            $(element).attr('id', 'volume_66');
+        }
+        else if (volumeValue > 0) {
+            $(element).attr('id', 'volume_33');
+        }
+    }
+    else {
+        $(element).attr('id', 'muted');
+        $(element).parents('#Player').find(".volume_outer").slider("option", "value", 0);
+        video.muted = true;
+    }
+}
+
+function VolumeHover(element) {
+    var volumeTimeout = parseInt($(element).parents('#Player').find('.volume').attr('timeout'));
+    $(element).parents('#Player').find('.volume_outer').show(0);
+    window.clearTimeout(volumeTimeout);
+}
+
+function VolumeUnHover(element) {
+    var volumeTimeout = window.setTimeout(hideVolume, 1500, element);
+    $(element).parents('#Player').find('.volume').attr('timeout', volumeTimeout);
+}
+
+function VolumeOuterHover(element) {
+    var volumeTimeout = parseInt($(element).parents('#Player').find('.volume').attr('timeout'));
+    window.clearTimeout(volumeTimeout);
+}
+
+function VolumeOuterUnHover(element) {
+    var volumeTimeout = window.setTimeout(hideVolume, 1500, element);
+    $(element).parents('#Player').find('.volume').attr('timeout', volumeTimeout);
+}
+
+function hideVolume(element) {
+    $(element).parents('#Player').find('.volume_outer').hide(0);
+}
+
+function TimeLineClick(element) {
+    var video = $(element).parents('#Player').children('video').get(0);
+    var maxLoad = parseInt($(element).css('width'));
+    var offset = parseInt($(element).offset().left);
+    var percentage = (100 / (maxLoad / (event.pageX - offset)));
+    var time = ((video.duration / 100) * percentage);
+    $(element).parents('#Player').find('.current').css('width', (percentage + "%"));
+    video.currentTime = time;
+}
+
+function PlayerDoubleClick(element) {
+    if (event.target.id !== "Player" && event.target.id !== "video")
+        return;
+
+    var video = $(element).children('video').get(0);
+
+    if (video.requestFullscreen) {
+        if (!$(element).hasClass("fullscreen")) {
+            video.requestFullscreen();
+        }
+        else {
+            document.cancelFullscreen();
+        }
+    } else if (video.mozRequestFullScreen) {
+        if (!$(element).hasClass("fullscreen")) {
+            video.mozRequestFullScreen();
+        }
+        else {
+            document.mozCancelFullScreen();
+        }
+    } else if (video.webkitRequestFullscreen) {
+        if (!$(element).hasClass("fullscreen")) {
+            video.webkitRequestFullscreen();
+        }
+        else {
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
+function FullscreenButtonClick(element) {
+    var video = $(element).parents('#Player').children('video').get(0);
+
+    if (video.requestFullscreen) {
+        if (!$(element).parents('#Player').hasClass("fullscreen")) {
+            video.requestFullscreen();
+        }
+        else {
+            document.cancelFullscreen();
+        }
+    } else if (video.mozRequestFullScreen) {
+        if (!$(element).parents('#Player').hasClass("fullscreen")) {
+            video.mozRequestFullScreen();
+        }
+        else {
+            document.mozCancelFullScreen();
+        }
+    } else if (video.webkitRequestFullscreen) {
+        if (!$(element).parents('#Player').hasClass("fullscreen")) {
+            video.webkitRequestFullscreen();
+        }
+        else {
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
+function PlayerMouseMove(element) {
+    var trigger = parseInt($(element).find('.controls').attr('trigger'));
+
+    $(element).removeClass('hide_cursor');
+
+    $(element).find('.controls').attr('timeout', 3);
+
+    if ($(element).hasClass('playing')) {
+        if (!$(element).hasClass('fullscreen')) {
+            if ($(element).children(".controls").css('bottom') != "35px") {
+                if (trigger == 0) {
+                    $(element).children(".controls").stop();
+                    $(element).children(".controls").animate({
+                        bottom: "35px"
+                    }, {
+                        duration: 250,
+                        start: function () {
+                            $(element).find('.controls').attr('trigger', 1);
+                        },
+                        complete: function () {
+                            $(element).find('.controls').attr('trigger', 0);
+                        }
+                    });
+                }
             }
         }
         else {
-            $(this).attr('id', 'muted');
-            $(".volume_outer").slider("option", "value", 0);
-            video.muted = true;
+            if ($(element).children(".controls").css('bottom') != "0px") {
+                if (trigger == 0) {
+                    $(element).children(".controls").stop();
+                    $(element).children(".controls").animate({
+                        bottom: "0px"
+                    }, {
+                        duration: 250,
+                        start: function () {
+                            $(element).find('.controls').attr('trigger', 1);
+                        },
+                        complete: function () {
+                            $(element).find('.controls').attr('trigger', 0);
+                        }
+                    });
+                }
+            }
         }
-    });
+    }
+}
 
-    $('.volume').hover(function () {
-        $('.volume_outer').show(0);
-        window.clearTimeout(volumeTimeout);
-    },
-    function () {
-        volumeTimeout = window.setTimeout(hideVolume, 1500);
-    });
+function hideControls(element) {
+    hideVolume(element);
+    $(element).parents('#Player').find('.time_hover').hide(0);
 
-    $('.volume_outer').hover(function () {
-        window.clearTimeout(volumeTimeout);
-    },
-    function () {
-        volumeTimeout = window.setTimeout(hideVolume, 1500);
-    });
-
-    function hideVolume() {
-        $('.volume_outer').hide(0);
+    if ($(element).parents('#Player').hasClass('playing')) {
+        if (!$(element).parents('#Player').hasClass('fullscreen')) {
+            $(element).parents('#Player').find(".controls").animate({
+                bottom: "5px"
+            }, 250);
+        }
+        else {
+            $(element).parents('#Player').find(".controls").animate({
+                bottom: "-30px"
+            }, 250);
+        }
     }
 
-    video.onloadedmetadata = function () {
-        var hoursDuration = parseInt(video.duration / 3600);
-        var minutesDuration = parseInt(((video.duration / 60) - (hoursDuration * 60)));
-        var secondsDuration = parseInt(video.duration - (parseInt((video.duration / 60)) * 60));
+    $(element).parents('#Player').addClass('hide_cursor');
+}
 
-        $('.duration').children('.hours').html(hoursDuration);
+function OnLoadedMetaData(element) {
+    var hoursDuration = parseInt(element.duration / 3600);
+    var minutesDuration = parseInt(((element.duration / 60) - (hoursDuration * 60)));
+    var secondsDuration = parseInt(element.duration - (parseInt((element.duration / 60)) * 60));
 
-        if ((minutesDuration / 10) < 1) {
-            $('.duration').children('.minutes').html("0" + minutesDuration);
-        }
-        else {
-            $('.duration').children('.minutes').html(minutesDuration);
-        }
+    $(element).parents('#Player').find('.duration').children('.hours').html(hoursDuration);
 
-        if ((secondsDuration / 10) < 1) {
-            $('.duration').children('.seconds').html("0" + secondsDuration);
-        }
-        else {
-            $('.duration').children('.seconds').html(secondsDuration);
-        }
-    };
+    if ((minutesDuration / 10) < 1) {
+        $(element).parents('#Player').find('.duration').children('.minutes').html("0" + minutesDuration);
+    }
+    else {
+        $(element).parents('#Player').find('.duration').children('.minutes').html(minutesDuration);
+    }
 
-    video.onplay = function () {
-        $('.play').addClass('pause');
-        $('#Player').addClass('playing');
+    if ((secondsDuration / 10) < 1) {
+        $(element).parents('#Player').find('.duration').children('.seconds').html("0" + secondsDuration);
+    }
+    else {
+        $(element).parents('#Player').find('.duration').children('.seconds').html(secondsDuration);
+    }
+}
 
-        controlsTimer = setInterval(function () {
+function OnPlay(element) {
+    $(element).parents('#Player').find('.play').addClass('pause');
+    $(element).parents('#Player').addClass('playing');
+
+    var controlsTimer = setInterval(function () {
+        var timeout = parseInt($(element).parents('#Player').find('.controls').attr('timeout'));
+        if (timeout >= 0) {
             timeout--;
+            $(element).parents('#Player').find('.controls').attr('timeout', timeout);
             if (timeout == 0) {
-                hideControls();
+                hideControls(element);
             }
-        }, 1000);
-
-        if (video.ended) {
-            $('.loaded').css('width', 0);
-            $('.current').css('width', 0);
-            $('.loaded').css('left', 0);
-            $('.current').css('left', 0);
         }
+    }, 1000);
+
+    $(element).parents('#Player').find('.controls').attr('timer', controlsTimer);
+
+    if (element.ended) {
+        $(element).parents('#Player').find('.loaded').css('width', 0);
+        $(element).parents('#Player').find('.current').css('width', 0);
+        $(element).parents('#Player').find('.loaded').css('left', 0);
+        $(element).parents('#Player').find('.current').css('left', 0);
+    }
+}
+
+function OnPause(element) {
+    var timer = parseInt($(element).parents('#Player').find('.controls').attr('timer'));
+    clearInterval(timer);
+    $(element).parents('#Player').find('.play').removeClass('pause');
+    $(element).parents('#Player').removeClass('playing');
+}
+
+function OnTimeUpdate(element) {
+    var hoursCurrent = parseInt(element.currentTime / 3600);
+    var minutesCurrent = parseInt(((element.currentTime / 60) - (hoursCurrent * 60)));
+    var secondsCurrent = parseInt(element.currentTime - (parseInt((element.currentTime / 60)) * 60));
+
+    $(element).parents('#Player').find('.current_time').children('.hours').html(hoursCurrent);
+
+    if ((minutesCurrent / 10) < 1) {
+        $(element).parents('#Player').find('.current_time').children('.minutes').html("0" + minutesCurrent);
+    }
+    else {
+        $(element).parents('#Player').find('.current_time').children('.minutes').html(minutesCurrent);
     }
 
-    video.onpause = function () {
-        clearInterval(controlsTimer);
-        $('.play').removeClass('pause');
-        $('#Player').removeClass('playing');
-    };
-
-    video.ontimeupdate = function () {
-        var hoursCurrent = parseInt(this.currentTime / 3600);
-        var minutesCurrent = parseInt(((this.currentTime / 60) - (hoursCurrent * 60)));
-        var secondsCurrent = parseInt(this.currentTime - (parseInt((this.currentTime / 60)) * 60));
-
-        $('.current_time').children('.hours').html(hoursCurrent);
-
-        if ((minutesCurrent / 10) < 1) {
-            $('.current_time').children('.minutes').html("0" + minutesCurrent);
-        }
-        else {
-            $('.current_time').children('.minutes').html(minutesCurrent);
-        }
-
-        if ((secondsCurrent / 10) < 1) {
-            $('.current_time').children('.seconds').html("0" + secondsCurrent);
-        }
-        else {
-            $('.current_time').children('.seconds').html(secondsCurrent);
-        }
-
-        var currentPercentage = this.currentTime / this.duration;
-
-        $('.current').css('width', ((currentPercentage * 100) + "%"));
+    if ((secondsCurrent / 10) < 1) {
+        $(element).parents('#Player').find('.current_time').children('.seconds').html("0" + secondsCurrent);
+    }
+    else {
+        $(element).parents('#Player').find('.current_time').children('.seconds').html(secondsCurrent);
     }
 
-    video.onprogress = function () {
-        var index = 0;
-        var bf = this.buffered;
-        var time = this.currentTime;
+    var currentPercentage = element.currentTime / element.duration;
 
-        if (bf.length >= 1) {
-            try {
-                while (!(bf.start(index) <= time && time <= bf.end(index))) {
-                    index += 1;
-                }
+    $(element).parents('#Player').find('.current').css('width', ((currentPercentage * 100) + "%"));
+}
 
-                var loadStartPercentage = bf.start(index) / this.duration;
-                var loadEndPercentage = bf.end(index) / this.duration;
-                var loadPercentage = loadEndPercentage - loadStartPercentage;
+function OnProgress(element) {
+    var index = 0;
+    var bf = element.buffered;
+    var time = element.currentTime;
 
-                $('.loaded').css('left', ((loadStartPercentage * 100) + "%"));
-                $('.loaded').css('width', ((loadPercentage * 100) + "%"));
+    if (bf.length >= 1) {
+        try {
+            while (!(bf.start(index) <= time && time <= bf.end(index))) {
+                index += 1;
             }
-            catch (error) {
-                return;
-            }
+
+            var loadStartPercentage = bf.start(index) / element.duration;
+            var loadEndPercentage = bf.end(index) / element.duration;
+            var loadPercentage = loadEndPercentage - loadStartPercentage;
+
+            $(element).parents('#Player').find('.loaded').css('left', ((loadStartPercentage * 100) + "%"));
+            $(element).parents('#Player').find('.loaded').css('width', ((loadPercentage * 100) + "%"));
         }
-    }
-
-    video.onended = function () {
-        $('.play').removeClass('pause');
-        $('#Player').removeClass('playing');
-    };
-
-    $('.time_line').click(function (e) {
-        var maxLoad = parseInt($(this).css('width'));
-        var offset = $(this).offset();
-        var pos = (100 / (maxLoad / (e.pageX - offset.left)));
-        $('.current').css('width', (pos + "%"));
-        video.currentTime = (pos * 100);
-    });
-
-    $(".volume_outer").slider({
-        orientation: "vertical",
-        min: 0,
-        max: 100,
-        value: 100,
-        range: "min",
-        animate: true,
-        slide: function (event, ui) {
-            video.muted = false;
-            video.volume = (ui.value / 100);
-
-            if (ui.value > 66) {
-                $('.volume').attr('id', 'volume_100');
-            }
-            else if (ui.value > 33) {
-                $('.volume').attr('id', 'volume_66');
-            }
-            else if (ui.value > 0) {
-                $('.volume').attr('id', 'volume_33');
-            }
-            else {
-                $('.volume').attr('id', 'muted');
-            }
-
-            volumeValue = ui.value;
-        }
-    });
-
-    $('#Player').dblclick(function (e) {
-        if (e.target.id !== "Player" && e.target.id !== "video")
+        catch (error) {
             return;
+        }
+    }
+}
+
+function OnEnded(element) {
+    if ($(element).parents('#Player').hasClass("fullscreen")) {
+        var video = $(element).parents('#Player').children('video').get(0);
 
         if (video.requestFullscreen) {
-            if (!$(this).hasClass("fullscreen")) {
-                video.requestFullscreen();
-            }
-            else {
-                document.cancelFullscreen();
-            }
+            document.cancelFullscreen();
         } else if (video.mozRequestFullScreen) {
-            if (!$(this).hasClass("fullscreen")) {
-                video.mozRequestFullScreen();
-            }
-            else {
-                document.mozCancelFullScreen();
-            }
+            document.mozCancelFullScreen();
         } else if (video.webkitRequestFullscreen) {
-            if (!$(this).hasClass("fullscreen")) {
-                video.webkitRequestFullscreen();
-            }
-            else {
-                document.webkitExitFullscreen();
-            }
-        }
-    });
-
-    $('.fullscreen_btn').click(function () {
-        if (video.requestFullscreen) {
-            if (!$('#Player').hasClass("fullscreen")) {
-                video.requestFullscreen();
-            }
-            else {
-                document.cancelFullscreen();
-            }
-        } else if (video.mozRequestFullScreen) {
-            if (!$('#Player').hasClass("fullscreen")) {
-                video.mozRequestFullScreen();
-            }
-            else {
-                document.mozCancelFullScreen();
-            }
-        } else if (video.webkitRequestFullscreen) {
-            if (!$('#Player').hasClass("fullscreen")) {
-                video.webkitRequestFullscreen();
-            }
-            else {
-                document.webkitExitFullscreen();
-            }
-        }
-    });
-
-    if (document.addEventListener) {
-        document.addEventListener('webkitfullscreenchange', fullscreenHandler, false);
-        document.addEventListener('mozfullscreenchange', fullscreenHandler, false);
-        document.addEventListener('fullscreenchange', fullscreenHandler, false);
-        document.addEventListener('MSFullscreenChange', fullscreenHandler, false);
-    }
-
-    function fullscreenHandler() {
-        if ($('.controls').hasClass('fullscreen_controls')) {
-            $('.controls').attr('style', 'bottom: 35px;');
-            $('.time_line').css('width', '71%');
-            $('.controls').removeClass('fullscreen_controls');
-        }
-        else {
-            $('.controls').attr('style', 'bottom: 0px;');
-            $('.time_line').css('width', '83%');
-            $('.controls').addClass('fullscreen_controls');
-        }
-
-        if (!$('#Player').hasClass('fullscreen')) {
-            $('#Player').addClass('fullscreen');
-        }
-        else {
-            $('#Player').removeClass('fullscreen');
+            document.webkitExitFullscreen();
         }
     }
 
-    var animTrigger = false;
+    $(element).parents('#Player').find('.play').removeClass('pause');
+    $(element).parents('#Player').removeClass('playing');
+    $(element).parents('#Player').find(".controls").animate({
+        bottom: "35px"
+    }, 250);
+}
 
-    $('#Player').mousemove(function () {
-        $('#Player').removeClass('hide_cursor');
+if (document.addEventListener) {
+    document.addEventListener('webkitfullscreenchange', fullscreenHandler, false);
+    document.addEventListener('mozfullscreenchange', fullscreenHandler, false);
+    document.addEventListener('fullscreenchange', fullscreenHandler, false);
+    document.addEventListener('MSFullscreenChange', fullscreenHandler, false);
+} else if (document.attachEvent) {
+    document.attachEvent('webkitfullscreenchange', fullscreenHandler, false);
+    document.attachEvent('mozfullscreenchange', fullscreenHandler, false);
+    document.attachEvent('fullscreenchange', fullscreenHandler, false);
+    document.attachEvent('MSFullscreenChange', fullscreenHandler, false);
+}
 
-        timeout = 3;
-
-        if ($('#Player').hasClass('playing')) {
-            if (!$('#Player').hasClass('fullscreen')) {
-                if ($(".controls").css('bottom') != "35px") {
-                    if (!animTrigger) {
-                        $(".controls").stop();
-                        $(".controls").animate({
-                            bottom: "35px"
-                        }, {
-                            duration: 250,
-                            start: function () {
-                                animTrigger = true;
-                            },
-                            complete: function () {
-                                animTrigger = false;
-                            }
-                        });
-                    }
-                }
-            }
-            else {
-                if ($(".controls").css('bottom') != "0px") {
-                    if (!animTrigger) {
-                        $(".controls").stop();
-                        $(".controls").animate({
-                            bottom: "0px"
-                        }, {
-                            duration: 250,
-                            start: function () {
-                                animTrigger = true;
-                            },
-                            complete: function () {
-                                animTrigger = false;
-                            }
-                        });
-                    }
-                }
-            }
-        }
-    });
-
-    function hideControls() {
-        hideVolume();
-        $('.time_hover').hide(0);
-
-        if ($('#Player').hasClass('playing')) {
-            if (!$('#Player').hasClass('fullscreen')) {
-                $(".controls").animate({
-                    bottom: "5px"
-                }, 250);
-            }
-            else {
-                $(".controls").animate({
-                    bottom: "-30px"
-                }, 250);
-            }
-        }
-
-        $('#Player').addClass('hide_cursor');
+function fullscreenHandler(event) {
+    if ($(event.target).parents('#Player').find('.controls').hasClass('fullscreen_controls')) {
+        $(event.target).parents('#Player').find('.time_line').attr('style', '');
+        $(event.target).parents('#Player').find('.controls').attr('style', 'bottom: 35px;');
+        $(event.target).parents('#Player').find('.controls').removeClass('fullscreen_controls');
     }
-});
+    else {
+        $(event.target).parents('#Player').find('.time_line').attr('style', 'width: 83%;');
+        $(event.target).parents('#Player').find('.controls').attr('style', 'bottom: 0px;');
+        $(event.target).parents('#Player').find('.controls').addClass('fullscreen_controls');
+    }
+
+    if (!$(event.target).parents('#Player').hasClass('fullscreen')) {
+        $(event.target).parents('#Player').addClass('fullscreen');
+    }
+    else {
+        $(event.target).parents('#Player').removeClass('fullscreen');
+    }
+}
