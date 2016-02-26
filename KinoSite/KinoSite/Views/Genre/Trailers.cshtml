@@ -1,9 +1,15 @@
 ﻿<div class="trailers_section">
-    <div class="trailer_details">
-        <h2>Трейлер</h2>
-    </div>
-    <div class="trailer_video">
-        @Html.Partial("~/Views/Genre/Player.cshtml", "http://www.w3schools.com/html/mov_bbb.mp4")
-    </div>
-    <div class="hide_player_controls"></div>
+    @for(int i = 0; i < 5; i++)
+    {
+        <div class="trailer_details">
+            <h2><a>Трейлер</a></h2>
+            <div class="views"></div>
+            <div class="time_added">
+            </div>
+        </div>
+        <div class="trailer_video">
+            @Html.Partial("~/Views/Genre/Player.cshtml", "http://www.w3schools.com/html/mov_bbb.mp4")
+        </div>
+        <div class="hide_player_controls"></div>
+    }
 </div>

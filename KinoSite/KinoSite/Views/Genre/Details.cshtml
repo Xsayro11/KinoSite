@@ -4,18 +4,18 @@
 
 @section Styles{
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Player.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Details.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/PopupMenu.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Player.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Details.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/PopupMenu.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 }
 
 @section Scripts{
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery-ui.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/Player.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/Player.js"></script>
 }
 
 @section Player {
@@ -41,7 +41,17 @@
     <li>Кадры</li>
 </ul>
 <div class="post">
-    @Html.Partial("~/Views/Genre/Description.cshtml")
+    <div class="left_section">
+        @Html.Partial("~/Views/Genre/Description.cshtml")
+    </div>
+    <div class="right_section">
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+    </div>
 </div>
 <script>
     $('.movie_menu li').click(function () {
@@ -50,7 +60,7 @@
                 $.ajax({
                     url: '/Genre/Description/',
                     success: function (data) {
-                        $('.post').html(data);
+                        $('.left_section').html(data);
                     }
                 });
                 break;
@@ -59,7 +69,7 @@
                 $.ajax({
                     url: '/Genre/Comments/',
                     success: function (data) {
-                        $('.post').html(data);
+                        $('.left_section').html(data);
                     }
                 });
                 break;
@@ -68,7 +78,7 @@
                 $.ajax({
                     url: '/Genre/Reviews/',
                     success: function (data) {
-                        $('.post').html(data);
+                        $('.left_section').html(data);
                     }
                 });
                 break;
@@ -77,7 +87,7 @@
                 $.ajax({
                     url: '/Genre/Creators/',
                     success: function (data) {
-                        $('.post').html(data);
+                        $('.left_section').html(data);
                     }
                 });
                 break;
@@ -86,7 +96,7 @@
                 $.ajax({
                     url: '/Genre/Trailers/',
                     success: function (data) {
-                        $('.post').html(data);
+                        $('.left_section').html(data);
                     }
                 });
                 break;
@@ -100,7 +110,7 @@
             $.ajax({
                 url: '/Genre/Reviews/',
                 success: function (data) {
-                    $('.post').html(data);
+                    $('.left_section').html(data);
                 }
             });
 

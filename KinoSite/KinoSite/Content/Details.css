@@ -1,4 +1,28 @@
-﻿/*Section movie*/
+﻿.post:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.left_section {
+    float: left;
+    width: 70%;
+}
+
+.right_section {
+    float: right;
+    width: 30%;
+}
+
+    .right_section div {
+        height: 400px;
+        margin-left: 20px;
+        margin-bottom: 30px;
+        background-color: #171717;
+    }
+
+/*Section movie*/
 
 .movie_section {
     font-family: verdana,sans-serif;
@@ -193,6 +217,10 @@
                 padding-left: 30px;
             }
 
+            .comments_container ul li.answer_2 {
+                padding-left: 60px;
+            }
+
             .comments_container ul li img {
                 width: 46px;
                 height: 73px;
@@ -331,14 +359,13 @@
         }
 
             .creators_section ul li a {
-                color: #fff;
                 padding-bottom: 2px;
-                border-bottom: 1px solid #fff;
+                border-bottom: 1px solid #51ABFE;
             }
 
                 .creators_section ul li a:hover {
-                    color: #51ac00;
-                    border-bottom: 1px solid #51ac00;
+                    color: #fff;
+                    border-bottom: 1px solid #fff;
                 }
 /*End section*/
 
@@ -347,14 +374,19 @@
 .trailers_section {
 }
 
-    .trailers_section video {
-        width: 702px;
-        height: 394px;
+.trailer_details {
+    background-color: #171717;
+    height: 65px;
+    padding: 15px;
+}
+
+    .trailer_details h2 {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
 .trailer_video {
-    width: 702px;
-    height: 394px;
+    height: 404px;
 }
 
     .trailer_video #Player {
@@ -362,20 +394,22 @@
         background-image: none;
     }
 
-    .trailer_video .time_line {
-        width: 53%;
+    .trailer_video video {
+        width: 735px;
+        height: 404px;
     }
 
-.trailer_details {
-    background-color: #171717;
-}
+    .trailer_video .time_line {
+        width: 55%;
+    }
 
 .hide_player_controls {
     position: relative;
-    width: 702px;
     height: 30px;
     background-color: #121212;
     z-index: 2;
+    border-bottom: 1px solid #474747;
+    margin-bottom: 30px;
 }
 
 /*End section*/

@@ -146,12 +146,14 @@
 
     $('.comment_form textarea').focus(function () {
         $(this).css('height', '120px');
+        $('.comments_container').css('margin-top', '60px');
         $('.comment_button').show();
     });
 
     $('.comment_form textarea').focusout(function () {
         if ($(this).val() == "") {
             $(this).css('height', '40px');
+            $('.comments_container').css('margin-top', '30px');
             $('.comment_button').hide();
         }
     });
