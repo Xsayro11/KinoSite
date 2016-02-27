@@ -8,14 +8,6 @@
     @RenderSection("Scripts", required: false)
 </head>
 <body>
-    <div>
-        <ul class="social" style="list-style: none; position: fixed; left: -40px;">
-            <li><a><img src="~/Images/vk.png" /></a></li>
-            <li><a><img src="~/Images/yt.png" /></a></li>
-            <li><a><img src="~/Images/twitter.png" /></a></li>
-            <li><a><img src="~/Images/facebook.png" /></a></li>
-        </ul>
-    </div>
     <div id="wrapper">
         <div id="header">
             <div class="head_menu">
@@ -129,11 +121,8 @@
             @RenderSection("Slaider", required: false)
             @RenderSection("Player", required: false)
         </div>
-
         <div id="middle">
-            <div class="content">
                 @RenderBody()
-            </div>
         </div>
 
         <div id="footer" style="overflow: hidden;">

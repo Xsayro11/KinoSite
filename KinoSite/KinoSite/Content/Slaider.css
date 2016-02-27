@@ -1,32 +1,88 @@
 ﻿.head_slaider {
-    height: 580px;
+    height: 520px;
     font-size: 0;
-    margin-top: 33px;
     position: relative;
     text-align: center;
-    background-image: url(../Images/slidebg.png);
+    background: transparent;
 }
 
     .head_slaider .carousel-control {
+        width: 50px;
         z-index: 100;
+        height: 80px;
+        top: 210px;
+        opacity: 0;
+        margin-left: 100px;
+        margin-right: 100px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-transition: background-color 0.11s linear, opacity 0.11s linear;
+        -moz-transition: background-color 0.11s linear, opacity 0.11s linear;
+        -ms-transition: background-color 0.11s linear, opacity 0.11s linear;
+        -o-transition: background-color 0.11s linear, opacity 0.11s linear;
+        transition: background-color 0.11s linear, opacity 0.11s linear;
     }
 
-    .head_slaider img.left_row {
-        width: 45px;
+    .head_slaider:hover > .carousel-control, .head_slaider:hover > .carousel-control i {
+        opacity: 1;
+    }
+
+    .head_slaider .carousel-control:hover {
+        background-color: #797979;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .head_slaider .carousel-control.left {
+        background-image: none;
+        background-repeat: no-repeat;
+        filter: unset;
+    }
+
+    .head_slaider .carousel-control.right {
+        background-image: none;
+        background-repeat: no-repeat;
+        filter: unset;
+    }
+
+    .head_slaider i.left_row {
+        width: 25px;
+        height: 40px;
         position: absolute;
-        top: 240px;
-        left: 0;
+        top: 20px;
+        left: 10px;
+        background-image: url(../Images/arrows.png);
+        background-position: 0px 0px;
+        background-size: 110px 40px;
+        background-repeat: no-repeat;
+        opacity: 0;
+        -webkit-transition: opacity 0.11s linear;
+        -moz-transition: opacity 0.11s linear;
+        -ms-transition: opacity 0.11s linear;
+        -o-transition: opacity 0.11s linear;
+        transition: opacity 0.11s linear;
     }
 
     .head_slaider img.slider-image {
-        width: 1000px;
+        /*width: 1000px;
         margin-top: 40px;
-        margin-left: 65px;
+        margin-left: 65px;*/
     }
 
-    .head_slaider img.right_row {
-        width: 45px;
+    .head_slaider i.right_row {
+        width: 25px;
+        height: 40px;
         position: absolute;
-        top: 240px;
-        right: 0;
+        top: 20px;
+        right: 10px;
+        background-image: url(../Images/arrows.png);
+        background-position: -30px 0px;
+        background-size: 110px 40px;
+        background-repeat: no-repeat;
+        opacity: 0;
+        -webkit-transition: opacity 0.11s linear;
+        -moz-transition: opacity 0.11s linear;
+        -ms-transition: opacity 0.11s linear;
+        -o-transition: opacity 0.11s linear;
+        transition: opacity 0.11s linear;
     }

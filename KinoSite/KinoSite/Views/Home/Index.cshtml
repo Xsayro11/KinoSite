@@ -18,17 +18,17 @@
 @section Slaider {
     <div id="HeadSlaider" class="head_slaider carousel slide">
         <a class="left carousel-control" href="#HeadSlaider" data-slide="prev">
-            <img class="left_row" src="~/Images/left_row_slider.png" />
+            <i class="left_row"></i>
         </a>
 
         <div class="carousel-inner">
-            <img class="slider-image item active" src="~/Images/slider-image.jpg" />
-            <img class="slider-image item" src="~/Images/slider-image.jpg" />
-            <img class="slider-image item" src="~/Images/slider-image.jpg" />
+            <img class="slider-image item active" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
+            <img class="slider-image item" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
+            <img class="slider-image item" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
         </div>
 
         <a class="right carousel-control" href="#HeadSlaider" data-slide="next">
-            <img class="right_row" src="~/Images/right_row_slider.png" />
+            <i class="right_row"></i>
         </a>
     </div>
     <script>
@@ -46,7 +46,7 @@
     <div id="@("PostSlaider_" + i)" class="post carousel slide" data-interval="0">
 
         <a class="left carousel-control" href="@("#PostSlaider_" + i)" data-slide="prev">
-            <img class="left-side-arrow" src="~/Images/left_row_slider.png" />
+            <i class="left-side-arrow"></i>
         </a>
 
         <div class="carousel-inner">
@@ -68,6 +68,10 @@
                     <span>Дневник девочки-подростка</span>
                 </a>
                 <a class="post_image 5" href="~/Genre/Details">
+                    <div class="image"><img src="~/Images/dnevnikdevochkipodrostka.jpg" /></div>
+                    <span>Дневник девочки-подростка</span>
+                </a>
+<a class="post_image 6 last" href="~/Genre/Details">
                     <div class="image"><img src="~/Images/dnevnikdevochkipodrostka.jpg" /></div>
                     <span>Дневник девочки-подростка</span>
                 </a>
@@ -94,11 +98,15 @@
                     <div class="image"><img src="~/Images/dnevnikdevochkipodrostka.jpg" /></div>
                     <span>Дневник девочки-подростка</span>
                 </a>
+<a class="post_image 6 last" href="~/Genre/Details">
+                    <div class="image"><img src="~/Images/dnevnikdevochkipodrostka.jpg" /></div>
+                    <span>Дневник девочки-подростка</span>
+                </a>
             </div>
         </div>
 
         <a class="right carousel-control" href="@("#PostSlaider_" + i)" data-slide="next">
-            <img class="right-side-arrow" src="~/Images/right_row_slider.png" />
+            <i class="right-side-arrow"></i>
         </a>
 
         <div class="popup-wrapper top right">
