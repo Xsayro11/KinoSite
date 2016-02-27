@@ -11,118 +11,25 @@
     <div id="wrapper">
         <div id="header">
             <div class="head_menu">
-                <ul>
-                    <li>
-                        @Html.ActionLink("Главная", "Index", "Home", null, new { @class = "main_page" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Фильмы", "Index", "Genre", null, new { @class = "films" })
-                        <div class="dropdown_menu">
-                            <ul class="sub-nav-col">
-                                <li><a href="#">Артхаус</a></li>
-                                <li><a href="#">Боевики</a></li>
-                                <li><a href="#">Военные</a></li>
-                                <li><a href="#">Детективы</a></li>
-                                <li><a href="#">Для детей</a></li>
-                                <li><a href="#">Для всей семьи</a></li>
-                                <li><a href="#">Документальные</a></li>
-                                <li><a href="#">Драмы</a></li>
-                                <li><a href="#">Зарубежные</a></li>
-                                <li><a href="#">Исторические</a></li>
-                                <li><a href="#">Комедии</a></li>
-                                <li><a href="#">Мелодрамы</a></li>
-                                <li><a href="#">Приключения</a></li>
-                                <li><a href="#">Русские</a></li>
-                                <li><a href="#">Советское кино</a></li>
-                                <li><a href="#">Триллеры</a></li>
-                                <li><a href="#">Ужасы</a></li>
-                                <li><a href="#">Фантастика</a></li>
-                                <li><a href="#">Эротика</a></li>
-                            </ul>
-                            <div class="sub_div_menu">
-                                <ul>
-                                    <li><a href="#">Супер новинки</a></li>
-                                    <li><a href="#">Фильмы 2015 года</a></li>
-                                    <li><a href="#">Фильмы 2014 года</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Зарубежные</a></li>
-                                    <li><a href="#">Русские</a></li>
-                                    <li><a href="#">Для детей</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="mfilms">Мультфильмы</a>
-                        <div class="dropdown_menu">
-                            <ul class="sub-nav-col">
-                                <li><a href="#">Для детей</a></li>
-                                <li><a href="#">Зарубежные</a></li>
-                                <li><a href="#">Отечественные</a></li>
-                                <li><a href="#">Полнометражные</a></li>
-                                <li><a href="#">Мультсерисалы</a></li>
-                            </ul>
-                            <div class="sub_div_menu">
-                                <ul>
-                                    <li><a href="#">Супер новинки</a></li>
-                                    <li><a href="#">Мультфильмы 2015 года</a></li>
-                                    <li><a href="#">Мультфильмы 2014 года</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Зарубежные</a></li>
-                                    <li><a href="#">Русские</a></li>
-                                    <li><a href="#">Для детей</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="serials">Сериалы</a>
-                        <div class="dropdown_menu">
-                            <ul class="sub-nav-col">
-                                <li><a href="#">Боевики</a></li>
-                                <li><a href="#">Военные</a></li>
-                                <li><a href="#">Детективы</a></li>
-                                <li><a href="#">Триллеры</a></li>
-                                <li><a href="#">Ужасы</a></li>
-                                <li><a href="#">Фантастика</a></li>
-                                <li><a href="#">Эротика</a></li>
-                            </ul>
-                            <div class="sub_div_menu">
-                                <ul>
-                                    <li><a href="#">Супер новинки</a></li>
-                                    <li><a href="#">Мультфильмы 2015 года</a></li>
-                                    <li><a href="#">Мультфильмы 2014 года</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Зарубежные</a></li>
-                                    <li><a href="#">Русские</a></li>
-                                    <li><a href="#">Для детей</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="dropdown_menu"></div>
-                    </li>
-                    <li style="width: 320px;">
-                        <div id="search" style="height: 32px; width:3px; float:left;">
-                        </div>
-                        <div style="height: 25px; width: 280px; background-color: #282828; margin-left: 20px; margin-top: 7px; text-align:left;padding-top: 2px;">
-                            <span style="margin-left:10px; color: white;">Поиск</span>
-                            <img src="~/Images/loop.png" style="width: 20px;height:20px; float: right; margin-right: 5px" />
-                        </div>
-                    </li>
-                    <li>
-                        <a class="enter">Войти</a>
-                    </li>
-                </ul>
+                <div class="content">
+                    <div class="logo">
 
+                    </div>
+                    <a class="menu_btn">
+                        <i class="icon-default"></i>
+                        <i class="icon-hover"></i>
+                        <span>Меню</span>
+                    </a>
+                    <div class="profile">
+
+                    </div>
+                </div>
             </div>
             @RenderSection("Slaider", required: false)
             @RenderSection("Player", required: false)
         </div>
         <div id="middle">
-                @RenderBody()
+            @RenderBody()
         </div>
 
         <div id="footer" style="overflow: hidden;">
