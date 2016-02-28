@@ -14,7 +14,7 @@
         text-decoration: none;
         color: #fff;
         cursor: pointer;
-        transition: color .20s ease-out;
+        transition: color .11s ease-out;
     }
 
         body a:hover {
@@ -42,11 +42,8 @@
     box-shadow: 0 0 40px rgba(0,0,0,0.3);
 }
 
-#change {
-    height: 33px;
-}
-
 #header {
+    background: rgba(0,0,0,1);
     padding-top: 50px;
 }
 
@@ -55,18 +52,14 @@
         height: 580px;
     }
 
-.head_content {
-    margin: auto;
-}
-
 .head_menu {
     position: fixed;
     top: 0;
     z-index: 101;
-    width: 1600px;
+    width: 100%;
     height: 50px;
     background: #201f25;
-    background: rgba(0,0,0,0.82);
+    background: rgba(0,0,0,1);
 }
 
     .head_menu::before, .head_menu::after {
@@ -75,16 +68,10 @@
         line-height: 0;
     }
 
-    .head_menu .content {
-        width: 1230px;
-        margin: auto;
-        margin-top: 16px;
-    }
-
     .head_menu .logo {
         float: left;
         display: block;
-        /* margin: 6px 0; */
+        margin: 16px 70px;
         width: 120px;
         height: 18px;
         background-image: url("http://megogo.net/s/css/v3/img/mgg-logo.png");
@@ -102,19 +89,22 @@
 
     .head_menu .menu_btn {
         float: left;
-        width: 20px;
-        height: 18px;
-        margin-left: 90px;
-        margin-top: -1px;
+        width: 113px;
+        height: 50px;
+        padding: 15px 20px 15px 20px;
     }
 
-        .head_menu .menu_btn:hover > i.icon-hover {
-            opacity:1;
+        .head_menu .menu_btn:hover {
+            background-color: #fff;
         }
 
-        .head_menu .menu_btn:hover > span {
-            color: #83bf0a;
-        }
+            .head_menu .menu_btn:hover > i.icon-hover {
+                opacity: 1;
+            }
+
+            .head_menu .menu_btn:hover > span {
+                color: #83bf0a;
+            }
 
         .head_menu .menu_btn i {
             position: absolute;
@@ -143,9 +133,33 @@
             transition: color 0.11s ease-out;
         }
 
-.menu_hover {
-    background: url(../Images/line_menu_inverted.png) right center no-repeat !important;
-}
+        .head_menu .menu_btn:hover > .dropdown_menu {
+            display: block;
+        }
+
+    .head_menu .dropdown_menu {
+        width: 185px;
+        height: 300px;
+        position: absolute;
+        top: 49px;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        margin: 0px 0 0;
+        font-size: 14px;
+        list-style: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-top: 1px solid transparent;
+        border-radius: unset;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-clip: padding-box;
+    }
 
 .track {
     margin-bottom: 40px;
@@ -198,7 +212,7 @@
     }
 
 .post {
-    min-height: 352px;
+    min-height: 400px;
     /* background-color: #121212; */
     /* padding: 20px; */
     /* padding-top: 0px; */
@@ -228,7 +242,7 @@
         position: relative;
         width: 100%;
         overflow: hidden;
-        height: 350px;
+        height: 400px;
         width: 1415px;
         margin-left: 70px;
         margin-right: 0px;
@@ -297,17 +311,23 @@
     }
 
 .post_image {
-    /* width: 219px; */
-    height: 350px;
+    width: 215px;
     float: left;
-    /* padding: 10px; */
     margin-right: 25px;
     font-size: 13px;
     text-align: center;
+    color: #a8a8a8 !important;
 }
 
-    .post_image:hover {
-        background-color: white;
+    .post_image .movie-name {
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        transition: color .11s ease-out;
+    }
+
+    .post_image:hover > .movie-name {
+        color: #83bf0a;
     }
 
     .post_image img {
@@ -316,10 +336,27 @@
         border-radius: 3px;
     }
 
+    .post_image:hover > .image::after {
+        content: 'Смотреть бесплатно';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0,0,0,0.7);
+        background-image: url(../Images/play_poster_hover.png);
+        background-position: 50% 35%;
+        background-repeat: no-repeat;
+        font-size: 20px;
+        color: #1DA331;
+        padding-top: 155px;
+    }
+
 .image {
     position: relative;
     height: 305px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
     .image::after {
@@ -331,83 +368,13 @@
         height: 100%;
         overflow: hidden;
         background-color: rgba(0,0,0,0);
-        transition: background-color .15s ease-out;
+        transition: background-color .11s ease-out;
         border-radius: 3px;
     }
 
-.post_image:hover > .image::after {
-    content: 'Смотреть бесплатно';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.7);
-    background-image: url(../Images/play_poster_hover.png);
-    background-position: 50% 35%;
-    background-repeat: no-repeat;
-    font-size: 20px;
-    color: #1DA331;
-    padding-top: 155px;
-}
-
-.post_image span {
-    margin-top: 10px;
-    color: #a8a8a8;
-}
-
-.sub-nav-col {
-    list-style: none;
-    padding: 0;
-    padding-top: 10px;
-    text-align: left;
-    float: left;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    min-height: 200px;
-}
-
-.sub_div_menu {
-    float: left;
-    text-align: left;
-    /*background-color: rgb(36,36,36);*/
-}
-
-    .sub_div_menu:first-child {
-        margin-bottom: 0px;
-    }
-
-    .sub_div_menu ul {
-        padding-left: 1px;
-        list-style: none;
-        padding-top: 10px;
-    }
-
-
-#element_list li {
-    float: left;
-    margin-right: 25px;
-    margin-bottom: 20px;
-}
-
-#element_list span {
-    margin-left: 30px;
-    color: #a8a8a8;
-}
-
-.social img {
-    width: 27px;
-    height: 27px;
-}
-
-.social li {
-    margin-bottom: 10px;
-}
-
-
 #footer {
     overflow: hidden;
-    background-color: #201f25;
+    background: rgba(0,0,0,1);
 }
 
 .foot_menu {

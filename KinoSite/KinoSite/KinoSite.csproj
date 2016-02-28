@@ -93,6 +93,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Category.css" />
     <Content Include="Content\Details.css" />
+    <Content Include="Content\Films.css" />
     <Content Include="Content\Player.css" />
     <Content Include="Content\PopupMenu.css" />
     <Content Include="Content\Site.css" />

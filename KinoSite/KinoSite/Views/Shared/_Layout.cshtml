@@ -8,23 +8,24 @@
     @RenderSection("Scripts", required: false)
 </head>
 <body>
+    <div class="head_menu">
+            <a class="menu_btn">
+                <i class="icon-default"></i>
+                <i class="icon-hover"></i>
+                <span>Меню</span>
+                <div class="dropdown_menu">
+
+                </div>
+            </a>
+            <div class="logo">
+
+            </div>
+            <div class="profile">
+
+            </div>
+    </div>
     <div id="wrapper">
         <div id="header">
-            <div class="head_menu">
-                <div class="content">
-                    <div class="logo">
-
-                    </div>
-                    <a class="menu_btn">
-                        <i class="icon-default"></i>
-                        <i class="icon-hover"></i>
-                        <span>Меню</span>
-                    </a>
-                    <div class="profile">
-
-                    </div>
-                </div>
-            </div>
             @RenderSection("Slaider", required: false)
             @RenderSection("Player", required: false)
         </div>
@@ -65,33 +66,35 @@
 
         $('.post_image').hover(function () {
             if ($(this).hasClass('1')) {
-                $(this).parents('.post').children('.popup-wrapper').css('left', '240px');
+                $(this).parents('.post').children('.popup-wrapper').css('left', '290px');
             }
             else if ($(this).hasClass('2')) {
-                $(this).parents('.post').children('.popup-wrapper').css('left', '440px');
+                $(this).parents('.post').children('.popup-wrapper').css('left', '530px');
             }
             else if ($(this).hasClass('3')) {
-                $(this).parents('.post').children('.popup-wrapper').css('left', '640px');
+                $(this).parents('.post').children('.popup-wrapper').css('left', '770px');
             }
             else if ($(this).hasClass('4')) {
-                $(this).parents('.post').children('.popup-wrapper').css('left', '280px');
+                $(this).parents('.post').children('.popup-wrapper').css('left', '415px');
+            }
+            else if ($(this).hasClass('5')) {
+                $(this).parents('.post').children('.popup-wrapper').css('left', '655px');
             }
             else {
-                $(this).parents('.post').children('.popup-wrapper').css('left', '480px');
+                $(this).parents('.post').children('.popup-wrapper').css('left', '895px');
             }
 
             $(this).parents('.post').children('.popup-wrapper').show();
+            $(this).parents('.post').children('.popup-wrapper').css('opacity', '1');
         }, function () {
-            $(this).parents('.post').children('.popup-wrapper').hide();
+            $(this).parents('.post').children('.popup-wrapper').css('opacity', '0');
         });
 
-        $('.popup-wrapper').hover(function () {
-            $(this).show();
-        }, function () {
-            $(this).hide();
+        $(".popup-wrapper").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+            if ($(this).css('opacity') == 0) {
+                $(this).hide();
+            }
         });
-
-
     </script>
 </body>
 </html>

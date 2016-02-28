@@ -1,0 +1,249 @@
+﻿body {
+    font-family: 'PF DinDisplay','Trebuchet MS',Arial !important;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background-image: url(../Images/body.jpg); */
+    /* background-repeat: repeat-x; */
+    /* background-color: #f2f2f2 !important; */
+     color: #333 !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: #494949 !important;
+    cursor: pointer !important;
+    transition: all .11s ease-out !important;
+}
+
+    a:hover {
+        color: #83bf0a !important;
+        text-decoration: none !important;
+    }
+
+    a:focus {
+        outline: none !important;
+        color: #83bf0a !important;
+        text-decoration: none !important;
+        outline-offset: unset !important;
+    }
+
+    a:visited {
+        text-decoration: none !important;
+    }
+
+h1, h2, h3 {
+    color: #333;
+}
+
+#wrapper {
+    width: 1140px;
+    margin: auto;
+    background: #f2f2f2;
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+}
+
+#header {
+    background: rgba(0,0,0,1);
+    padding-top: 50px;
+}
+
+    #header video {
+        width: 1130px;
+        height: 580px;
+    }
+
+.head_menu {
+    position: fixed;
+    top: 0;
+    z-index: 101;
+    width: 100%;
+    height: 50px;
+    background: #201f25;
+    background: rgba(0,0,0,1);
+}
+
+    .head_menu::before, .head_menu::after {
+        display: block;
+        content: " ";
+        line-height: 0;
+    }
+
+    .head_menu .logo {
+        float: left;
+        display: block;
+        margin: 16px 70px;
+        width: 120px;
+        height: 18px;
+        background-image: url("http://megogo.net/s/css/v3/img/mgg-logo.png");
+        background-repeat: no-repeat;
+        background-size: 120px 400px;
+        text-indent: -99999px;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity 0.11s ease-out;
+    }
+
+        .head_menu .logo:hover {
+            opacity: 0.7;
+        }
+
+    .head_menu .menu_btn {
+        float: left;
+        width: 113px;
+        height: 50px;
+        padding: 15px 20px 15px 20px;
+    }
+
+        .head_menu .menu_btn:hover {
+            background-color: #fff;
+        }
+
+            .head_menu .menu_btn:hover > i.icon-hover {
+                opacity: 1;
+            }
+
+            .head_menu .menu_btn:hover > span {
+                color: #83bf0a;
+            }
+
+        .head_menu .menu_btn i {
+            position: absolute;
+            width: 20px;
+            height: 18px;
+            background-image: url("http://megogo.net/s/css/v3/img/megogo-tv/icon-list-16x12.png");
+            background-size: 60px 20px;
+            background-repeat: no-repeat;
+            transition: opacity 0.11s ease-out;
+        }
+
+            .head_menu .menu_btn i.icon-default {
+                background-position: 0px 0px;
+            }
+
+            .head_menu .menu_btn i.icon-hover {
+                background-position: -40px 0px;
+                opacity: 0;
+            }
+
+        .head_menu .menu_btn span {
+            color: #fff;
+            margin-left: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.11s ease-out;
+        }
+
+        .head_menu .menu_btn:hover > .dropdown_menu {
+            display: block;
+        }
+
+    .head_menu .dropdown_menu {
+        width: 185px;
+        height: 300px;
+        position: absolute;
+        top: 49px;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        margin: 0px 0 0;
+        font-size: 14px;
+        list-style: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-top: 1px solid transparent;
+        border-radius: unset;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-clip: padding-box;
+    }
+
+.track {
+    margin-bottom: 40px;
+    font-size: 12px;
+    margin-left: -2px;
+}
+
+    .track ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .track ul li {
+            float: left;
+            margin-left: 1px;
+        }
+
+    .track a {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+
+
+#middle {
+    position: relative;
+    background-color: #eae9ef;
+    z-index: 2;
+    min-height: 500px;
+    padding: 20px;
+}
+
+.content h1 {
+    margin-top: 0;
+    color: white;
+}
+
+.name {
+    display: inline;
+    /* background-color: #121212; */
+    padding: 10px;
+    margin-left: 40px;
+}
+
+    .name a {
+        font: bolder 24px Arial;
+        color: #333;
+    }
+
+.post {
+    min-height: 352px;
+    /* background-color: #121212; */
+    /* padding: 20px; */
+    /* padding-top: 0px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: 1px dotted #afaeb4;
+}
+
+#footer {
+    overflow: hidden;
+        background: rgba(0,0,0,1);
+}
+
+.foot_menu {
+    list-style: none;
+    margin-left: 100px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #b8b8b8;
+}
+
+    .foot_menu li {
+        float: left;
+        margin-right: 60px;
+    }
+
+        .foot_menu li:hover {
+            border-bottom: 1px solid #51ac00;
+            line-height: normal;
+        }

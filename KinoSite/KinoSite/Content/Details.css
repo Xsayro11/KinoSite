@@ -7,19 +7,19 @@
 
 .left_section {
     float: left;
-    width: 70%;
+    width: 75%;
 }
 
 .right_section {
     float: right;
-    width: 30%;
+    width: 25%;
 }
 
     .right_section div {
         height: 400px;
         margin-left: 20px;
         margin-bottom: 30px;
-        background-color: #171717;
+        box-shadow: 0px 0px 10px 0px #000;
     }
 
 /*Section movie*/
@@ -27,18 +27,32 @@
 .movie_section {
     font-family: verdana,sans-serif;
     padding: 0 0 20px 0;
-    border-bottom: 1px solid #474747;
+    border-bottom: 1px solid #ddd;
+}
+
+.title h1 {
+    margin: 0;
+}
+
+.first_content {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.right_content {
 }
 
 .poster {
     float: left;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    height: 524px;
+    padding-right: 15px;
+    margin-right: 15px;
+    border-right: 1px solid #ddd;
 }
 
     .poster img {
-        width: 220px;
-        height: 328px;
+        width: 276px;
+        height: 401px;
     }
 
 .title {
@@ -47,82 +61,72 @@
 }
 
 .ratings {
-    height: 35px;
-    margin-top: 4px;
+    margin-top: 7px;
 }
 
-    .ratings span {
-        padding: 1px 1px 1px 1px;
-        border-radius: 6px;
-        border: 1px solid white;
+.views {
+    line-height: 24px;
+    text-align: right;
+    font-size: 19px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.ratings-bar {
+    height: 2px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+    .ratings-bar .bar-likes {
         float: left;
-        color: white;
-        font-size: 17px;
-        margin-left: 4px;
-        margin-right: 20px;
-        text-align: center;
+        height: 2px;
+        background: #83bf0a;
     }
 
-    .ratings .icon {
+    .ratings-bar .bar-dislikes {
+        float: left;
+        height: 2px;
+        background: #ccc;
+    }
+
+.external-rating {
+    margin: auto;
+    margin-top: 10px;
+    width: 250px;
+}
+
+    .external-rating .rating-name {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+        .external-rating .rating-name.last {
+            margin-left: 35px;
+        }
+
+    .external-rating .icon {
         float: left;
         margin-top: -4px;
         margin-left: 0;
         margin-right: 0;
     }
 
-        .ratings .icon img {
+        .external-rating .icon img {
             width: 34px;
             height: 34px;
             border-radius: 4px;
         }
 
-.user_rating {
-    float: left;
-    margin-top: 5px;
-}
-
-    .user_rating h1 {
-        font-size: 14px;
-        color: #fff;
-        float: left;
-    }
-
-    .user_rating ul {
-        list-style: none;
-        width: 150px;
-        height: 15px;
-        margin-left: 10px;
-        padding: 0;
-        float: right;
-    }
-
-        .user_rating ul li {
-            float: left;
-            width: 15px;
-            height: 15px;
-            background-image: url(../Images/star.png);
-            background-repeat: no-repeat;
-            background-size: 15px 30px;
-            background-position: 0px 0px;
-            cursor: pointer;
-        }
-
 .details .detail_name {
-    color: #fff;
     font-size: 15px;
-}
-
-.details span {
-    color: #A1ACB4;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .recommendations {
     margin-top: 40px;
-}
-
-
-.track a:hover {
-    color: white;
 }
 
 .movie_menu {
@@ -131,35 +135,117 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
     .movie_menu li {
         float: left;
         width: 136px;
-        line-height: 39px;
-        color: #333;
+        line-height: 37px;
         cursor: pointer;
+        transition: color 0.11s ease-out;
     }
 
         .movie_menu li:hover {
-            color: #fff;
+            color: #83bf0a;
         }
 
         .movie_menu li.active {
-            background-color: #121212;
             padding: 10px;
-            font: bolder 15px Arial;
-            color: #fff !important;
+            font: bolder 13px Arial;
+            color: #83bf0a !important;
             text-decoration: none;
+            border: 1px solid #ddd;
+            border-bottom: 1px solid transparent;
+            background-color: #eae9ef;
+            -webkit-border-radius: 5px 5px 0 0;
+            -moz-border-radius: 5px 5px 0 0;
+            border-radius: 5px 5px 0 0;
         }
+
+.ratings-btn {
+    margin: auto;
+    width: 236px;
+}
+
+    .ratings-btn button {
+        width: 85px;
+        box-sizing: content-box;
+        color: #494949;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: 0;
+        display: inline-block;
+        margin: 0;
+        padding: 6px 14px;
+        border-width: 0;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 20px;
+        font-family: 'PF DinDisplay','Trebuchet MS',Arial;
+        font-size: 16px;
+        text-decoration: none;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        -ms-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+    }
+
+    .ratings-btn i {
+        position: absolute;
+        width: 13px;
+        height: 15px;
+        background-image: url("http://megogo.net/s/css/v3/img/megogo-films/icon-vote-13x15.png");
+        background-repeat: no-repeat;
+        background-size: 60px 40px;
+    }
+
+    .ratings-btn .btn-like {
+        margin-right: 5px;
+    }
+
+        .ratings-btn .btn-like i {
+            margin-top: 1px;
+            background-position: -23px -2px;
+        }
+
+        .ratings-btn .btn-like:hover {
+            background: #64b362;
+            color: #fff;
+        }
+
+            .ratings-btn .btn-like:hover > i {
+                background-position: -3px -2px;
+            }
+
+    .ratings-btn .btn-dislike i {
+        margin-top: 2px;
+        background-position: -23px -22px;
+    }
+
+    .ratings-btn .btn-dislike:hover {
+        background: #e65069;
+        color: #fff;
+    }
+
+        .ratings-btn .btn-dislike:hover > i {
+            background-position: -3px -22px;
+        }
+
+    .ratings-btn .value {
+        margin-left: 20px;
+    }
 
 /*End section*/
 
 /*Section comments*/
 
 .comment_section h2 {
-    font-size: 24px;
-    color: white;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -235,7 +321,6 @@
             }
 
 .user {
-    background-color: #171717;
     height: 73px;
 }
 
@@ -309,11 +394,6 @@
     left: 55px;
 }
 
-.review_rating {
-    margin-bottom: 10px;
-    color: #fff;
-}
-
 .review_container {
     max-height: 1000px;
     overflow: hidden;
@@ -336,14 +416,13 @@
 }
 
     .creators_section div {
-        border-bottom: 1px solid #474747;
+        border-bottom: 1px solid #ddd;
         padding-bottom: 20px;
         margin-bottom: 30px;
     }
 
     .creators_section h2 {
         font-size: 24px;
-        color: #555;
         margin-top: 0;
     }
 
@@ -355,17 +434,17 @@
             display: block;
             font-size: 18px;
             margin-bottom: 10px;
-            color: #fff;
         }
 
             .creators_section ul li a {
                 padding-bottom: 2px;
-                border-bottom: 1px solid #51ABFE;
+                border-bottom: 1px solid #333;
+                transition: border-color .11s ease-out;
             }
 
                 .creators_section ul li a:hover {
-                    color: #fff;
-                    border-bottom: 1px solid #fff;
+                    color: #83bf0a;
+                    border-bottom: 1px solid #83bf0a;
                 }
 /*End section*/
 
@@ -400,7 +479,7 @@
     }
 
     .trailer_video .time_line {
-        width: 55%;
+        width: 60%;
     }
 
 .hide_player_controls {
