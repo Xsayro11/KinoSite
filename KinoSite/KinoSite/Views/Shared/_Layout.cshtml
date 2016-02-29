@@ -9,20 +9,24 @@
 </head>
 <body>
     <div class="head_menu">
-            <a class="menu_btn">
-                <i class="icon-default"></i>
-                <i class="icon-hover"></i>
-                <span>Меню</span>
-                <div class="dropdown_menu">
-
-                </div>
-            </a>
-            <div class="logo">
-
+        <div class="menu_btn">
+            <i class="icon-default"></i>
+            <i class="icon-hover"></i>
+            <span>Меню</span>
+            <div class="dropdown_menu">
+                <div class="triangle"></div>
+                <ul>
+                    <li><a>Главная</a></li>
+                    <li><a>Фильмы</a></li>
+                    <li><a>Сериалы</a></li>
+                    <li><a>Мультфильмы</a></li>
+                </ul>
             </div>
-            <div class="profile">
-
-            </div>
+        </div>
+        <div class="logo">
+        </div>
+        <div class="profile">
+        </div>
     </div>
     <div id="wrapper">
         <div id="header">
@@ -34,7 +38,7 @@
         </div>
 
         <div id="footer" style="overflow: hidden;">
-            <div style="height:1px; background-color: gray;"></div>
+            <div style="height: 1px; background-color: gray;"></div>
             <div class="footer_content">
                 <ul class="foot_menu">
                     <li><a>ГЛАВНАЯ</a></li>
@@ -46,24 +50,14 @@
                     <li><a>КОНТАКТЫ</a></li>
                 </ul>
             </div>
-            <div style="text-align: center;"><p>Copyright 2016 Владыка Сергей Corp</p></div>
+            <div style="text-align: center;">
+                <p>Copyright 2016 Владыка Сергей Corp</p>
+            </div>
         </div>
 
     </div>
 
     <script>
-        $('.head_menu ul li').hover(function () {
-            $(this).children('.dropdown_menu').show();
-        }, function () {
-            $(this).children('.dropdown_menu').hide();
-        });
-
-        $('.dropdown_menu').hover(function () {
-            $(this).parent('.head_menu ul li').children('a').addClass('hover');
-        }, function () {
-            $(this).parent('.head_menu ul li').children('a').removeClass('hover');
-        });
-
         $('.post_image').hover(function () {
             if ($(this).hasClass('1')) {
                 $(this).parents('.post').children('.popup-wrapper').css('left', '290px');
@@ -84,16 +78,19 @@
                 $(this).parents('.post').children('.popup-wrapper').css('left', '895px');
             }
 
-            $(this).parents('.post').children('.popup-wrapper').show();
+            $(this).parents('.post').children('.popup-wrapper').css('visibility', 'visible');
             $(this).parents('.post').children('.popup-wrapper').css('opacity', '1');
         }, function () {
+            $(this).parents('.post').children('.popup-wrapper').css('visibility', 'hidden');
             $(this).parents('.post').children('.popup-wrapper').css('opacity', '0');
         });
 
-        $(".popup-wrapper").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
-            if ($(this).css('opacity') == 0) {
-                $(this).hide();
-            }
+        $('.popup-wrapper').hover(function () {
+            $(this).css('visibility', 'visible');
+            $(this).css('opacity', '1');
+        }, function () {
+            $(this).css('visibility', 'hidden');
+            $(this).css('opacity', '0');
         });
     </script>
 </body>

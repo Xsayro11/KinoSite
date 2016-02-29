@@ -7,8 +7,9 @@
     box-shadow: 0 0 7px rgba(0,0,0,0.3);
     bottom: -50px;
     cursor: auto;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 0.11s ease-out;
+    transition: opacity 0.11s, visibility 0.11s ease-out;
 }
 
     .popup-wrapper p
