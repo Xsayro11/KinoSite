@@ -72,6 +72,18 @@
     margin-bottom: 5px;
 }
 
+.ratings {
+        margin-top: 10px;
+}
+
+.views {
+    line-height: 24px;
+    text-align: right;
+    font-size: 19px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
 .ratings-bar {
     height: 2px;
     overflow: hidden;
@@ -91,18 +103,17 @@
     }
 
 .external-rating {
-    margin: auto;
     margin-top: 10px;
-    width: 250px;
 }
 
     .external-rating .rating-name {
         font-size: 15px;
         font-weight: 600;
+        margin-left: 5px;
     }
 
         .external-rating .rating-name.last {
-            margin-left: 35px;
+            margin-left: 30px;
         }
 
     .external-rating .icon {
@@ -116,6 +127,97 @@
             width: 34px;
             height: 34px;
             border-radius: 4px;
+        }
+
+.ratings-btn {
+}
+
+    .ratings-btn button {
+        width: 105px;
+        box-sizing: content-box;
+        color: #494949;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: 0;
+        display: inline-block;
+        margin: 0;
+        padding: 6px 14px;
+        border-width: 0;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 20px;
+        font-family: 'PF DinDisplay','Trebuchet MS',Arial;
+        font-size: 16px;
+        text-decoration: none;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        -ms-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+    }
+
+    .ratings-btn i {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-image: url(../Images/likes.png);
+        background-repeat: no-repeat;
+    }
+
+    .ratings-btn .btn-like {
+        margin-right: 5px;
+    }
+
+        .ratings-btn .btn-like i {
+            margin-top: 0px;
+            background-position: 0px 0px;
+        }
+
+        .ratings-btn .btn-like:hover {
+            background: #83bf0a;
+        }
+
+            .ratings-btn .btn-like:hover > i {
+                background-position: -16px 0px;
+            }
+
+    .ratings-btn .btn-dislike i {
+        margin-top: 2px;
+        background-position: 0px -18px;
+    }
+
+    .ratings-btn .btn-dislike:hover {
+        background: #e65050;
+    }
+
+        .ratings-btn .btn-dislike:hover > i {
+            background-position: -16px -18px;
+        }
+
+    .ratings-btn .value {
+        position: relative;
+        background: #fff;
+        margin-left: 30px;
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+        .ratings-btn .value::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 5px solid #fff;
+            position: absolute;
+            left: -5px;
+            top: 4px;
         }
 
 .details .detail_name {
@@ -162,84 +264,6 @@
             -moz-border-radius: 5px 5px 0 0;
             border-radius: 5px 5px 0 0;
         }
-
-.ratings-btn {
-    margin: auto;
-    width: 236px;
-}
-
-    .ratings-btn button {
-        width: 85px;
-        box-sizing: content-box;
-        color: #494949;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        outline: 0;
-        display: inline-block;
-        margin: 0;
-        padding: 6px 14px;
-        border-width: 0;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        text-align: center;
-        line-height: 20px;
-        font-family: 'PF DinDisplay','Trebuchet MS',Arial;
-        font-size: 16px;
-        text-decoration: none;
-        -webkit-transition: all .2s;
-        -moz-transition: all .2s;
-        -ms-transition: all .2s;
-        -o-transition: all .2s;
-        transition: all .2s;
-    }
-
-    .ratings-btn i {
-        position: absolute;
-        width: 13px;
-        height: 15px;
-        background-image: url("http://megogo.net/s/css/v3/img/megogo-films/icon-vote-13x15.png");
-        background-repeat: no-repeat;
-        background-size: 60px 40px;
-    }
-
-    .ratings-btn .btn-like {
-        margin-right: 5px;
-    }
-
-        .ratings-btn .btn-like i {
-            margin-top: 1px;
-            background-position: -23px -2px;
-        }
-
-        .ratings-btn .btn-like:hover {
-            background: #64b362;
-            color: #fff;
-        }
-
-            .ratings-btn .btn-like:hover > i {
-                background-position: -3px -2px;
-            }
-
-    .ratings-btn .btn-dislike i {
-        margin-top: 2px;
-        background-position: -23px -22px;
-    }
-
-    .ratings-btn .btn-dislike:hover {
-        background: #e65069;
-        color: #fff;
-    }
-
-        .ratings-btn .btn-dislike:hover > i {
-            background-position: -3px -22px;
-        }
-
-    .ratings-btn .value {
-        margin-left: 20px;
-    }
 
 /*End section*/
 

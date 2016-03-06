@@ -80,7 +80,7 @@ function VolumeClick(element) {
 
 function VolumeHover(element) {
     var volumeTimeout = parseInt($(element).parents('#Player').find('.volume').attr('timeout'));
-    $(element).parents('#Player').find('.volume_outer').show(0);
+    $(element).parents('#Player').find('.volume_outer').css('width','100px');
     window.clearTimeout(volumeTimeout);
 }
 
@@ -100,7 +100,7 @@ function VolumeOuterUnHover(element) {
 }
 
 function hideVolume(element) {
-    $(element).parents('#Player').find('.volume_outer').hide(0);
+    $(element).parents('#Player').find('.volume_outer').css('width', '0');
 }
 
 function TimeLineClick(element) {

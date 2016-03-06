@@ -6,8 +6,6 @@
            onpause="OnPause(this)" ontimeupdate="OnTimeUpdate(this)"
            onprogress="OnProgress(this)" onended="OnEnded(this)"></video>
     <div class="controls" trigger="0" timer="" timeout="3">
-        <div class="play" onclick="OnPlayClick(this)">
-        </div>
         <div class="time_line" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)">
             <span class="loaded"></span>
             <span class="current"></span>
@@ -19,6 +17,14 @@
                 </div>
             </div>
         </div>
+        <div class="play" onclick="OnPlayClick(this)">
+        </div>
+        <div class="volume" volume="100" timeout="" onclick="VolumeClick(this)" onmouseover="VolumeHover(this)" onmouseout="VolumeUnHover(this)">
+        </div>
+        <div class="volume_outer" onmouseover="VolumeOuterHover(this)" onmouseout="VolumeOuterUnHover(this)">
+            <div class="volume_inner">
+            </div>
+        </div>
         <div class="movie_time">
             <span class="current_time">
                 <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
@@ -28,19 +34,13 @@
                 <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
             </span>
         </div>
-        <div class="volume" volume="100" timeout="" onclick="VolumeClick(this)" onmouseover="VolumeHover(this)" onmouseout="VolumeUnHover(this)">
-        </div>
-        <div class="volume_outer" onmouseover="VolumeOuterHover(this)" onmouseout="VolumeOuterUnHover(this)">
-            <div class="volume_inner">
-            </div>
-        </div>
         <div class="fullscreen_btn enterFullscreen" onclick="FullscreenButtonClick(this)">
         </div>
     </div>
 </div>
 <script>
     $(".volume_outer").slider({
-        orientation: "vertical",
+        orientation: "horizontal",
         min: 0,
         max: 100,
         value: 100,

@@ -1,93 +1,195 @@
 ﻿.popup-wrapper {
     position: absolute;
-    width: 370px;
+    width: 0;
     z-index: 100;
-    background: #fff;
-    padding: 0 15px;
-    box-shadow: 0 0 7px rgba(0,0,0,0.3);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
     bottom: -50px;
     cursor: auto;
-    opacity: 0;
-    transition: opacity 0.11s ease-out;
-}
-
-    .popup-wrapper p
-    {
-        text-align:left;
-    }
-
-    .popup-wrapper .link-wrapper {
-        background: #f2f2f2;
-        padding: 15px;
-        margin: 0 -15px;
-        height: 50px;
-        font-size: 0;
-    }
-
-        .popup-wrapper .link-wrapper a:not(.button) {
-            position: relative;
-            vertical-align: top;
-            font: 16px Roboto,iviextras,'Trebuchet MS',Arial,Helvetica,FreeSans,'Liberation Sans','Nimbus Sans L',sans-serif;
-            line-height: 20px;
-            color: #ec174f;
-        }
-
-        .popup-wrapper .link-wrapper > * + * {
-            margin-left: 20px;
-        }
-
-.feature {
-    display: inline-block;
-    width: auto;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 4px;
-    color: #91949c;
-    font-weight: normal;
-    font-size: 13px;
-    height: 17px;
-    line-height: 18px;
-    padding: 0px 4px 0px 4px;
-    margin-left: 15px;
-}
-
-
-
-.popup-wrapper .properties {
-    color: #888686;
-    margin: 15px 0 10px;
-    font-size: 0;
-}
-
-.properties > :not(.feature) {
-    display: inline;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-
-
-.popup-wrapper .story-text {
     overflow: hidden;
-    position: relative;
-    margin: 15px 3px 21px 1px;
-    line-height: 16px;
-    height: 80px;
-    font-size: 14px;
+    border-radius: 10px;
+    transition: width, left, right 0.2s, 0.2s, 0.2s ease-out;
 }
 
-.main_ul {
-    list-style: none;
-    padding-left: 0px;
-    text-align: left;
-}
-
-    .main_ul ul {
-        display: inline-flex;
-        padding-left: 0px;
+    .popup-wrapper .popup-inner {
+        width: 370px;
+        padding: 15px;
     }
 
-        .main_ul ul li {
-            list-style: none;
-            margin-left: 20px;
+    .popup-wrapper p {
+        text-align: left;
+    }
+
+    .popup-wrapper .story-text {
+        line-height: 16px;
+        font-size: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted #afaeb4;
+    }
+
+.ratings {
+    margin-top: 10px;
+}
+
+.views {
+    line-height: 24px;
+    text-align: right;
+    font-size: 19px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.ratings-bar {
+    height: 2px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+    .ratings-bar .bar-likes {
+        float: left;
+        height: 2px;
+        background: #83bf0a;
+    }
+
+    .ratings-bar .bar-dislikes {
+        float: left;
+        height: 2px;
+        background: #ccc;
+    }
+
+.external-rating {
+    margin-top: 10px;
+}
+
+    .external-rating .rating-name {
+        font-size: 15px;
+        font-weight: 600;
+        margin-left: 30px;
+    }
+
+        .external-rating .rating-name.last {
+            margin-left: 80px;
         }
+
+    .external-rating .icon {
+        float: left;
+        margin-top: -4px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+        .external-rating .icon img {
+            width: 34px;
+            height: 34px;
+            border-radius: 4px;
+        }
+
+.ratings-btn {
+}
+
+    .ratings-btn button {
+        width: 137px;
+        box-sizing: content-box;
+        color: #494949;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: 0;
+        display: inline-block;
+        margin: 0;
+        padding: 6px 14px;
+        border-width: 0;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 20px;
+        font-family: 'PF DinDisplay','Trebuchet MS',Arial;
+        font-size: 16px;
+        text-decoration: none;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        -ms-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+    }
+
+    .ratings-btn i {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-image: url(../Images/likes.png);
+        background-repeat: no-repeat;
+    }
+
+    .ratings-btn .btn-like {
+        margin-right: 5px;
+    }
+
+        .ratings-btn .btn-like i {
+            margin-top: 0px;
+            background-position: 0px 0px;
+        }
+
+        .ratings-btn .btn-like:hover {
+            background: #83bf0a;
+        }
+
+            .ratings-btn .btn-like:hover > i {
+                background-position: -16px 0px;
+            }
+
+    .ratings-btn .btn-dislike i {
+        margin-top: 2px;
+        background-position: 0px -18px;
+    }
+
+    .ratings-btn .btn-dislike:hover {
+        background: #e65050;
+    }
+
+        .ratings-btn .btn-dislike:hover > i {
+            background-position: -16px -18px;
+        }
+
+    .ratings-btn .value {
+        position: relative;
+        background: #fff;
+        margin-left: 30px;
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+        .ratings-btn .value::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 5px solid #fff;
+            position: absolute;
+            left: -5px;
+            top: 4px;
+        }
+
+.popup-triangle {
+    display: none;
+    width: 20px;
+    height: 268px;
+    position: absolute;
+    top: 182px;
+    z-index: 101;
+    transition: left, right 0.2s, 0.2s ease-out;
+}
+
+    .popup-triangle .inner {
+        margin-top: 55px;
+        width: 20px;
+        height: 32px;
+        background: url(../Images/popup_triangle.png);
+        background-repeat: no-repeat;
+        background-position: 6px 0px;
+    }
