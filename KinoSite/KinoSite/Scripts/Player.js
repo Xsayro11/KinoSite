@@ -21,6 +21,15 @@ function MouseOnTimeLine(element) {
         var minutes = parseInt(((time / 60) - (hours * 60)));
         var seconds = parseInt(time - (parseInt((time / 60)) * 60));
 
+        var posX = (Math.ceil(time / 7) * 120);
+        var posY = parseInt(posX / 1200);
+
+        posX = (posX - (posY * 1200));
+        posY = posY * 50;
+
+        $(element).parents('#Player').find('.time_hover').css('background-position-x', "-" + posX + "px");
+        $(element).parents('#Player').find('.time_hover').css('background-position-y', "-" + posY + "px");
+
         $(element).parents('#Player').find('.time_hover span').children('.hours').html(hours);
 
         if ((minutes / 10) < 1) {
@@ -37,7 +46,16 @@ function MouseOnTimeLine(element) {
             $(element).parents('#Player').find('.time_hover span').children('.seconds').html(seconds);
         }
 
-        $(element).parents('#Player').find('.time_hover').css('left', ((event.pageX - offset) - 22));
+        var left = ((event.pageX - offset) - 22);
+
+        if (left < 0) {
+            left = 0;
+        }
+        else if (left > 1020) {
+            left = 1020;
+        }
+
+        $(element).parents('#Player').find('.time_hover').css('left', left);
         $(element).parents('#Player').find('.time_hover').show(0);
     }
 }

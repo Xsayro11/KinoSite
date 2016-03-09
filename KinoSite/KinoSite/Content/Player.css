@@ -83,35 +83,26 @@
 
 .time_hover {
     display: none;
-    width: 49px;
-    height: 19px;
-    border: 1px solid transparent;
+    width: 120px;
+    height: 50px;
     background-color: #1DB200;
     position: absolute;
     bottom: 21px;
     left: 0;
     -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
     text-align: center;
     font-size: 13px;
     color: #fff;
+    background-image: url(../Images/HarryPotter.png);
+    background-repeat: no-repeat;
+    background-size: 1200px 5500px;
+    background-position: 0px 0px;
+    padding-top: 30px;
 }
 
     .time_hover span {
         position: initial;
         display: initial;
-    }
-
-    .time_hover .triangle {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid #1DB200;
-        position: relative;
-        top: 0;
-        left: 17px;
     }
 
 .movie_time {

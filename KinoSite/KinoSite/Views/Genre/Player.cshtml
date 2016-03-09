@@ -6,15 +6,13 @@
            onpause="OnPause(this)" ontimeupdate="OnTimeUpdate(this)"
            onprogress="OnProgress(this)" onended="OnEnded(this)"></video>
     <div class="controls" trigger="0" timer="" timeout="3">
-        <div class="time_line" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)">
+        <div class="time_line" time="0" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)">
             <span class="loaded"></span>
             <span class="current"></span>
             <div class="time_hover" metadata="0">
                 <span>
                     <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
                 </span>
-                <div class="triangle">
-                </div>
             </div>
         </div>
         <div class="left_controls" onmouseout="LeftControlsUnHover(this)">
