@@ -79,28 +79,16 @@ function VolumeClick(element) {
 }
 
 function VolumeHover(element) {
-    var volumeTimeout = parseInt($(element).parents('#Player').find('.volume').attr('timeout'));
-    $(element).parents('#Player').find('.volume_outer').css('width','100px');
-    window.clearTimeout(volumeTimeout);
+    $(element).parents('#Player').find('.volume_outer').css('width', '100px');
 }
 
-function VolumeUnHover(element) {
-    var volumeTimeout = window.setTimeout(hideVolume, 1500, element);
-    $(element).parents('#Player').find('.volume').attr('timeout', volumeTimeout);
-}
+function LeftControlsUnHover(element) {
+    event = event || window.event
+    var related = event.relatedTarget || event.toElement;
 
-function VolumeOuterHover(element) {
-    var volumeTimeout = parseInt($(element).parents('#Player').find('.volume').attr('timeout'));
-    window.clearTimeout(volumeTimeout);
-}
-
-function VolumeOuterUnHover(element) {
-    var volumeTimeout = window.setTimeout(hideVolume, 1500, element);
-    $(element).parents('#Player').find('.volume').attr('timeout', volumeTimeout);
-}
-
-function hideVolume(element) {
-    $(element).parents('#Player').find('.volume_outer').css('width', '0');
+    if (!related || (related !== element && !jQuery.contains(element, related))) {
+        $(element).parents('#Player').find('.volume_outer').css('width', '0');
+    }
 }
 
 function TimeLineClick(element) {
@@ -179,11 +167,11 @@ function PlayerMouseMove(element) {
 
     if ($(element).hasClass('playing')) {
         if (!$(element).hasClass('fullscreen')) {
-            if ($(element).children(".controls").css('bottom') != "35px") {
+            if ($(element).children(".controls").css('bottom') != "51px") {
                 if (trigger == 0) {
                     $(element).children(".controls").stop();
                     $(element).children(".controls").animate({
-                        bottom: "35px"
+                        bottom: "51px"
                     }, {
                         duration: 250,
                         start: function () {
@@ -218,7 +206,14 @@ function PlayerMouseMove(element) {
 }
 
 function hideControls(element) {
-    hideVolume(element);
+    if ($(element).parents('#Player').find('.left_controls').is(':hover')
+    || $(element).parents('#Player').find('.right_controls').is(':hover')) {
+
+        if (!$('.movie_time').is(':hover')) {
+            return;
+        }
+    }
+
     $(element).parents('#Player').find('.time_hover').hide(0);
 
     if ($(element).parents('#Player').hasClass('playing')) {
@@ -357,7 +352,7 @@ function OnEnded(element) {
     $(element).parents('#Player').find('.play').removeClass('pause');
     $(element).parents('#Player').removeClass('playing');
     $(element).parents('#Player').find(".controls").animate({
-        bottom: "35px"
+        bottom: "51px"
     }, 250);
 }
 
@@ -376,7 +371,7 @@ if (document.addEventListener) {
 function fullscreenHandler(event) {
     if ($(event.target).parents('#Player').find('.controls').hasClass('fullscreen_controls')) {
         $(event.target).parents('#Player').find('.time_line').attr('style', '');
-        $(event.target).parents('#Player').find('.controls').attr('style', 'bottom: 35px;');
+        $(event.target).parents('#Player').find('.controls').attr('style', 'bottom: 51px;');
         $(event.target).parents('#Player').find('.controls').removeClass('fullscreen_controls');
     }
     else {
@@ -391,4 +386,40 @@ function fullscreenHandler(event) {
     else {
         $(event.target).parents('#Player').removeClass('fullscreen');
     }
+}
+
+function VolumeOuterMouseMove() {
+    element = $(document.element).children();
+    var video = $(element).parents('#Player').children('video').get(0);
+    var maxLoad = parseInt($(element).css('width'));
+    var offset = parseInt($(element).offset().left);
+    var percentage = (100 / (maxLoad / (event.pageX - offset)));
+    if (percentage >= 100) {
+        percentage = 100;
+    }
+    else if (percentage <= 0) {
+        percentage = 0;
+    }
+
+    $(element).find('.volume_inner').css('width', (percentage + "%"));
+    video.volume = (percentage / 100);
+}
+
+function DocumentMouseUp() {
+    document.removeEventListener("mousemove", VolumeOuterMouseMove, false);
+    document.removeEventListener("mouseup", DocumentMouseUp, false);
+    document.removeEventListener("mousedown", DocumentMouseDown, false);
+    document.removeEventListener("selectstart", DocumentMouseDown, false);
+}
+
+function DocumentMouseDown() {
+    event.preventDefault();
+}
+
+function VolumeBarMouseDown(element) {
+    document.element = element;
+    document.addEventListener("mousemove", VolumeOuterMouseMove, false);
+    document.addEventListener("mouseup", DocumentMouseUp, false);
+    document.addEventListener("mousedown", DocumentMouseDown, false);
+    document.addEventListener("selectstart", DocumentMouseDown, false);
 }

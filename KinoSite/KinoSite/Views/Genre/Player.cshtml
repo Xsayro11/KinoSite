@@ -17,28 +17,34 @@
                 </div>
             </div>
         </div>
-        <div class="play" onclick="OnPlayClick(this)">
-        </div>
-        <div class="volume" volume="100" timeout="" onclick="VolumeClick(this)" onmouseover="VolumeHover(this)" onmouseout="VolumeUnHover(this)">
-        </div>
-        <div class="volume_outer" onmouseover="VolumeOuterHover(this)" onmouseout="VolumeOuterUnHover(this)">
-            <div class="volume_inner">
+        <div class="left_controls" onmouseout="LeftControlsUnHover(this)">
+            <div class="play" onclick="OnPlayClick(this)">
+            </div>
+            <div class="volume" volume="100" timeout="" onclick="VolumeClick(this)" onmouseover="VolumeHover(this)">
+            </div>
+            <div class="volume_bar" onmousedown="VolumeBarMouseDown(this)">
+                <div class="volume_outer">
+                    <div class="volume_inner">
+                    </div>
+                </div>
+            </div>
+            <div class="movie_time">
+                <span class="current_time">
+                    <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+                </span>
+                /
+                <span class="duration">
+                    <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+                </span>
             </div>
         </div>
-        <div class="movie_time">
-            <span class="current_time">
-                <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
-            </span>
-            /
-            <span class="duration">
-                <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
-            </span>
-        </div>
-        <div class="fullscreen_btn enterFullscreen" onclick="FullscreenButtonClick(this)">
+        <div class="right_controls">
+            <div class="fullscreen_btn enterFullscreen" onclick="FullscreenButtonClick(this)">
+            </div>
         </div>
     </div>
 </div>
-<script>
+@*<script>
     $(".volume_outer").slider({
         orientation: "horizontal",
         min: 0,
@@ -67,4 +73,4 @@
             $(this).parents('#Player').find('.volume').attr('volume', ui.value);
         }
     });
-</script>
+</script>*@
