@@ -46,7 +46,7 @@ function MouseOnTimeLine(element) {
             $(element).parents('#Player').find('.time_hover span').children('.seconds').html(seconds);
         }
 
-        var left = ((event.pageX - offset) - 22);
+        var left = ((event.pageX - offset) - 55);
 
         if (left < 0) {
             left = 0;
