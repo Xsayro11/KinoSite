@@ -7,12 +7,12 @@
     /* background-image: url(../Images/body.jpg); */
     /* background-repeat: repeat-x; */
     /* background-color: #f2f2f2 !important; */
-     color: #333 !important;
+    color: #333 !important;
 }
 
 a {
     text-decoration: none !important;
-    color: #494949 !important;
+    color: #333 !important;
     cursor: pointer !important;
     transition: all .11s ease-out !important;
 }
@@ -52,8 +52,9 @@ h1, h2, h3 {
 }
 
     #header video {
-        width: 1130px;
+        width: 1140px;
         height: 520px;
+        object-fit: fill;
     }
 
 .head_menu {
@@ -226,7 +227,7 @@ h1, h2, h3 {
 
 #footer {
     overflow: hidden;
-        background: rgba(0,0,0,1);
+    background: rgba(0,0,0,1);
 }
 
 .foot_menu {

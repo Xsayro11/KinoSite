@@ -1,15 +1,15 @@
 ﻿#Player {
+    position: relative;
     max-height: 520px;
-    background-image: url(../Images/slidebg.png);
 }
 
 .controls {
     width: 100%;
-    height: 46px;
+    height: 34px;
     display: inline-block;
     background-color: black;
     position: relative;
-    bottom: 51px;
+    bottom: 0px;
     z-index: 1;
 }
 
@@ -17,13 +17,17 @@
     float: left;
 }
 
+    .left_controls div {
+        float: left;
+    }
+
 .right_controls {
     float: right;
 }
 
-.left_controls div {
-    float: left;
-}
+    .right_controls div {
+        float: left;
+    }
 
 .fullscreen_controls {
     position: absolute;
@@ -35,35 +39,52 @@
 .play {
     width: 34px;
     height: 34px;
-    background-image: url(../Images/play.png);
-    background-size: cover;
     cursor: pointer;
     margin-left: 40px;
+    padding: 5px;
 }
 
-.pause {
-    background-image: url(../Images/pause.png) !important;
+    .play .inner {
+        width: 24px;
+        height: 24px;
+        background-image: url(../Images/play_pause.png);
+        background-repeat: no-repeat;
+        background-size: 24px;
+    }
+
+#play {
+    background-position: 0px 0px;
+}
+
+#pause {
+    background-position: 0px -30px;
 }
 
 .time_line {
     float: none;
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 12px;
+    height: 5px;
+    bottom: 34px;
     cursor: pointer;
     background: #565860;
+    -moz-transition: height .1s cubic-bezier(0.4,0.0,1,1);
+    -webkit-transition: height .1s cubic-bezier(0.4,0.0,1,1);
+    -ms-transition: height .1s cubic-bezier(0.4,0.0,1,1);
+    transition: height .1s cubic-bezier(0.4,0.0,1,1);
 }
 
     .time_line span {
         position: absolute;
-        top: 0;
+        top: 0px;
         left: 0px;
         display: block;
-        height: 12px;
+        height: 100%;
         cursor: pointer;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
+    }
+
+    .time_line:hover, .hover {
+        height: 8px;
     }
 
 .loaded {
@@ -73,36 +94,50 @@
 
 .current {
     width: 0;
-    background: #90d26a;
-    background: -webkit-linear-gradient(top, #90d26a 0%, #228B22 100%);
-    background: -moz-linear-gradient(top, #90d26a 0%, #228B22 100%);
-    background: -o-linear-gradient(top, #90d26a 0%, #228B22 100%);
-    background: -ms-linear-gradient(top, #90d26a 0%, #228B22 100%);
-    background: linear-gradient(top, #90d26a 0%, #228B22 100%);
+    background-color: #83bf0a;
 }
+
+    .current .indicator {
+        background-color: #fff;
+        width: 15px;
+        height: 15px;
+        border-radius: 10px;
+        left: 95%;
+        top: -5px;
+    }
 
 .time_hover {
     display: none;
-    width: 120px;
-    height: 50px;
+    width: 122px;
+    height: 52px;
     background-color: #1DB200;
     position: absolute;
-    bottom: 21px;
+    bottom: 50px;
     left: 0;
     -moz-border-radius: 4px;
     text-align: center;
     font-size: 13px;
     color: #fff;
-    background-image: url(../Images/HarryPotter.jpg);
+    background-image: url(../Images/panoram.jpg);
     background-repeat: no-repeat;
     background-position: 0px 0px;
     padding-top: 30px;
+    border: 1px solid #fff;
+    border-radius: 2px;
 }
 
     .time_hover span {
         position: initial;
         display: initial;
     }
+
+.show-time-line {
+    display: none;
+    position: absolute;
+    width: 120px;
+    height: 10px;
+    bottom: 5px;
+}
 
 .movie_time {
     height: 34px;
@@ -114,34 +149,40 @@
 .volume {
     width: 34px;
     height: 34px;
-    background-image: url(../Images/volume_100.png);
     cursor: pointer;
-    background-size: 25px;
-    background-repeat: no-repeat;
-    background-position: 50%;
     margin-left: 20px;
+    padding: 5px;
 }
 
+    .volume .inner {
+        width: 24px;
+        height: 25px;
+        background-image: url(../Images/volume.png);
+        background-size: 24px;
+        background-repeat: no-repeat;
+    }
+
 #volume_100 {
-    background-image: url(../Images/volume_100.png) !important;
+    background-position: 0px 0px;
 }
 
 #volume_66 {
-    background-image: url(../Images/volume_66.png) !important;
+    background-position: 0px -24px;
 }
 
 #volume_33 {
-    background-image: url(../Images/volume_33.png) !important;
+    background-position: 0px -48px;
 }
 
 #muted {
-    background-image: url(../Images/volume_muted.png) !important;
+    background-position: 0px -72px;
 }
 
 .volume_bar {
     height: 34px;
     padding: 14px 0;
-    margin: 0 14px;
+    margin-left: 5px;
+    margin-right: 12px;
     cursor: pointer;
 }
 
@@ -159,8 +200,11 @@
 
     .volume_bar .volume_inner {
         background-color: #83bf0a;
-        width: 33%;
+        width: 100%;
         height: 100%;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
     }
 
 .ui-slider-range {
@@ -179,13 +223,66 @@
     border-radius: 4px;
 }
 
+.options {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+    .options .inner {
+        width: 24px;
+        height: 24px;
+        background-image: url(../Images/options.png);
+        background-repeat: no-repeat;
+        background-size: 24px;
+    }
+
 .fullscreen_btn {
     width: 34px;
     height: 34px;
-    background-image: url(../Images/fullscreen.png);
     cursor: pointer;
-    background-size: cover;
+    padding: 5px;
+    margin-right: 40px;
 }
+
+    .fullscreen_btn .inner {
+        width: 24px;
+        height: 24px;
+        background-image: url(../Images/fullscreen.png);
+        background-repeat: no-repeat;
+        background-size: 24px;
+    }
+
+#enter {
+    background-position: 0px 0px;
+}
+
+#exit {
+    background-position: 0px -30px;
+}
+
+.play_poster {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    background-image: url(../Images/play_poster.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: .85;
+    visibility: visible;
+    transition: opacity, visibility .11s, .11s ease-out;
+    z-index: 2147483647;
+}
+
+    .play_poster:hover {
+        opacity: 1;
+    }
 
 video::-webkit-media-controls-enclosure {
     display: none !important;

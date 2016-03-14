@@ -1,26 +1,33 @@
 ﻿@model string
 
-<div id="Player" ondblclick="PlayerDoubleClick(this)" onmousemove="PlayerMouseMove(this)">
-    <video id="video" src="@Model" preload="none"
-           onloadeddata="OnLoadedMetaData(this)" onplay="OnPlay(this)"
+<div id="Player" duration="209" timer="" clicks="0" delay="300" onmousemove="PlayerMouseMove(this)">
+    <video id="video" src="@Model" preload="metadata" onclick="OnVideoClick(this)"
+           onloadedmetadata="OnLoadedMetadata(this)" onplay="OnPlay(this)"
            onpause="OnPause(this)" ontimeupdate="OnTimeUpdate(this)"
            onprogress="OnProgress(this)" onended="OnEnded(this)"></video>
     <div class="controls" trigger="0" timer="" timeout="3">
-        <div class="time_line" time="0" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)">
+        <div class="time_line" time="0" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)" onmousedown="TimeLineMouseDown(this)">
             <span class="loaded"></span>
-            <span class="current"></span>
-            <div class="time_hover" metadata="0">
-                <span>
-                    <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
-                </span>
+            <span class="current">
+                <span class="indicator"></span>
+            </span>
+            <div class="show-time-line">
+
             </div>
+        </div>
+        <div class="time_hover" metadata="0">
+            <span>
+                <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+            </span>
         </div>
         <div class="left_controls" onmouseout="LeftControlsUnHover(this)">
             <div class="play" onclick="OnPlayClick(this)">
+                <div class="inner"></div>
             </div>
             <div class="volume" volume="100" timeout="" onclick="VolumeClick(this)" onmouseover="VolumeHover(this)">
+                <div class="inner"></div>
             </div>
-            <div class="volume_bar" onmousedown="VolumeBarMouseDown(this)">
+            <div class="volume_bar" onclick="VolumeBarClick(this)" onmousedown="VolumeBarMouseDown(this)">
                 <div class="volume_outer">
                     <div class="volume_inner">
                     </div>
@@ -32,43 +39,19 @@
                 </span>
                 /
                 <span class="duration">
-                    <span class="hours">0</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+                    <span class="hours">0</span>:<span class="minutes">03</span>:<span class="seconds">28</span>
                 </span>
             </div>
         </div>
         <div class="right_controls">
+            <div class="options">
+                <div class="inner"></div>
+            </div>
             <div class="fullscreen_btn enterFullscreen" onclick="FullscreenButtonClick(this)">
+                <div class="inner"></div>
             </div>
         </div>
     </div>
+    <div class="play_poster" onclick="OnPlayClick(this)">
+    </div>
 </div>
-@*<script>
-    $(".volume_outer").slider({
-        orientation: "horizontal",
-        min: 0,
-        max: 100,
-        value: 100,
-        range: "min",
-        animate: true,
-        slide: function (event, ui) {
-            var video = $(this).parents('#Player').children('video').get(0);
-            video.muted = false;
-            video.volume = (ui.value / 100);
-
-            if (ui.value > 66) {
-                $(this).parents('#Player').find('.volume').attr('id', 'volume_100');
-            }
-            else if (ui.value > 33) {
-                $(this).parents('#Player').find('.volume').attr('id', 'volume_66');
-            }
-            else if (ui.value > 0) {
-                $(this).parents('#Player').find('.volume').attr('id', 'volume_33');
-            }
-            else {
-                $(this).parents('#Player').find('.volume').attr('id', 'muted');
-            }
-
-            $(this).parents('#Player').find('.volume').attr('volume', ui.value);
-        }
-    });
-</script>*@

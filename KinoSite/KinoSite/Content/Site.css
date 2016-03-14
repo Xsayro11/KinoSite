@@ -383,20 +383,7 @@
     }
 
     .post_image:hover > .image::after {
-        content: 'Смотреть бесплатно';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: rgba(0,0,0,0.7);
-        background-image: url(../Images/play_poster_hover.png);
-        background-position: 50% 35%;
-        background-repeat: no-repeat;
-        font-size: 20px;
-        color: #1DA331;
-        padding-top: 155px;
+        opacity: 1;
     }
 
     .post_image .image {
@@ -413,9 +400,14 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: rgba(0,0,0,0);
-            transition: background-color .11s ease-out;
+            background-color: rgba(0,0,0,0.7);
+            background-image: url(../Images/play_poster.png);
+            background-size: 70px;
+            background-repeat: no-repeat;
+            background-position: 50%;
             border-radius: 3px;
+            opacity: 0;
+            transition: opacity .11s ease-out;
         }
 
     .post_image a {

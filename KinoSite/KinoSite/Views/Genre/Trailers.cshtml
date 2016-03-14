@@ -1,15 +1,23 @@
 ﻿<div class="trailers_section">
-    @for(int i = 0; i < 5; i++)
+    @for (int i = 0; i < 5; i++)
     {
         <div class="trailer_details">
-            <h2><a>Трейлер</a></h2>
+            <h2>Трейлер</h2>
             <div class="views"></div>
             <div class="time_added">
+                3 ФЕВРАЛЯ 2016
             </div>
         </div>
         <div class="trailer_video">
             @Html.Partial("~/Views/Genre/Player.cshtml", "http://www.w3schools.com/html/mov_bbb.mp4")
         </div>
-        <div class="hide_player_controls"></div>
+        if (i == 4)
+        {
+            <div class="hide_player_controls last"></div>
+        }
+        else
+        {
+            <div class="hide_player_controls"></div>
+        }
     }
 </div>
