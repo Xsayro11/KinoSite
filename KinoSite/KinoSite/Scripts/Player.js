@@ -267,6 +267,7 @@ function TimeLineMouseDown(element) {
     }
 
     $(element).addClass('hover');
+    $(element).parents('#Player').find('.indicator').addClass('hover');
     document.element = element;
     document.addEventListener("mousemove", TimeLineMouseMove, false);
     document.addEventListener("mouseup", DocumentMouseUp, false);
@@ -615,6 +616,7 @@ function DocumentMouseUp() {
         $(leftControls).attr('id', '');
     }
     else {
+        $(element).parents('#Player').find('.indicator').removeClass('hover');
         $(element).removeClass('hover');
         $(element).parents('#Player').find('.time_hover').hide(0);
 

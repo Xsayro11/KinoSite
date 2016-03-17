@@ -83,9 +83,15 @@
         cursor: pointer;
     }
 
-    .time_line:hover, .hover {
+    .time_line:hover, .time_line.hover {
         height: 8px;
     }
+
+        .time_line:hover > .current .indicator, .current .indicator.hover {
+            -ms-transform: scale(1,1);
+            -webkit-transform: scale(1,1);
+            transform: scale(1,1);
+        }
 
 .loaded {
     width: 0;
@@ -98,12 +104,21 @@
 }
 
     .current .indicator {
+        position: relative;
+        float: right;
         background-color: #fff;
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
         border-radius: 10px;
-        left: 95%;
+        left: 8px;
         top: -5px;
+        -ms-transform: scale(0,0);
+        -webkit-transform: scale(0,0);
+        transform: scale(0,0);
+        -moz-transition: width, height .1s, .1s cubic-bezier(0.4,0.0,1,1);
+        -webkit-transition: width, height .1s, .1s cubic-bezier(0.4,0.0,1,1);
+        -ms-transition: width, height .1s, .1s cubic-bezier(0.4,0.0,1,1);
+        transition: width, height .1s, .1s cubic-bezier(0.4,0.0,1,1);
     }
 
 .time_hover {
