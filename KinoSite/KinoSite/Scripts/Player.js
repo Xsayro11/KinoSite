@@ -481,7 +481,7 @@ if (document.addEventListener) {
 }
 
 function fullscreenHandler(event) {
-    if ($(event.target).parents('.player').find('.controls').hasClass('fullscreen_controls')) {
+    if ($(event.target).parents('.player').find('.controls').hasClass('fullscreen')) {
         $(event.target).parents('.player').find('.controls').removeClass('fullscreen');
         $(event.target).parents('.player').find('.play_poster').removeClass('fullscreen');
         $(event.target).parents('.player').find('.fullscreen_btn .inner').attr('id', 'enter');

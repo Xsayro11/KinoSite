@@ -105,6 +105,7 @@
     <Content Include="Images\arrow-down.png" />
     <Content Include="Images\arrow-selected.png" />
     <Content Include="Images\arrow-up.png" />
+    <Content Include="Images\arrows.png" />
     <Content Include="Images\bg-li-a-hover.png" />
     <Content Include="Images\bg-li-a.png" />
     <Content Include="Images\bg.jpg" />
@@ -118,27 +119,38 @@
     <Content Include="Images\facebook.png" />
     <Content Include="Images\fullscreen.png" />
     <Content Include="Images\gallery-icon.png" />
+    <Content Include="Images\HarryPotter.jpg" />
     <Content Include="Images\home-icon.png" />
     <Content Include="Images\imdb-icon.png" />
     <Content Include="Images\kinopoisk-icon.png" />
     <Content Include="Images\left_row_slider.png" />
+    <Content Include="Images\likes.png" />
     <Content Include="Images\limb.jpg" />
     <Content Include="Images\line_menu.png" />
     <Content Include="Images\loop.png" />
     <Content Include="Images\menu-activ.png" />
     <Content Include="Images\menu-dropdown-figure.png" />
     <Content Include="Images\menu-fon.png" />
+    <Content Include="Images\options.png" />
+    <Content Include="Images\panoram.jpg" />
     <Content Include="Images\pause.png" />
     <Content Include="Images\play.png" />
+    <Content Include="Images\player_bg.jpg" />
+    <Content Include="Images\play_pause.png" />
+    <Content Include="Images\play_poster.png" />
     <Content Include="Images\play_poster_hover.png" />
+    <Content Include="Images\popup_triangle.png" />
     <Content Include="Images\portfolio-icon.png" />
     <Content Include="Images\right_row_slider.png" />
+    <Content Include="Images\search.png" />
     <Content Include="Images\slidebg.png" />
     <Content Include="Images\slider-image.jpg" />
     <Content Include="Images\star.png" />
     <Content Include="Images\star_active.png" />
     <Content Include="Images\twitter.png" />
+    <Content Include="Images\video_poster.jpg" />
     <Content Include="Images\vk.png" />
+    <Content Include="Images\volume.png" />
     <Content Include="Images\volume_100.png" />
     <Content Include="Images\volume_33.png" />
     <Content Include="Images\volume_66.png" />
@@ -152,6 +164,7 @@
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Player.js" />
+    <Content Include="Video\GESAFFELSTEIN-PURSUIT.mp4" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
