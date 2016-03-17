@@ -1,4 +1,4 @@
-﻿#Player {
+﻿.player {
     position: relative;
     max-height: 520px;
 }
@@ -8,8 +8,9 @@
     height: 34px;
     display: inline-block;
     background-color: black;
-    position: relative;
-    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    bottom: -39px;
     z-index: 1;
 }
 
@@ -29,10 +30,7 @@
         float: left;
     }
 
-.fullscreen_controls {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
+.fullscreen {
     z-index: 2147483647;
 }
 
@@ -292,7 +290,6 @@
     opacity: .85;
     visibility: visible;
     transition: opacity, visibility .11s, .11s ease-out;
-    z-index: 2147483647;
 }
 
     .play_poster:hover {
