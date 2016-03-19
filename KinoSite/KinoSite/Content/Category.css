@@ -12,9 +12,8 @@
    padding: 10px;
 }
 
-
-.category_content img{
-    width: 250px;
-    height: 361px;
-    float:left;
+.category_films {
+    overflow: hidden;
+    width: 93%;
+    margin-left: 55px;
 }
