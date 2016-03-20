@@ -12,9 +12,41 @@
    padding: 10px;
 }
 
+.category_films {
+    overflow: hidden;
+    width: 93%;
+    margin-left: 55px;
+}
 
-.category_content img{
-    width: 250px;
-    height: 361px;
+.advenced-search{
+    overflow:hidden;
+    font-size:13pt;
+}
+
+#category{
+    color: #05677c;
+    font-size: 22pt;
+}
+
+#criterii {
+    margin-top:0;
+    margin-bottom:0;
+    font-size: 26px;
+      font-family: "Arial";
+      color: rgb(60, 196, 248);
+      margin-left: 187px;
+}
+
+.advenced-search ul{
+    list-style: none;
+    overflow: hidden;
+    float:right;
+    margin-top: 12px;
+}
+
+.advenced-search ul li{
+    margin-right: 55px;
     float:left;
+    height: 37px;
+    cursor: pointer;
 }

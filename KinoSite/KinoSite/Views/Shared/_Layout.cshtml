@@ -17,7 +17,7 @@
                 <div class="triangle"></div>
                 <ul>
                     <li><a>Главная</a></li>
-                    <li><a>Фильмы</a></li>
+                    <li><a href="~/Genre/Category.cshtml">Фильмы</a></li>
                     <li><a>Сериалы</a></li>
                     <li><a>Мультфильмы</a></li>
                 </ul>
@@ -93,6 +93,8 @@
         }
     }
     <script>
+
+
         $('.post_image').hover(function () {
             var popup = $(this).parents('.post').children('.popup-wrapper');
             var popupTriangle = $(this).parents('.post').children('.popup-triangle');
