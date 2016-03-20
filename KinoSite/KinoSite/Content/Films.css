@@ -51,12 +51,6 @@ h1, h2, h3 {
     padding-top: 50px;
 }
 
-    #header video {
-        width: 1140px;
-        height: 520px;
-        object-fit: fill;
-    }
-
 .head_menu {
     position: fixed;
     top: 0;

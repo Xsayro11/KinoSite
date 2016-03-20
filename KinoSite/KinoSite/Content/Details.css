@@ -5,17 +5,17 @@
     clear: both;
 }
 
-.left_section {
+.post .left_section {
     float: left;
     width: 75%;
 }
 
-.right_section {
+.post .right_section {
     float: right;
     width: 25%;
 }
 
-    .right_section div {
+    .post .right_section div {
         height: 400px;
         margin-left: 20px;
         margin-bottom: 30px;
@@ -339,7 +339,7 @@
 
             .comments_container ul li a {
                 position: relative;
-                bottom: 20px;
+                bottom: 45px;
                 font-size: 16px;
                 text-decoration: none;
             }
@@ -369,10 +369,16 @@
     color: white;
     border: 1px solid white;
     width: 50%;
+    height: 40px;
     margin: auto;
     margin-top: 25px;
     cursor: pointer;
 }
+
+    .more_comments h5 {
+        text-align: center;
+        margin: 13px;
+    }
 
 /*End section*/
 
@@ -400,7 +406,7 @@
 
     .review_user a {
         position: relative;
-        bottom: 20px;
+        bottom: 45px;
         font-size: 16px;
         text-decoration: none;
     }
@@ -495,21 +501,6 @@
         background-repeat: no-repeat;
         background-position: 0 1px;
         margin: 8px 0px;
-    }
-
-.trailer_video {
-    height: 454px;
-}
-
-    .trailer_video #Player {
-        margin-top: 0;
-        background-image: none;
-        height: 100%;
-    }
-
-    .trailer_video video {
-        width: 100%;
-        height: 100%;
     }
 
 .hide_player_controls {

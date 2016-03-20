@@ -166,6 +166,7 @@ function VolumeClick(element) {
 
 function VolumeHover(element) {
     $(element).parents('.player').find('.volume_outer').css('width', '100px');
+    $(element).parents('.player').find('.volume_inner .indicator').addClass('hover');
 }
 
 function LeftControlsUnHover(element) {
@@ -174,6 +175,7 @@ function LeftControlsUnHover(element) {
 
     if (!related || (related !== element && !jQuery.contains(element, related) && element.id != "volume_hover")) {
         $(element).parents('.player').find('.volume_outer').css('width', '0');
+        $(element).parents('.player').find('.volume_inner .indicator').removeClass('hover');
     }
 }
 
@@ -267,7 +269,7 @@ function TimeLineMouseDown(element) {
     }
 
     $(element).addClass('hover');
-    $(element).parents('.player').find('.indicator').addClass('hover');
+    $(element).parents('.player').find('.current .indicator').addClass('hover');
     document.element = element;
     document.addEventListener("mousemove", TimeLineMouseMove, false);
     document.addEventListener("mouseup", DocumentMouseUp, false);
@@ -577,12 +579,13 @@ function DocumentMouseUp() {
 
         if (!related || (related !== leftControls && !jQuery.contains(leftControls, related))) {
             $(element).parents('.player').find('.volume_outer').css('width', '0');
+            $(element).parents('.player').find('.volume_inner .indicator').removeClass('hover');
         }
 
         $(leftControls).attr('id', '');
     }
     else {
-        $(element).parents('.player').find('.indicator').removeClass('hover');
+        $(element).parents('.player').find('.current .indicator').removeClass('hover');
         $(element).removeClass('hover');
         $(element).parents('.player').find('.time_hover').hide(0);
 

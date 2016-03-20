@@ -1,19 +1,13 @@
-﻿.head_slaider {
-    height: 520px;
-    font-size: 0;
+﻿.slaider {
     position: relative;
-    text-align: center;
-    background: transparent;
 }
 
-    .head_slaider .carousel-control {
+    .slaider .slider-control {
         width: 50px;
         z-index: 100;
         height: 80px;
-        top: 210px;
-        opacity: 0;
-        margin-left: 100px;
-        margin-right: 100px;
+        top: 120px;
+        opacity: 1;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -24,65 +18,105 @@
         transition: background-color 0.11s linear, opacity 0.11s linear;
     }
 
-    .head_slaider:hover > .carousel-control, .head_slaider:hover > .carousel-control i {
-        opacity: 1;
-    }
+        .slaider .slider-control:hover {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            background-color: #797979;
+            background-color: rgba(0,0,0,0.5);
+        }
 
-    .head_slaider .carousel-control:hover {
-        background-color: #797979;
-        background-color: rgba(0,0,0,0.5);
-    }
-
-    .head_slaider .carousel-control.left {
-        background-image: none;
-        background-repeat: no-repeat;
-        filter: unset;
-    }
-
-    .head_slaider .carousel-control.right {
-        background-image: none;
-        background-repeat: no-repeat;
-        filter: unset;
-    }
-
-    .head_slaider i.left_row {
-        width: 25px;
-        height: 40px;
+    .slaider .left-side-arrow {
         position: absolute;
         top: 20px;
         left: 10px;
-        background-image: url(../Images/arrows.png);
-        background-position: 0px 0px;
-        background-size: 110px 40px;
-        background-repeat: no-repeat;
-        opacity: 0;
-        -webkit-transition: opacity 0.11s linear;
-        -moz-transition: opacity 0.11s linear;
-        -ms-transition: opacity 0.11s linear;
-        -o-transition: opacity 0.11s linear;
-        transition: opacity 0.11s linear;
-    }
-
-    .head_slaider img.slider-image {
-        /*width: 1000px;
-        margin-top: 40px;
-        margin-left: 65px;*/
-    }
-
-    .head_slaider i.right_row {
         width: 25px;
         height: 40px;
+        background-image: url(../Images/arrows.png);
+        background-position: -58px 0px;
+        background-size: 110px 40px;
+        background-repeat: no-repeat;
+    }
+
+    .slaider .slider-control:hover > .left-side-arrow {
+        background-position: 0px 0px;
+    }
+
+    .slaider .right-side-arrow {
         position: absolute;
         top: 20px;
         right: 10px;
+        width: 25px;
+        height: 40px;
         background-image: url(../Images/arrows.png);
-        background-position: -30px 0px;
+        background-position: -85px 0px;
         background-size: 110px 40px;
         background-repeat: no-repeat;
-        opacity: 0;
-        -webkit-transition: opacity 0.11s linear;
-        -moz-transition: opacity 0.11s linear;
-        -ms-transition: opacity 0.11s linear;
-        -o-transition: opacity 0.11s linear;
-        transition: opacity 0.11s linear;
+    }
+
+    .slaider .slider-control:hover > .right-side-arrow {
+        background-position: -30px 0px;
+    }
+
+    .slaider > .left {
+        position: absolute;
+        top: 115px;
+        left: 0;
+    }
+
+    .slaider > .right {
+        position: absolute;
+        top: 115px;
+        right: 0;
+    }
+
+.slider-inner {
+    position: relative;
+    width: 1415px;
+    overflow: hidden;
+    margin: auto;
+}
+
+    .slider-inner > .item {
+        position: relative;
+        display: none;
+        -webkit-transition: 0.6s ease-in-out left;
+        transition: 0.6s ease-in-out left;
+    }
+
+    .slider-inner > .active,
+    .slider-inner > .next,
+    .slider-inner > .prev {
+        display: block;
+    }
+
+    .slider-inner > .active {
+        left: 0;
+    }
+
+    .slider-inner > .next,
+    .slider-inner > .prev {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .slider-inner > .next {
+        left: 100%;
+    }
+
+    .slider-inner > .prev {
+        left: -100%;
+    }
+
+        .slider-inner > .next.left,
+        .slider-inner > .prev.right {
+            left: 0;
+        }
+
+    .slider-inner > .active.left {
+        left: -100%;
+    }
+
+    .slider-inner > .active.right {
+        left: 100%;
     }

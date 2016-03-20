@@ -4,198 +4,197 @@
 
 @section Styles{
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/HeadSlaider.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Slaider.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/PopupMenu.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 }
 
 @section Scripts{
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/Slaider.js"></script>
 }
 
 @section Slaider {
-    <div id="HeadSlaider" class="head_slaider carousel slide">
-        <a class="left carousel-control" href="#HeadSlaider" data-slide="prev">
+    <div class="head_slaider" slide="false">
+        <a class="left control" onclick="OnLeftClick(this)">
             <i class="left_row"></i>
         </a>
 
-        <div class="carousel-inner">
-            <img class="slider-image item active" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
-            <img class="slider-image item" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
-            <img class="slider-image item" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
+        <div class="inner">
+            <img class="item active" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
+            <img class="item" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
+            <img class="item" src="http://s5.vcdn.biz/static/f/657890351/image.jpg" />
         </div>
 
-        <a class="right carousel-control" href="#HeadSlaider" data-slide="next">
+        <a class="right control" onclick="OnRightClick(this)">
             <i class="right_row"></i>
         </a>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('#HeadSlaider').carousel({ interval: 3000 });
-        });
-    </script>
 }
 
 @for (int i = 0; i < 3; i++)
 {
-    string slaiderId = "PostSlaider_" + i;
-
     <div class="name">
         @Html.ActionLink("Фильмы", "Index", "Genre")
     </div>
-    <div id="@slaiderId" class="post carousel slide" data-interval="0" data-pause="false" timeout="">
+    <div class="post slaider" timer="" slide="false" hover="false">
 
-        <a class="left carousel-control" href="#@slaiderId" data-slide="prev">
+        <a class="left slider-control" onclick="OnLeftClick(this)">
             <i class="left-side-arrow"></i>
         </a>
 
-        <div class="carousel-inner">
-            <div class="post_images item active">
-                <div class="post_image 1">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+        <div class="slider-inner">
+            @for (int j = 0; j < 3; j++)
+            {
+                if (j != 0)
+                {
+                    <div class="post_images item">
+                        <div class="post_image 1">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 2">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 3">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 4">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 5">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 6 last">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
                     </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 2">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                }
+                else
+                {
+                    <div class="post_images item active">
+                        <div class="post_image 1">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 2">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 3">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 4">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 5">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
+                        <div class="post_image 6 last">
+                            <div class="image">
+                                <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
+                            </div>
+                            <span class="movie-name">Дневник девочки-подростка</span>
+                            <br>
+                            <span class="year-country">2016, США</span>
+                            <br>
+                            <span class="genres">Боевик, Комедия, Триллер</span>
+                            <a href="~/Genre/Details"></a>
+                        </div>
                     </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 3">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 4">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 5">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 6 last">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-            </div>
-
-            <div class="post_images item">
-                <div class="post_image 1">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 2">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 3">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 4">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 5">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-                <div class="post_image 6 last">
-                    <div class="image">
-                        <img src="~/Images/dnevnikdevochkipodrostka.jpg" />
-                    </div>
-                    <span class="movie-name">Дневник девочки-подростка</span>
-                    <br>
-                    <span class="year-country">2016, США</span>
-                    <br>
-                    <span class="genres">Боевик, Комедия, Триллер</span>
-                    <a href="~/Genre/Details"></a>
-                </div>
-            </div>
+                }
+            }
         </div>
 
-        <a class="right carousel-control" href="#@slaiderId" data-slide="next">
+        <a class="right slider-control" onclick="OnRightClick(this)">
             <i class="right-side-arrow"></i>
         </a>
-
-        <div class="popup-wrapper top right">
+        <div class="popup-wrapper">
             <div class="popup-inner">
                 <div class="story-text">
                     Короткометражный мультик Disney, созданный по мотивам суперхита «Холодное сердце». В день рождения Анны Эльза решает сделать сестре сюрприз. Но устроить праздник оказывается не так-то просто.
