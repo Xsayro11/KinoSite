@@ -14,10 +14,9 @@
             <i class="icon-hover"></i>
             <span>Меню</span>
             <div class="dropdown_menu">
-                <div class="triangle"></div>
                 <ul>
-                    <li><a>Главная</a></li>
-                    <li><a href="~/Genre/Category.cshtml">Фильмы</a></li>
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Фильмы", "Category", "Genre")</li>
                     <li><a>Сериалы</a></li>
                     <li><a>Мультфильмы</a></li>
                 </ul>
@@ -26,13 +25,12 @@
         <div class="logo">
         </div>
         <div class="search">
-            <input type="text" />
-            <button class="search-btn"></button>
+            <input type="text" placeholder="Поиск" />
+            <span class="search-img"></span>
         </div>
         <div class="profile">
             <div class="profile_name">Юлиан</div>
             <img class="profile_img" src="https://pp.vk.me/c618922/v618922599/102d4/7e3XfCemiMQ.jpg">
-            <div class="profile_arrow"></div>
         </div>
     </div>
     @{

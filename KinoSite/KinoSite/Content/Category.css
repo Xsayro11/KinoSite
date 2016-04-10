@@ -5,11 +5,11 @@
     overflow: hidden;
 }
 
-.post_category{
-   width: 270px;
-   float: left;
-   text-align: center;
-   padding: 10px;
+.post_category {
+    width: 270px;
+    float: left;
+    text-align: center;
+    padding: 10px;
 }
 
 .category_films {
@@ -18,35 +18,50 @@
     margin-left: 55px;
 }
 
-.advenced-search{
-    overflow:hidden;
-    font-size:13pt;
+.advenced-search {
+    overflow: hidden;
+    font-size: 13pt;
 }
 
-#category{
+#category {
     color: #05677c;
     font-size: 22pt;
 }
 
 #criterii {
-    margin-top:0;
-    margin-bottom:0;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 26px;
-      font-family: "Arial";
-      color: rgb(60, 196, 248);
-      margin-left: 187px;
+    font-family: "Arial";
+    color: rgb(60, 196, 248);
+    margin-left: 187px;
 }
 
-.advenced-search ul{
+.advenced-search ul {
     list-style: none;
     overflow: hidden;
-    float:right;
+    float: left;
     margin-top: 12px;
 }
 
-.advenced-search ul li{
-    margin-right: 55px;
-    float:left;
-    height: 37px;
-    cursor: pointer;
+    .advenced-search ul li {
+        margin-right: 55px;
+        float: left;
+        height: 37px;
+    }
+
+.filter {
+    position: relative;
 }
+
+    .filter i {
+        position: absolute;
+        background-image: url(../Images/filter-arrows.png);
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: 0px -9px;
+        width: 10px;
+        height: 8px;
+        top: 10px;
+        left: 65px;
+    }

@@ -483,9 +483,21 @@
 .trailers_section {
 }
 
+    .trailers_section .player {
+        max-height: 454px;
+    }
+
 .trailer_details {
-    height: 65px;
+    height: 20px;
+    position: relative;
+    bottom: 85px;
+    z-index: 3;
 }
+
+    .trailer_details.last {
+        height: 0px;
+        bottom: 55px;
+    }
 
     .trailer_details h2 {
         margin-top: 0;
@@ -505,7 +517,7 @@
 
 .hide_player_controls {
     position: relative;
-    height: 39px;
+    height: 60px;
     background-color: #eae9ef;
     z-index: 2;
     border-bottom: 1px dotted #afaeb4;
