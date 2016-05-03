@@ -1,0 +1,214 @@
+﻿<div class="stills_section">
+    <h1>Кадры из фильма</h1>
+    <ul class="stills">
+        @for (int i = 0; i < 42; i++)
+        {
+            var id = "still_" + i.ToString();
+            var src = "/Images/Titanic/Stills/Preview/" + id + ".jpg";
+            <li><a><img id="@id" src="@src" /></a></li>
+        }
+    </ul>
+    <script>
+        $(document).ready(function () {
+            var footer = $('.gallery-footer').get(0);
+
+            if (footer.children.length <= 0) {
+                var stills = $('.stills').find('img').get();
+
+                stills.forEach(function (still) {
+                    $('.gallery-footer').append('<span>' + still.outerHTML + '</span>');
+                });
+            }
+        })
+
+        var currentStill;
+        var prevStill;
+        var nextStill;
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var animating = false;
+
+        $(window).resize(function () {
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        });
+
+        $('.stills li a').click(function () {
+            var still = $(this).children('img').get(0);
+
+            SetActive(still);
+            SetPrevAndNextImages(still);
+
+            $('body').addClass('no_scroll');
+            $('.gallery-overlay').show();
+            $('.gallery-wrapper').show();
+            $('.gallery-overlay').animate({
+                "opacity": "0.9"
+            }, 200, function () {
+                $('.gallery-wrapper').animate({
+                    "opacity": "1"
+                }, 200);
+            });
+        })
+
+        $('.gallery-wrapper').click(function () {
+            $('.gallery-center').html("");
+            $('.gallery-prev').html("");
+            $('.gallery-next').html("");
+
+            $('.gallery-wrapper').animate({
+                "opacity": "0"
+            }, 200, function () {
+                $('.gallery-overlay').animate({
+                    "opacity": "0"
+                }, 200, function () {;
+                    $('.gallery-wrapper').hide();
+                    $('.gallery-overlay').hide();
+                    $('body').removeClass('no_scroll');
+                })
+            });
+        }).find('.gallery-footer').click(function () {
+            return false;
+        })
+
+        $('.gallery-left').click(function () {
+            if (!animating) {
+                animating = true;
+
+                SetActive(prevStill);
+                ShowPrev();
+            }
+
+            return false;
+        })
+
+        $('.gallery-right').click(function () {
+            if (!animating) {
+                animating = true;
+
+                SetActive(nextStill);
+                ShowNext();
+            }
+
+            return false;
+        })
+
+        $('.gallery-footer span').click(function () {
+            if (!animating) {
+                animating = true;
+
+                $('.gallery-footer span.active').removeClass('active');
+                $(this).addClass('active');
+
+                var showStill = $(this).children('img').get(0);
+
+                var showIndex = parseInt(showStill.id.replace(/^\D+/g, ""));
+                var currentIndex = parseInt(currentStill.id.replace(/^\D+/g, ""));
+
+                if (showIndex > currentIndex) {
+                    $('.gallery-next').html("");
+                    $('.gallery-next').append(showStill.outerHTML.replace("Preview/", ""));
+
+                    nextStill = $('.gallery-next').children('img').get(0);
+
+                    $(nextStill).on('load', function () {
+                        ShowNext();
+                    });
+                }
+                else if (showIndex < currentIndex) {
+                    $('.gallery-prev').html("");
+                    $('.gallery-prev').append(showStill.outerHTML.replace("Preview/", ""));
+
+                    prevStill = $('.gallery-prev').children('img').get(0);
+
+                    $(prevStill).on('load', function () {
+                        ShowPrev();
+                    });
+                }
+            }
+
+            return false;
+        })
+
+        function SetActive(img) {
+            $('.gallery-footer span.active').removeClass('active');
+            $('.gallery-footer span img#' + img.id).parent().addClass('active');
+        }
+
+        function ShowPrev() {
+            var left = ($(window).width() + (0.5 * $(currentStill).width())) + "px";
+            var scrollLeft = ((width / 2) - ($(prevStill).width() / 2));
+
+            $(currentStill).animate({
+                "left": left
+            }, 500);
+
+            $(prevStill).animate({
+                "left": scrollLeft
+            }, 500, function () {
+                SetPrevAndNextImages(prevStill);
+                still = $('.gallery-center').children('img').get(0);
+                $(still).css('left', "50%");
+                animating = false;
+            });
+        }
+
+        function ShowNext() {
+            var left = "-" + ($(currentStill).width() + 1) + "px";
+            var scrollRight = "-" + ((((width / 2) - ($(nextStill).width() / 2))) + $(nextStill).width()) + "px";
+
+            $(currentStill).animate({
+                "left": left
+            }, 500);
+
+            $(nextStill).animate({
+                "left": scrollRight
+            }, 500, function () {
+                SetPrevAndNextImages(nextStill);
+                still = $('.gallery-center').children('img').get(0);
+                $(still).css('left', "50%");
+                animating = false;
+            });
+        }
+
+        function SetPrevAndNextImages(img) {
+            $('.gallery-center').html("");
+            $('.gallery-center').append(img.outerHTML.replace("Preview/", ""));
+
+            var stills = $('.stills').find('img').get();
+            currentStill = $('.stills').find('#' + img.id).get(0);
+
+            var index = stills.indexOf(currentStill);
+
+            if (index != 0) {
+                prevStill = stills[index - 1];
+            }
+            else {
+                prevStill = stills[stills.length - 1];
+            }
+
+            if (index != (stills.length - 1)) {
+                nextStill = stills[index + 1];
+            }
+            else {
+                nextStill = stills[0];
+            }
+
+            $('.gallery-prev').html("");
+            $('.gallery-next').html("");
+            $('.gallery-prev').append(prevStill.outerHTML.replace("Preview/", ""));
+            $('.gallery-next').append(nextStill.outerHTML.replace("Preview/", ""));
+
+            currentStill = $('.gallery-center').children('img').get(0);
+            prevStill = $('.gallery-prev').children('img').get(0);
+            nextStill = $('.gallery-next').children('img').get(0);
+            SetLeftImage(prevStill);
+        }
+
+        function SetLeftImage(img) {
+            $(img).on('load', function () {
+                var left = "-" + ($(img).width() + 1);
+
+                $(img).css('left', left + "px");
+            });
+        }
+    </script>
+</div>

@@ -1,10 +1,12 @@
 ﻿@model string
 
 <div id="" class="player" duration="209" timer="" clicks="0" delay="300" onmousemove="PlayerMouseMove(this)">
-    <video id="video" src="@Model" preload="metadata" onclick="OnVideoClick(this)"
+    <video id="video" preload="metadata" onclick="OnVideoClick(this)"
            onloadedmetadata="OnLoadedMetadata(this)" onplay="OnPlay(this)"
            onpause="OnPause(this)" ontimeupdate="OnTimeUpdate(this)"
-           onprogress="OnProgress(this)" onended="OnEnded(this)"></video>
+           onprogress="OnProgress(this)" onended="OnEnded(this)">
+        <source src="@Model" type="video/mp4">
+    </video>
     <div class="controls" trigger="0" timer="" timeout="3">
         <div class="time_line" time="0" onmousemove="MouseOnTimeLine(this)" onmouseout="MouseLeaveTimeLine(this)" onclick="TimeLineClick(this)" onmousedown="TimeLineMouseDown(this)">
             <span class="loaded"></span>

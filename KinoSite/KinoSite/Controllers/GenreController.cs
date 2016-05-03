@@ -52,5 +52,15 @@ namespace KinoSite.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult Awards()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Stills()
+        {
+            return PartialView();
+        }
     }
 }

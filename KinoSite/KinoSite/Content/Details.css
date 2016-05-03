@@ -7,10 +7,11 @@
 
 .post .left_section {
     float: left;
-    width: 75%;
+    width: 100%;
 }
 
 .post .right_section {
+    display: none;
     float: right;
     width: 25%;
 }
@@ -36,7 +37,6 @@
 
 .first_content {
     border-bottom: 1px solid #ddd;
-    padding-bottom: 33px;
 }
 
 .right_content {
@@ -44,7 +44,7 @@
 
 .poster {
     float: left;
-    height: 524px;
+    height: 550px;
     padding-right: 15px;
     margin-right: 15px;
     border-right: 1px solid #ddd;
@@ -53,6 +53,9 @@
     .poster img {
         width: 276px;
         height: 401px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
     }
 
 .title {
@@ -220,12 +223,16 @@
             top: 4px;
         }
 
-.details .detail_name {
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 5px;
+.details {
+    height: 550px;
 }
+
+    .details .detail_name {
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
 
 .recommendations {
     margin-top: 40px;
@@ -332,20 +339,25 @@
             }
 
             .comments_container ul li img {
-                width: 46px;
-                height: 73px;
-                border: 3px solid #333333;
+                float: left;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
             }
 
             .comments_container ul li a {
-                position: relative;
-                bottom: 45px;
-                font-size: 16px;
-                text-decoration: none;
+                display: block;
+                width: 82px;
+                font-weight: 700;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                padding-top: 5px;
+                margin-left: 65px;
             }
 
 .user {
-    height: 73px;
+    height: 50px;
+    margin-top: 30px;
 }
 
 .comment_body {
@@ -360,9 +372,8 @@
     background-size: 11px;
     background-repeat: no-repeat;
     background-position: 0 1px;
-    position: relative;
-    bottom: 40px;
-    left: 55px;
+    margin-top: 5px;
+    margin-left: 65px;
 }
 
 .more_comments {
@@ -487,6 +498,10 @@
         max-height: 454px;
     }
 
+        .trailers_section .player video {
+            max-height: 454px;
+        }
+
 .trailer_details {
     height: 20px;
     position: relative;
@@ -496,7 +511,7 @@
 
     .trailer_details.last {
         height: 0px;
-        bottom: 55px;
+        bottom: 58px;
     }
 
     .trailer_details h2 {
@@ -517,16 +532,246 @@
 
 .hide_player_controls {
     position: relative;
-    height: 60px;
+    height: 67px;
     background-color: #eae9ef;
     z-index: 2;
     border-bottom: 1px dotted #afaeb4;
-    margin-bottom: 30px;
+    margin-bottom: 27px;
 }
 
     .hide_player_controls.last {
         border: none;
         margin: 0;
     }
+
+/*End section*/
+
+/*Section awards*/
+
+.award {
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px dotted #afaeb4;
+}
+
+    .award.last {
+        border-bottom: none;
+    }
+
+    .award h2 {
+        float: left;
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .award h3 {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .award ul {
+        list-style: none;
+    }
+
+    .award .year {
+        margin-left: 5px;
+        color: #91949c;
+        font: normal 14px/20px Arial,Helvetica,FreeSans,'Liberation Sans','Nimbus Sans L',sans-serif;
+    }
+
+/*End section*/
+
+/*Section stills*/
+
+.stills_section h1 {
+    margin: 0;
+}
+
+.stills_section ul {
+    list-style: none;
+    padding: 0px 34px;
+}
+
+    .stills_section ul li {
+        float: left;
+        height: 91px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+        .stills_section ul li img {
+            width: 162px;
+            height: 91px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+/*End section*/
+
+/*Section gallery*/
+
+.gallery-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    z-index: 500;
+    background: #000;
+}
+
+
+.gallery-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 501;
+    opacity: 0;
+}
+
+    .gallery-wrapper .gallery-header {
+        cursor: pointer;
+        position: absolute;
+        z-index: 504;
+        top: 45px;
+        right: 45px;
+        opacity: .8;
+        filter: alpha(opacity=80);
+        -webkit-transition: opacity .2s;
+        -moz-transition: opacity .2s;
+        -ms-transition: opacity .2s;
+        -o-transition: opacity .2s;
+        transition: opacity .2s;
+    }
+
+        .gallery-wrapper .gallery-header .close {
+            display: inline-block;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            background-image: url("http://megogo.net/s/css/v3/img/megogo-premiere/icon-close-24x24.png");
+            background-size: 90px 30px;
+            background-repeat: no-repeat;
+        }
+
+    .gallery-wrapper .gallery-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+        .gallery-wrapper .gallery-content .gallery-prev img {
+            position: absolute;
+            left: -100%;
+            height: 500px;
+        }
+
+        .gallery-wrapper .gallery-content .gallery-left {
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            z-index: 500;
+        }
+
+            .gallery-wrapper .gallery-content .gallery-left .icon {
+                position: absolute;
+                top: 50%;
+                margin-top: -19px;
+                width: 22px;
+                height: 38px;
+                background-image: url("http://megogo.net/s/css/v3/img/icon-carousel.png");
+                background-size: 120px 40px;
+                left: 15px;
+                background-position: -4px -1px;
+            }
+
+        .gallery-wrapper .gallery-content .gallery-center {
+            margin: 0 auto;
+            height: 500px;
+        }
+
+            .gallery-wrapper .gallery-content .gallery-center img {
+                position: absolute;
+                height: 500px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+        .gallery-wrapper .gallery-content .gallery-right {
+            cursor: pointer;
+            right: 0;
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            z-index: 500;
+        }
+
+            .gallery-wrapper .gallery-content .gallery-right .icon {
+                position: absolute;
+                top: 50%;
+                margin-top: -19px;
+                width: 22px;
+                height: 38px;
+                background-image: url("http://megogo.net/s/css/v3/img/icon-carousel.png");
+                background-size: 120px 40px;
+                right: 15px;
+                background-position: -34px -1px;
+            }
+
+        .gallery-wrapper .gallery-content .gallery-next {
+            position: absolute;
+            right: 0;
+        }
+
+            .gallery-wrapper .gallery-content .gallery-next img {
+                position: absolute;
+                height: 500px;
+            }
+
+    .gallery-wrapper .gallery-footer {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 1155px;
+        font-size: 0;
+        transform: translate(-50%, 0%);
+    }
+
+        .gallery-wrapper .gallery-footer span {
+            position: relative;
+            display: inline-block;
+            margin: 3px 3px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            opacity: .8;
+            filter: alpha(opacity=80);
+        }
+
+            .gallery-wrapper .gallery-footer span.active {
+                border-color: #fff;
+            }
+
+            .gallery-wrapper .gallery-footer span img {
+                width: 45px;
+                height: 25px;
+                vertical-align: middle;
+                border: 0;
+                -ms-interpolation-mode: bicubic;
+            }
 
 /*End section*/

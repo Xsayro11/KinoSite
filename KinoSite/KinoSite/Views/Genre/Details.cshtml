@@ -14,7 +14,7 @@
 }
 
 @section Player {
-    @Html.Partial("~/Views/Genre/Player.cshtml", "/Video/GESAFFELSTEIN-PURSUIT.mp4")
+    @Html.Partial("~/Views/Genre/Player.cshtml", "http://88.150.240.141/temp/iMbSZkZOKrI-2xqHfsN-nQ/1462227082/1997/titanik.mp4")
 }
 
 <div class="track">
@@ -31,9 +31,9 @@
     <li class="reviews">Рецензии</li>
     <li class="trailers">Трейлеры</li>
     <li class="creators">Создатели</li>
+    <li class="stills">Кадры</li>
+    <li class="awards">Награды</li>
     <li>Обои</li>
-    <li>Награды</li>
-    <li>Кадры</li>
 </ul>
 <div class="post">
     <div class="left_section">
@@ -90,6 +90,24 @@
             case 'trailers': {
                 $.ajax({
                     url: '/Genre/Trailers/',
+                    success: function (data) {
+                        $('.left_section').html(data);
+                    }
+                });
+                break;
+            }
+            case 'stills': {
+                $.ajax({
+                    url: '/Genre/Stills/',
+                    success: function (data) {
+                        $('.left_section').html(data);
+                    }
+                });
+                break;
+            }
+            case 'awards': {
+                $.ajax({
+                    url: '/Genre/Awards/',
                     success: function (data) {
                         $('.left_section').html(data);
                     }
