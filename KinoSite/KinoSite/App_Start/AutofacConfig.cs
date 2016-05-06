@@ -6,7 +6,7 @@ using KinoSite.Repository;
 using log4net.AutoFac;
 using System.Web.Mvc;
 
-namespace KinoSite.App_Start
+namespace KinoSite
 {
     public class AutofacConfig
     {
