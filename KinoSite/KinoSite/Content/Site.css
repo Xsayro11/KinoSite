@@ -298,6 +298,7 @@ button {
         }
 
     .head_menu .account_popup {
+        display: none;
         position: fixed;
         top: 0;
         right: -20px;
