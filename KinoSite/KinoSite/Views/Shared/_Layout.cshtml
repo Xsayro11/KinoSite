@@ -32,6 +32,15 @@
             <div class="profile_name">Юлиан</div>
             <img class="profile_img" src="https://pp.vk.me/c618922/v618922599/102d4/7e3XfCemiMQ.jpg">
         </div>
+        <div class="profile_enter">
+            <a>Вход</a>
+            <a>Регистрация</a>
+        </div>
+        <div class="account_popup">
+                @Html.Partial("~/Views/Shared/Login.cshtml")
+                @*@Html.Partial("~/Views/Account/Register.cshtml", new KinoSite.Models.ViewModels.RegisterViewModel())
+    @Html.AntiForgeryToken()*@
+        </div>
     </div>
     @{
         if (Request.RawUrl.Contains("Details"))
