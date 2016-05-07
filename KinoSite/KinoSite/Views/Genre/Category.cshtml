@@ -30,19 +30,42 @@
 <div class="sliding_div">
     <div class="div_control">
         <span id="genre">Жанр</span>
-        <span id="genre_choice">любой<i></i></span>
+        <span id="genre_choice">любой</span>
+        
 
 
         <span id="year">Год</span>
-        <span class="year_select">2015<i></i></span>
-        <span class="defis">-</span>
-        <span class="year_select">2015<i></i></span>
-
+        <select class="year_select1">
+            @for(var i = 2015; i > 1960; i--)
+            {
+                <option>@i</option>
+            }
+        </select>
+        <select class="year_select2">
+            @for (var i = 2015; i > 1960; i--)
+            {
+                <option>@i</option>
+            }
+        </select>
         <span id="raiting">Рейтинг</span>
-        <span id="raiting_criteria">MEGOGO<i></i></span>
-        <span class="raiting_ratio">5.6<i></i></span>
-        <span class="defis">-</span>
-        <span class="raiting_ratio">7.8<i></i></span>
+        <select id="rating_criteria">
+            <option>MEGOGO</option>
+            <option>Kinopoisk</option>
+            <option>IMDb</option>
+        </select>
+        <select id="rate1">
+            @for(var i = 1; i <= 10; i++)
+            {
+                <option>@i</option>
+            }
+        </select>
+        <select id="rate2">
+            @for (var i = 1; i <= 10; i++)
+            {
+                <option>@i</option>
+            }
+        </select>
+        <button id="iskati">Поиск</button>
     </div>
     <div id="genre_list">
         <ul id="genres">
@@ -202,23 +225,43 @@
 
 <script>
     $('.filter').mouseover(function () {
-        $('.sliding_div').show();
+        $('.sliding_div').css('visibility', 'visible');
     })
 
     $('.sliding_div').mouseover(function () {
-        $('.sliding_div').show();
+        $('.sliding_div').css('visibility', 'visible');
     })
 
-    $('.filter').mouseout(function () {
-        $('.sliding_div').hide();
+    $('html').click(function () {
+        $('.sliding_div').css('visibility', 'hidden');
+        if ($('#genre_list').hasClass('vis')) {
+            $('#genre_list').css('visibility', 'hidden');
+            $('#genre_list').removeClass('vis')
+        }
     })
 
-    $('.sliding_div').mouseout(function () {
-        $('.sliding_div').hide();
+    $('.sliding_div').click(function (event) {
+        event.stopPropagation();
+    });
+
+    $('#genre_choice').click(function () {
+        if ($('#genre_list').hasClass('vis')){
+            $('#genre_list').css('visibility', 'hidden');
+            $('#genre_list').removeClass('vis')
+        }
+        else{
+            $('#genre_list').css('visibility', 'visible');
+            $('#genre_list').addClass('vis')
+        }
+        
     })
 
-    $('#genre_choice').mouseover(function () {
-        $('#genre_list').show();
+    $('#genres li').click(function () {
+        var choice = $(this).text();
+        $('#genre_choice').text(choice);
+        $('#genre_list').css('visibility', 'hidden');
+        $('#genre_list').removeClass('vis')
     })
+
 </script>
 
