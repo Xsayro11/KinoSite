@@ -27,6 +27,57 @@
     </ul>
 </div>
 
+<div class="sliding_div">
+    <div class="div_control">
+        <span id="genre">Жанр</span>
+        <span id="genre_choice">любой<i></i></span>
+
+
+        <span id="year">Год</span>
+        <span class="year_select">2015<i></i></span>
+        <span class="defis">-</span>
+        <span class="year_select">2015<i></i></span>
+
+        <span id="raiting">Рейтинг</span>
+        <span id="raiting_criteria">MEGOGO<i></i></span>
+        <span class="raiting_ratio">5.6<i></i></span>
+        <span class="defis">-</span>
+        <span class="raiting_ratio">7.8<i></i></span>
+    </div>
+    <div id="genre_list">
+        <ul id="genres">
+            <li>Любой</li>
+            <li>Военные</li>
+            <li>Детский</li>
+            <li>Зарубежные</li>
+            <li>Короткометражные</li>
+            <li>Мюзиклы</li>
+            <li>Спортивные</li>
+            <li>Фантастика</li>
+        </ul>
+        <ul id="genres2">
+            <li>Любой</li>
+            <li>Военные</li>
+            <li>Детский</li>
+            <li>Зарубежные</li>
+            <li>Хай-фай</li>
+            <li>Мюзиклы</li>
+            <li>Спортивные</li>
+            <li>Фантастика</li>
+        </ul>
+        <ul id="genres3">
+            <li>Любой</li>
+            <li>Военные</li>
+            <li>Детский</li>
+            <li>Зарубежные</li>
+            <li>Порево</li>
+            <li>Мюзиклы</li>
+            <li>Спортивные</li>
+            <li>Фантастика</li>
+        </ul>
+    </div>
+</div>
+
 <div class="category_content">
     @for (int i = 0; i < 3; i++)
     {
@@ -148,3 +199,26 @@
         </div>
     }
 </div>
+
+<script>
+    $('.filter').mouseover(function () {
+        $('.sliding_div').show();
+    })
+
+    $('.sliding_div').mouseover(function () {
+        $('.sliding_div').show();
+    })
+
+    $('.filter').mouseout(function () {
+        $('.sliding_div').hide();
+    })
+
+    $('.sliding_div').mouseout(function () {
+        $('.sliding_div').hide();
+    })
+
+    $('#genre_choice').mouseover(function () {
+        $('#genre_list').show();
+    })
+</script>
+
