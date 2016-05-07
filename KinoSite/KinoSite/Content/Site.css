@@ -27,7 +27,6 @@ h3, .h3 {
 
 a {
     text-decoration: none;
-    color: #333;
     cursor: pointer;
     transition: all .11s ease-out;
 }
@@ -552,15 +551,16 @@ button {
 #footer {
     overflow: hidden;
     background: rgba(0,0,0,1);
+        position: relative;
 }
 
 .foot_menu {
     list-style: none;
     margin-left: 100px;
     overflow: hidden;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: #b8b8b8;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:#979797;
 }
 
     .foot_menu li {
@@ -569,9 +569,30 @@ button {
     }
 
         .foot_menu li:hover {
-            border-bottom: 1px solid #51ac00;
-            line-height: normal;
+            /*border-bottom: 1px solid #51ac00;*/
         }
+
+#rights p {
+    margin-top:0;
+    margin-bottom:5px;
+}
+
+#social {
+    position: absolute;
+    right: 16%;
+    top:12%;
+    color: white;
+    list-style: none;
+}
+
+     #social li {
+         float: left;
+         margin-right: 15px;
+     }
+
+#main_pg {
+    color: #51ac00;
+}
 
 .no_scroll {
     overflow: hidden;
