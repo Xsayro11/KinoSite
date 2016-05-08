@@ -18,7 +18,7 @@
 </div>
 <div class="advenced-search">
     <ul>
-        <li class="filter"><a>Фильтр</a><i></i></li>
+        <li class="filter"><a>Фильтр</a></li>
         <li><a>Популярные</a></li>
         <li><a>Рекомендации</a></li>
         <li><a>По рейтингу кинопоиска</a></li>
@@ -226,6 +226,9 @@
 <script>
     $('.filter').mouseover(function () {
         $('.sliding_div').css('visibility', 'visible');
+        $('.filter').css('border', '1px solid #ddd');
+        $('.filter').css('border-bottom', '1px solid transparent');
+        $('.filter').css('background-color', 'white');
     })
 
     $('.sliding_div').mouseover(function () {
@@ -238,6 +241,8 @@
             $('#genre_list').css('visibility', 'hidden');
             $('#genre_list').removeClass('vis')
         }
+        $('.filter').css('border', '1px solid transparent');
+        $('.filter').css('background-color', '#eae9ef');
     })
 
     $('.sliding_div').click(function (event) {

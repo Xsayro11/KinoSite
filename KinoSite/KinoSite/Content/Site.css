@@ -375,7 +375,6 @@ button {
 
 .name {
     display: inline;
-    /* background-color: #121212; */
     padding: 10px;
     margin-left: 40px;
 }
@@ -387,9 +386,6 @@ button {
 
 .post {
     min-height: 400px;
-    /* background-color: #121212; */
-    /* padding: 20px; */
-    /* padding-top: 0px; */
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -473,13 +469,6 @@ button {
             filter: unset;
         }
 
-.post_images {
-    /* height: 312px; */
-    /* width: 1010px; */
-    /* margin-left: 55px; */
-    /* margin-right: 55px; */
-}
-
     .post_images .last {
         margin-right: 0;
     }
@@ -555,40 +544,20 @@ button {
 }
 
 .foot_menu {
+    position: relative;
     list-style: none;
     margin-left: 100px;
     overflow: hidden;
     margin-top: 10px;
     margin-bottom: 20px;
     color:#979797;
+    float: right;
 }
 
     .foot_menu li {
         float: left;
-        margin-right: 60px;
+        margin-right: 35px;
     }
-
-        .foot_menu li:hover {
-            /*border-bottom: 1px solid #51ac00;*/
-        }
-
-#rights p {
-    margin-top:0;
-    margin-bottom:5px;
-}
-
-#social {
-    position: absolute;
-    right: 16%;
-    top:12%;
-    color: white;
-    list-style: none;
-}
-
-     #social li {
-         float: left;
-         margin-right: 15px;
-     }
 
 #main_pg {
     color: #51ac00;
@@ -596,4 +565,11 @@ button {
 
 .no_scroll {
     overflow: hidden;
+}
+
+#copyrights {
+    color: white;
+    position:absolute;
+    left: 50px;
+    top: 15px;
 }
