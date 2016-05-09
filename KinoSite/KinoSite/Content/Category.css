@@ -70,19 +70,25 @@
 }
    #genre_list {
     position: absolute;
-    width:500px;
+    width: 500px;
     height: 260px;
     background-color: white;
-    top: 35px;
+    top: 34px;
+    left: -1px;
     visibility: hidden;
     font-size: 12pt;
+    border: 1px solid #ddd;
 }
+   #genre_list li.chosen {
+       color: #83bf0a;
+   }
 
 
 .div_control {
     overflow:hidden;
     padding-top: 7px;
     font-size:11pt;
+    height: 100%;
 }
 
 #genre{
@@ -92,9 +98,8 @@
 
 #genre_choice {
     position:relative;
-      padding-left: 5px;
+      padding: 3px;
       overflow: hidden;
-      padding-right: 5px;
       border-radius: 1px;
       border: 1px solid #bfbfbf;
       font-size: 12pt;

@@ -239,10 +239,17 @@
         $('.sliding_div').css('visibility', 'hidden');
         if ($('#genre_list').hasClass('vis')) {
             $('#genre_list').css('visibility', 'hidden');
-            $('#genre_list').removeClass('vis')
+            $('#genre_list').removeClass('vis');
+            $('#genre_choice').css('border-bottom', '1px solid #ddd');
+            $('#genre_choice').css('padding', '3px');
         }
-        $('.filter').css('border', '1px solid transparent');
         $('.filter').css('background-color', '#eae9ef');
+        $('.filter').css('border', '1px solid transparent');
+
+        if($('#genre_choice').hasClass('borderbot'))
+        {
+            $('#genre_choice').removeClass('borderbot');
+        }
     })
 
     $('.sliding_div').click(function (event) {
@@ -252,12 +259,29 @@
     $('#genre_choice').click(function () {
         if ($('#genre_list').hasClass('vis')){
             $('#genre_list').css('visibility', 'hidden');
-            $('#genre_list').removeClass('vis')
+            $('#genre_list').removeClass('vis');
         }
         else{
             $('#genre_list').css('visibility', 'visible');
-            $('#genre_list').addClass('vis')
+            $('#genre_list').addClass('vis');
+            $('#genre_choice').css('z-index', '1');
+            $('#genre_list').css('z-index', '-1');
         }
+
+        if ($('#genre_choice').hasClass('borderbot'))
+        {
+            $('#genre_choice').css('border-bottom', '1px solid #ddd');
+            $('#genre_choice').css('padding', '3px');
+            $('#genre_choice').removeClass('borderbot');
+        }
+        else
+        {
+            $('#genre_choice').css('padding', '3px 3px 6px 3px');
+            $('#genre_choice').css('border-bottom', '1px solid white');
+            $('#genre_choice').addClass('borderbot');
+        }
+
+
         
     })
 
@@ -265,7 +289,17 @@
         var choice = $(this).text();
         $('#genre_choice').text(choice);
         $('#genre_list').css('visibility', 'hidden');
-        $('#genre_list').removeClass('vis')
+        $('#genre_list').removeClass('vis');
+        $('#genre_choice').css('border-bottom', '1px solid #ddd');
+        $('#genre_choice').css('padding', '3px');
+
+        if($('#genre_choice').hasClass('borderbot'))
+        {
+            $('#genre_choice').removeClass('borderbot');
+        }
+   
+        $(this).parent().children('.chosen').removeClass('chosen');
+        $(this).addClass('chosen');
     })
 
 </script>
