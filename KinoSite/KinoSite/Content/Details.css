@@ -260,7 +260,7 @@
         }
 
         .movie_menu li.active {
-            padding: 10px;
+            padding: 11px;
             font: bolder 13px Arial;
             color: #83bf0a !important;
             text-decoration: none;
