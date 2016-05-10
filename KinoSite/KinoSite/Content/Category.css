@@ -70,10 +70,10 @@
 }
    #genre_list {
     position: absolute;
-    width: 500px;
+    width: 475px;
     height: 260px;
     background-color: white;
-    top: 34px;
+    top: 33px;
     left: -1px;
     visibility: hidden;
     font-size: 12pt;
@@ -139,40 +139,17 @@
 
 
 #genres {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
     list-style: none;
     padding-left: 25px;
     margin-top:1px;
     float:left;
     overflow: hidden;
-    margin-right: 25px;
 }
 
         #genres li{
-            margin-bottom:10px;
-        }
-
-#genres2 {
-    list-style: none;
-    padding-left: 25px;
-    margin-top:1px;
-    float:left;
-    overflow: hidden;
-    margin-right: 50px;
-}
-
-        #genres2 li{
-            margin-bottom:10px;
-        }
-
-#genres3 {
-    list-style: none;
-    padding-left: 25px;
-    margin-top:1px;
-    float:left;
-    overflow: hidden;
-}
-
-        #genres3 li{
             margin-bottom:10px;
         }
 
