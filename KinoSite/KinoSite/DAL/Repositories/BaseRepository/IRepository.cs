@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 
-namespace KinoSite.Repository
+namespace KinoSite.DAL
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        IDbSet<TEntity> DbSet { get; }
         List<TEntity> GetAll();
-        TEntity GetById(int id);
-        TEntity GetById(Guid id);
+        TEntity GetByID(int id);
+        TEntity GetByID(Guid id);
         void Add(TEntity entity);
         void Delete(TEntity entity);
     }

@@ -1,28 +1,17 @@
-﻿using KinoSite.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace KinoSite.Repository
+namespace KinoSite.DAL
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private IContext _context;
-        private IDbSet<TEntity> _dbSet;
+        protected IDbSet<TEntity> DbSet;
 
         public Repository(IContext context)
         {
-            this._context = context;
-            this._dbSet = _context.Set<TEntity>();
-        }
-
-        public IDbSet<TEntity> DbSet
-        {
-            get
-            {
-                return this._dbSet;
-            }
+            DbSet = context.Set<TEntity>();
         }
 
         public List<TEntity> GetAll()
@@ -30,12 +19,12 @@ namespace KinoSite.Repository
             return this.DbSet.ToList();
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetByID(int id)
         {
             return this.DbSet.Find(id);
         }
 
-        public TEntity GetById(Guid id)
+        public TEntity GetByID(Guid id)
         {
             return this.DbSet.Find(id);
         }

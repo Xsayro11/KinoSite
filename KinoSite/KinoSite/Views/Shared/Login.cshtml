@@ -1,14 +1,29 @@
-﻿<div class="bg">
-</div>
+﻿@model KinoSite.Models.ViewModels.AccountViewModel
+
 <div class="account">
     <div class="account_header">
-        <p>Регистрация</p>
-        <i class="close">close</i>
+        <span>Регистрация</span>
+        <i class="close"></i>
     </div>
     <div class="account_middle">
-        <form>
-
-        </form>
+        @using (Html.BeginForm("Register","Account"))
+        {
+            <div class="form_element">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "E-mail" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form_element">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Пароль" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="remember_me">
+                @Html.CheckBoxFor(m => m.Remember, true)
+                <span>Запомнить меня</span>
+            </div>
+            <div class="form_element">
+                <input type="submit" class="form_submit" value="Войти" />
+            </div>
+        }
     </div>
     <div class="account_footer">
 

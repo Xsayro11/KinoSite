@@ -33,13 +33,8 @@
             <img class="profile_img" src="https://pp.vk.me/c618922/v618922599/102d4/7e3XfCemiMQ.jpg">
         </div>
         <div class="profile_enter">
-            <a>Вход</a>
-            <a>Регистрация</a>
-        </div>
-        <div class="account_popup">
-                @Html.Partial("~/Views/Shared/Login.cshtml")
-                @*@Html.Partial("~/Views/Account/Register.cshtml", new KinoSite.Models.ViewModels.RegisterViewModel())
-    @Html.AntiForgeryToken()*@
+            <a class="enter">Вход</a>
+            <a class="register">Регистрация</a>
         </div>
     </div>
     @{
@@ -102,7 +97,12 @@
             </div>
         }
     }
-    <div class="gallery-overlay"></div>
+    <div class="account_popup">
+        @Html.Partial("~/Views/Shared/Login.cshtml", new KinoSite.Models.ViewModels.AccountViewModel())
+        @*@Html.Partial("~/Views/Account/Register.cshtml", new KinoSite.Models.ViewModels.RegisterViewModel())
+            @Html.AntiForgeryToken()*@
+    </div>
+    <div class="bg-overlay"></div>
     <div class="gallery-wrapper">
         <div class="gallery-header">
             <i class="close">
@@ -127,6 +127,37 @@
         </div>
     </div>
     <script>
+        $('.enter').click(function () {
+            $('.bg-overlay').show();
+
+            $('.bg-overlay').animate({
+                "opacity": "0.9"
+            }, 200, function () {
+                $('.account_popup').show();
+            });
+        })
+
+        $('.register').click(function () {
+            $('.bg-overlay').show();
+
+            $('.bg-overlay').animate({
+                "opacity": "0.9"
+            }, 200, function () {
+                $('.account_popup').show();
+            });
+        })
+
+        $('.account_popup').click(function () {
+            $('.bg-overlay').animate({
+                "opacity": "0"
+            }, 200, function () {
+                $('.account_popup').hide();
+                $('.bg-overlay').hide();
+            });
+        }).children().click(function () {
+            return false;
+        })
+
         $('.post_image').hover(function () {
             var popup = $(this).parents('.post').children('.popup-wrapper');
             var popupTriangle = $(this).parents('.post').children('.popup-triangle');
@@ -184,7 +215,7 @@
                 $(element).parents('.post').children('.popup-triangle').hide();
             }, 200, this);
             $(this).parents('.post').attr('timeout', timeout);
-        });
+        })
 
         $('.popup-wrapper').hover(function () {
             var timeout = $(this).parents('.post').attr('timeout');
@@ -197,7 +228,7 @@
                 $(element).parents('.post').children('.popup-triangle').hide();
             }, 200, this);
             $(this).parents('.post').attr('timeout', timeout);
-        });
+        })
 
         $('.popup-triangle').hover(function () {
             var timeout = $(this).parents('.post').attr('timeout');
@@ -210,7 +241,7 @@
                 $(element).parents('.post').children('.popup-triangle').hide();
             }, 200, this);
             $(this).parents('.post').attr('timeout', timeout);
-        });
+        })
     </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 using Autofac.Integration.Mvc;
 using KinoSite.DAL;
 using KinoSite.Logging;
-using KinoSite.Repository;
+using KinoSite.Services.UnitOfWorkService;
 using log4net.AutoFac;
 using System.Web.Mvc;
 
@@ -27,11 +27,11 @@ namespace KinoSite
 
         private static void RegisterTypes(ContainerBuilder builder)
         {
-            builder.RegisterType<Context>().As<IContext>();
-
-            builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
+            builder.RegisterType<Context>().As<IContext>().InstancePerRequest();
 
             builder.RegisterType<Log4NetLoggingAdapter>().As<ILogger>();
+
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
         }
     }
 }

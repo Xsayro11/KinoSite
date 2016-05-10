@@ -12,10 +12,12 @@ namespace KinoSite.DAL
         }
 
         public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<Session> Sessions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new SessionConfiguration());
         }
     }
 }
