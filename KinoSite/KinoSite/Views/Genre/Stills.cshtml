@@ -38,9 +38,9 @@
             SetPrevAndNextImages(still);
 
             $('body').addClass('no_scroll');
-            $('.gallery-overlay').show();
+            $('.bg-overlay').show();
             $('.gallery-wrapper').show();
-            $('.gallery-overlay').animate({
+            $('.bg-overlay').animate({
                 "opacity": "0.9"
             }, 200, function () {
                 $('.gallery-wrapper').animate({
@@ -57,11 +57,11 @@
             $('.gallery-wrapper').animate({
                 "opacity": "0"
             }, 200, function () {
-                $('.gallery-overlay').animate({
+                $('.bg-overlay').animate({
                     "opacity": "0"
                 }, 200, function () {;
                     $('.gallery-wrapper').hide();
-                    $('.gallery-overlay').hide();
+                    $('.bg-overlay').hide();
                     $('body').removeClass('no_scroll');
                 })
             });

@@ -26,10 +26,9 @@ h3, .h3 {
 }
 
 a {
-    text-decoration: none !important;
-    color: #333 !important;
-    cursor: pointer !important;
-    transition: all .11s ease-out !important;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .11s ease-out;
 }
 
     a:hover {
@@ -249,6 +248,7 @@ button {
         }
 
     .head_menu .profile {
+        display: none;
         float: right;
         white-space: nowrap;
         line-height: 50px;
@@ -279,6 +279,21 @@ button {
             height: 30px;
             border-radius: 15px;
             margin: 10px 0;
+        }
+
+    .head_menu .profile_enter {
+        float: right;
+        white-space: nowrap;
+        line-height: 50px;
+        height: 50px;
+        overflow: hidden;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+    }
+
+        .head_menu .profile_enter a {
+            color: #fff;
+            margin-right: 20px;
         }
 
 .track {
@@ -319,7 +334,6 @@ button {
 
 .name {
     display: inline;
-    /* background-color: #121212; */
     padding: 10px;
     margin-left: 40px;
 }
@@ -331,9 +345,6 @@ button {
 
 .post {
     min-height: 400px;
-    /* background-color: #121212; */
-    /* padding: 20px; */
-    /* padding-top: 0px; */
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -417,13 +428,6 @@ button {
             filter: unset;
         }
 
-.post_images {
-    /* height: 312px; */
-    /* width: 1010px; */
-    /* margin-left: 55px; */
-    /* margin-right: 55px; */
-}
-
     .post_images .last {
         margin-right: 0;
     }
@@ -495,27 +499,197 @@ button {
 #footer {
     overflow: hidden;
     background: rgba(0,0,0,1);
+        position: relative;
 }
 
 .foot_menu {
+    position: relative;
     list-style: none;
     margin-left: 100px;
     overflow: hidden;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: #b8b8b8;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:#979797;
+    float: right;
 }
 
     .foot_menu li {
         float: left;
-        margin-right: 60px;
+        margin-right: 35px;
     }
 
-        .foot_menu li:hover {
-            border-bottom: 1px solid #51ac00;
-            line-height: normal;
+#main_pg {
+    color: #51ac00;
+}
+
+.account_popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    left: 0;
+    z-index: 1002;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -20px;
+    outline: 0;
+    overflow: auto;
+    overflow-y: scroll;
+}
+
+    .account_popup .account {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 390px;
+        border: 1px solid transparent;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background-color: #f2f2f2;
+        background-clip: padding-box;
+        outline: 0;
+    }
+
+        .account_popup .account .account_header {
+            margin: 35px 40px;
         }
+
+            .account_popup .account .account_header span {
+                line-height: 24px;
+                font-size: 24px;
+                font-weight: normal;
+            }
+
+            .account_popup .account .account_header .close {
+                float: right;
+                width: 24px;
+                height: 24px;
+                background-image: url("http://megogo.net/s/css/v3/img/megogo-films/icon-close-24x24.png");
+                background-size: 90px 30px;
+                opacity: 1;
+                filter: alpha(opacity=100);
+                -webkit-transition: opacity .2s;
+                -moz-transition: opacity .2s;
+                -ms-transition: opacity .2s;
+                -o-transition: opacity .2s;
+                transition: opacity .2s;
+                background-position: -33px -3px;
+                cursor: pointer;
+            }
+
+        .account_popup .account .account_middle {
+            margin: 10px 40px;
+        }
+
+            .account_popup .account .account_middle .form-control {
+                position: relative;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .account_popup .account .account_middle .form-control {
+                display: block;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                padding: 12px 10px;
+                border: 1px solid #ddd;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                width: 100%;
+                height: 45px;
+                background-color: #fff;
+                background-image: none;
+                -webkit-transition: border-color .2s;
+                -moz-transition: border-color .2s;
+                -ms-transition: border-color .2s;
+                -o-transition: border-color .2s;
+                transition: border-color .2s;
+                line-height: 20px;
+                font-size: 16px;
+                color: #333333;
+            }
+
+                .account_popup .account .account_middle .form-control:focus {
+                    border-color: #83bf0a;
+                    outline: 0;
+                }
+
+            .account_popup .account .account_middle .form_submit {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                outline: 0;
+                margin: 0;
+                border-width: 0;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                text-align: center;
+                line-height: 20px;
+                font-family: 'PF DinDisplay','Trebuchet MS',Arial;
+                font-size: 16px;
+                text-decoration: none;
+                -webkit-transition: opacity .2s;
+                -moz-transition: opacity .2s;
+                -ms-transition: opacity .2s;
+                -o-transition: opacity .2s;
+                transition: opacity .2s;
+                font-weight: 600;
+                background-color: #83bf0a;
+                color: #fff;
+                display: block;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                padding: 12px 0 10px;
+                width: 100%;
+                opacity: 0.8;
+                filter: alpha(opacity=80);
+                cursor: pointer;
+            }
+
+                .account_popup .account .account_middle .form_submit:hover {
+                    opacity: 1;
+                    filter: alpha(opacity=100);
+                }
+
+.remember_me {
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .remember_me input[type="checkbox"] {
+        margin-top: 1px;
+        margin-right: 10px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+.bg-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    z-index: 500;
+    background: #000;
+}
 
 .no_scroll {
     overflow: hidden;
+}
+
+#copyrights {
+    color: white;
+    position:absolute;
+    left: 50px;
+    top: 15px;
 }

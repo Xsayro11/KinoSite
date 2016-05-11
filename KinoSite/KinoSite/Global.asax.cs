@@ -13,6 +13,7 @@ namespace KinoSite
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AutofacConfig.ConfigureContainer();
         }
     }
 }

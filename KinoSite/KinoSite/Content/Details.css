@@ -260,7 +260,7 @@
         }
 
         .movie_menu li.active {
-            padding: 10px;
+            padding: 11px;
             font: bolder 13px Arial;
             color: #83bf0a !important;
             text-decoration: none;
@@ -610,21 +610,6 @@
 /*End section*/
 
 /*Section gallery*/
-
-.gallery-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-    filter: alpha(opacity=90);
-    z-index: 500;
-    background: #000;
-}
-
 
 .gallery-wrapper {
     display: none;
