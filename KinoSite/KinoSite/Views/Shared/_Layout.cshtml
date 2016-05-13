@@ -94,9 +94,7 @@
         }
     }
     <div class="account_popup">
-        @Html.Partial("~/Views/Shared/Login.cshtml", new KinoSite.Models.ViewModels.AccountViewModel())
-        @*@Html.Partial("~/Views/Account/Register.cshtml", new KinoSite.Models.ViewModels.RegisterViewModel())
-            @Html.AntiForgeryToken()*@
+        @Html.Partial("~/Views/Account/AccountPartial.cshtml", new KinoSite.Models.ViewModels.AccountViewModel())
     </div>
     <div class="bg-overlay"></div>
     <div class="gallery-wrapper">
@@ -143,15 +141,16 @@
             });
         })
 
-        $('.account_popup').click(function () {
+        $('.account_popup').click(function (e) {
+            if (e.target !== this)
+                return;
+
             $('.bg-overlay').animate({
                 "opacity": "0"
             }, 200, function () {
                 $('.account_popup').hide();
                 $('.bg-overlay').hide();
             });
-        }).children().click(function () {
-            return false;
         })
 
         $('.post_image').hover(function () {

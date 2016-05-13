@@ -11,9 +11,9 @@ namespace KinoSite
     {
         protected void Application_Start()
         {
+            AutofacConfig.ConfigureContainer();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            AutofacConfig.ConfigureContainer();
         }
     }
 }

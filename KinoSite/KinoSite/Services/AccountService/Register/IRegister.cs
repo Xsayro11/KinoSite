@@ -1,7 +1,10 @@
-﻿namespace KinoSite.Services.AccountService
+﻿using KinoSite.Models.EntityModels;
+using System.Collections.Generic;
+
+namespace KinoSite.Services.AccountService
 {
     public interface IRegister
     {
-        void Register(string email, string password);
+        User Register(string email, string password, List<User> users);
     }
 }

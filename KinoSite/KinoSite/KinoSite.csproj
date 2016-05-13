@@ -282,6 +282,8 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BL\AccountManagment\AccountManager.cs" />
+    <Compile Include="BL\AccountManagment\IAccountManager.cs" />
     <Compile Include="BL\ViewModelConverter\IConverter.cs" />
     <Compile Include="BL\ViewModelConverter\UserConverter.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -297,6 +299,8 @@
     <Compile Include="Logging\EventSeverity.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Log4NetLoggingAdapter.cs" />
+    <Compile Include="ModelStateWrappers\IValidationDictionary.cs" />
+    <Compile Include="ModelStateWrappers\ModelStateWrapper.cs" />
     <Compile Include="Models\EntityModels\Session.cs" />
     <Compile Include="Models\EntityModels\User.cs" />
     <Compile Include="Models\ViewModels\AccountViewModel.cs" />
@@ -348,8 +352,7 @@
     <Content Include="Views\Genre\Trailers.cshtml" />
     <Content Include="Views\Genre\Awards.cshtml" />
     <Content Include="Views\Genre\Stills.cshtml" />
-    <Content Include="Views\Shared\Register.cshtml" />
-    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Account\AccountPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -359,7 +362,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -376,7 +378,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>28336</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8080/</IISUrl>
+          <IISUrl>http://localhost:28336/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

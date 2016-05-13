@@ -3,6 +3,7 @@ using KinoSite.Models.EntityModels;
 using KinoSite.Services.UnitOfWorkService;
 using KinoSite.Services.UserService;
 using System;
+using System.Collections.Generic;
 
 namespace KinoSite.Services.AccountService
 {
@@ -19,27 +20,32 @@ namespace KinoSite.Services.AccountService
             this._log = log;
         }
 
-        public void Register(string email, string password)
+        public User Register(string email, string password, List<User> users)
         {
-            using (_unitOfWork)
+            if(string.IsNullOrEmpty(email)
+                || string.IsNullOrEmpty(password))
             {
-                try
-                {
-                    _userService.AddUser(new User()
-                    {
-                        UsetID = Guid.NewGuid(),
-                        Email = email,
-                        Password = password,
-                        RegisterDate = DateTime.Now
-                    });
+                throw new Exception("Email or password is empty!");
+            }
 
-                    _unitOfWork.SaveChanges();
-                }
-                catch (Exception ex)
+            if (users != null)
+            {
+                foreach (var user in users)
                 {
-                    _log.Write("Error on user register!", ex, EventSeverity.Error);
+                    if (user.Email == email)
+                    {
+                        throw new Exception("User with this email already exist!");
+                    }
                 }
             }
+
+            return new User()
+            {
+                UsetID = Guid.NewGuid(),
+                Email = email,
+                Password = password,
+                RegisterDate = DateTime.Now
+            };
         }
     }
 }

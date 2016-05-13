@@ -6,13 +6,13 @@ namespace KinoSite.Services.AccountService
 {
     public class LoginService : ILogin
     {
-        public Session Login(string email, string password, User user)
+        public Session Login(User user, string password)
         {
             if (user != null)
             {
                 if (user.Password == password)
                 {
-                    FormsAuthentication.SetAuthCookie(email, false);
+                    FormsAuthentication.SetAuthCookie(user.Email, false);
 
                     return new Session()
                     {
