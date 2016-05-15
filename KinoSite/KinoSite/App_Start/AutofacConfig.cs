@@ -1,7 +1,10 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using KinoSite.DAL;
+using KinoSite.BL.AccountManagment;
+using KinoSite.BL.SessionManagment;
+using KinoSite.DAL.Context;
 using KinoSite.Logging;
+using KinoSite.Services.AccountService;
 using KinoSite.Services.UnitOfWorkService;
 using log4net.AutoFac;
 using System.Web.Mvc;
@@ -32,6 +35,12 @@ namespace KinoSite
             builder.RegisterType<Log4NetLoggingAdapter>().As<ILogger>();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+
+            builder.RegisterType<AccountManager>().As<IAccountManager>();
+
+            builder.RegisterType<SessionManager>().As<ISessionManager>();
+
+            builder.RegisterType<Account>().As<IAccount>();
         }
     }
 }

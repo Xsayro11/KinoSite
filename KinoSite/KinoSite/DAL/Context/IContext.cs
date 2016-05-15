@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace KinoSite.DAL
+namespace KinoSite.DAL.Context
 {
     public interface IContext : IDisposable
     {

@@ -1,6 +1,7 @@
 ﻿using KinoSite.BL.AccountManagment;
+using KinoSite.BL.SessionManagment;
 using KinoSite.Logging;
-using KinoSite.Models.ViewModels;
+using KinoSite.Models.EntityModels;
 using KinoSite.Services.UnitOfWorkService;
 using System;
 
@@ -10,23 +11,50 @@ namespace KinoSite.Services.AccountService
     {
         private IUnitOfWork _unitOfWork;
         private IAccountManager _accountManager;
+        private ISessionManager _sessionManager;
         private ILogger _log;
+        private User _currentUser;
 
-        public Account(IUnitOfWork unitOfWork, IAccountManager accountManager, ILogger log)
+        public Account(IUnitOfWork unitOfWork, IAccountManager accountManager, ISessionManager sessionManager, ILogger log)
         {
             _unitOfWork = unitOfWork;
             _accountManager = accountManager;
+            _sessionManager = sessionManager;
             _log = log;
         }
 
-        public void Register(AccountViewModel user)
+        public User CurrentUser
+        {
+            get
+            {
+                if (_currentUser != null)
+                {
+                    return _currentUser;
+                }
+                else
+                {
+                    var sessionID = _sessionManager.GetCurrentSessionID();
+
+                    if (sessionID != Guid.Empty)
+                    {
+                        var session = _unitOfWork.SessionRepository.GetByID(sessionID);
+                        return session.User;
+                    }
+                    else
+                    {
+                        return new EmptyUser();
+                    }
+                }
+            }
+        }
+
+        public void Register(string email, string password)
         {
             try
             {
-                var users = _unitOfWork.UserRepository.GetAll();
-                var registeredUser = _accountManager.Register(user.Email, user.Password, users);
+                var registeredUser = _accountManager.Register(email, password);
                 _unitOfWork.UserRepository.Add(registeredUser);
-                _unitOfWork.SaveChanges();
+                _currentUser = registeredUser;
             }
             catch (Exception ex)
             {
@@ -34,20 +62,44 @@ namespace KinoSite.Services.AccountService
             }
         }
 
-        public bool Login(AccountViewModel user)
+        public bool Login(string email, string password)
         {
             try
             {
-                var loggedUser = _unitOfWork.UserRepository.GetUserByEmail(user.Email);
-                var session = _accountManager.Login(loggedUser, user.Password);
+                var loggedUser = _unitOfWork.UserRepository.GetUserByEmail(email);
+
+                if (loggedUser is EmptyUser)
+                {
+                    return false;
+                }
+
+                var session = _accountManager.Login(loggedUser, password);
+
+                if (session is EmptySession)
+                {
+                    return false;
+                }
+
                 _unitOfWork.SessionRepository.Add(session);
-                _unitOfWork.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
                 _log.Write(ex.Message, EventSeverity.Error);
                 return false;
+            }
+        }
+
+        public void Login()
+        {
+            try
+            {
+                var session = _accountManager.Login(_currentUser, _currentUser.Password);
+                _unitOfWork.SessionRepository.Add(session);
+            }
+            catch (Exception ex)
+            {
+                _log.Write(ex.Message, EventSeverity.Error);
             }
         }
 
@@ -56,17 +108,17 @@ namespace KinoSite.Services.AccountService
             _accountManager.Logout();
         }
 
-        public bool IsValid(AccountViewModel user)
+        public bool UserExists(string email)
         {
-            try
+            var user = _unitOfWork.UserRepository.GetUserByEmail(email);
+
+            if (user is EmptyUser)
             {
-                _accountManager.Validate(user);
-                return true;
-            }
-            catch(Exception ex)
-            {
-                _log.Write(ex.Message, EventSeverity.Error);
                 return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

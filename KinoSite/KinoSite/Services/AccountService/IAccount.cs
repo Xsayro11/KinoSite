@@ -1,12 +1,14 @@
-﻿using KinoSite.Models.ViewModels;
+﻿using KinoSite.Models.EntityModels;
 
 namespace KinoSite.Services.AccountService
 {
     public interface IAccount
     {
-        void Register(AccountViewModel user);
-        bool Login(AccountViewModel user);
+        User CurrentUser { get; }
+        void Register(string email, string password);
+        bool Login(string email, string password);
+        void Login();
         void Logout();
-        bool IsValid(AccountViewModel user);
+        bool UserExists(string email);
     }
 }

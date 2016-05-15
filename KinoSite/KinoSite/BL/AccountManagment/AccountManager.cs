@@ -1,26 +1,15 @@
 ﻿using KinoSite.Models.EntityModels;
-using KinoSite.Models.ViewModels;
 using System;
-using System.Collections.Generic;
+using System.Web;
 using System.Web.Security;
+using KinoSite.Models.ViewModels;
 
 namespace KinoSite.BL.AccountManagment
 {
-    public class AccountManager
+    public class AccountManager : IAccountManager
     {
-        public User Register(string email, string password, List<User> users)
+        public User Register(string email, string password)
         {
-            if (users != null)
-            {
-                foreach (var user in users)
-                {
-                    if (user.Email == email)
-                    {
-                        throw new Exception("User with this email already exist!");
-                    }
-                }
-            }
-
             return new User()
             {
                 UsetID = Guid.NewGuid(),
@@ -32,47 +21,33 @@ namespace KinoSite.BL.AccountManagment
 
         public Session Login(User user, string password)
         {
-            if (user != null)
+            if (user.Password == password)
             {
-                if (user.Password == password)
-                {
-                    FormsAuthentication.SetAuthCookie(user.Email, false);
+                FormsAuthentication.SetAuthCookie(user.Email, false);
 
-                    return new Session()
-                    {
-                        SessionID = Guid.NewGuid(),
-                        User = user,
-                        CreatedDate = DateTime.Now
-                    };
-                }
-                else
+                var session = new Session()
                 {
-                    throw new Exception("Password is not correct!");
-                }
+                    SessionID = Guid.NewGuid(),
+                    User = user,
+                    CreatedDate = DateTime.Now
+                };
+
+                var sessionCookie = new HttpCookie("Session");
+                sessionCookie.Values["SessionID"] = session.SessionID.ToString();
+                HttpContext.Current.Response.Cookies.Add(sessionCookie);
+
+                return session;
             }
             else
             {
-                throw new Exception("Email is not correct!");
+                return new EmptySession();
             }
         }
 
         public void Logout()
         {
+            HttpContext.Current.Response.Cookies.Remove("Session");
             FormsAuthentication.SignOut();
-        }
-
-        public void Validate(AccountViewModel user)
-        {
-            if (user == null)
-            {
-                throw new Exception("User model is empty!");
-            }
-
-            if (string.IsNullOrEmpty(user.Email)
-            || string.IsNullOrEmpty(user.Password))
-            {
-                throw new Exception("Email or password is empty!");
-            }
         }
     }
 }

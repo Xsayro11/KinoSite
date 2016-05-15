@@ -1,4 +1,4 @@
-﻿using KinoSite.DAL;
+﻿using KinoSite.DAL.Context;
 using KinoSite.DAL.Repositories;
 using System;
 
@@ -36,13 +36,17 @@ namespace KinoSite.Services.UnitOfWorkService
         public void SaveChanges()
         {
             if (_context != null)
+            {
                 _context.SaveChanges();
+            }
         }
 
         public void Dispose()
         {
             if (_context != null)
+            {
                 _context.Dispose();
+            }
         }
     }
 }

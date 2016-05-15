@@ -6,8 +6,7 @@
         <i class="close"></i>
     </div>
     <div class="account_middle">
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
-        {
+        <form id="register_form">
             <div class="form_element">
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "E-mail" })
                 @Html.ValidationMessageFor(m => m.Email)
@@ -16,17 +15,37 @@
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Пароль" })
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
-            <div class="remember_me">
-                @Html.CheckBoxFor(m => m.Remember, true)
+            <label class="remember_me">
+                @Html.CheckBoxFor(m => m.Remember, new { @checked = "true"})
                 <span>Запомнить меня</span>
-            </div>
+            </label>
+            @Html.ValidationMessage("Error")
             <div class="form_element">
                 @Html.AntiForgeryToken()
                 <input type="submit" class="form_submit" value="Войти" />
             </div>
-        }
+        </form>
     </div>
     <div class="account_footer">
 
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $("#register_form").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: "/Account/Login/",
+                type: "POST",
+                data: {
+                    Email: $('#Email').val(),
+                    Password: $('#Password').val(),
+                    Remember: $('#Remember').val(),
+                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"').val()
+                }
+            }).done(function (partialViewResult) {
+                $(".account_popup").html(partialViewResult);
+            });
+        });
+    })
+</script>

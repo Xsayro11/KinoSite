@@ -1,5 +1,4 @@
 ﻿using KinoSite.Models.ViewModels;
-using KinoSite.ModelStateWrappers;
 using KinoSite.Services.AccountService;
 using KinoSite.Services.UnitOfWorkService;
 using System.Web.Mvc;
@@ -10,52 +9,57 @@ namespace KinoSite.Controllers
     {
         private IUnitOfWork _unitOfWork;
         private IAccount _account;
-        public delegate IValidationDictionary ModelValidationFactory(ModelStateDictionary msd);
-        public delegate Account AccountServiceFactory(ModelStateDictionary msd);
 
-        public AccountController(IUnitOfWork unitOfWork, AccountServiceFactory accountFactory)
+        public AccountController(IUnitOfWork unitOfWork, IAccount account)
         {
             _unitOfWork = unitOfWork;
-            _account = accountFactory(ModelState);
+            _account = account;
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(AccountViewModel user)
         {
             using (_unitOfWork)
             {
-                if (_account.IsValid(user))
+                if (ModelState.IsValid)
                 {
-                    _account.Register(user);
-                    _account.Login(user);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "");
+                    if (!_account.UserExists(user.Email))
+                    {
+                        _account.Register(user.Email, user.Password);
+                        _account.Login();
+                        _unitOfWork.SaveChanges();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Error", "User with this email already exists!");
+                    }
                 }
             }
-            return View();
+
+            return PartialView("AccountPartial", user);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(AccountViewModel user)
         {
             using (_unitOfWork)
             {
-                if (_account.IsValid(user))
+                if (ModelState.IsValid)
                 {
-                    if(_account.Login(user))
+                    if (_account.Login(user.Email, user.Password))
                     {
-                        ModelState.AddModelError("", "");
+                        _unitOfWork.SaveChanges();
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "");
+                    else
+                    {
+                        ModelState.AddModelError("Error", "Email or password is not correct!");
+                    }
                 }
             }
 
-            return View();
+            return PartialView("AccountPartial", user);
         }
     }
 }

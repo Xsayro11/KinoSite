@@ -1,4 +1,5 @@
-﻿using KinoSite.Models.EntityModels;
+﻿using KinoSite.DAL.Context;
+using KinoSite.Models.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

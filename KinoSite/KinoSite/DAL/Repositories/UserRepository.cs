@@ -1,4 +1,6 @@
-﻿using KinoSite.Models.EntityModels;
+﻿using KinoSite.DAL.Context;
+using KinoSite.Models.EntityModels;
+using System;
 using System.Linq;
 
 namespace KinoSite.DAL.Repositories
@@ -9,7 +11,14 @@ namespace KinoSite.DAL.Repositories
 
         public User GetUserByEmail(string email)
         {
-            return DbSet.FirstOrDefault(u => u.Email == email);
+            var user = DbSet.FirstOrDefault(u => u.Email == email);
+            
+            if(user == null)
+            {
+                return new EmptyUser();
+            }
+
+            return user;
         }
     }
 }
